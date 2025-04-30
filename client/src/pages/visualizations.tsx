@@ -5,6 +5,36 @@ import VisualizationsSection from '@/components/VisualizationsSection';
 export default function Visualizations() {
   const { t, currentLanguage } = useTranslations();
   
+  // Structured data for visualizations page (ImageGallery schema for SEO)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "headline": `${t('visualizations.title.1')} ${t('visualizations.title.2')}`,
+    "description": t('visualizations.description'),
+    "image": "/og-image.png",
+    "url": `https://universe-in-black-hole.replit.app/${currentLanguage}/visualizations`,
+    "author": {
+      "@type": "Person",
+      "name": "Dr. Nikodem Popławski"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Universe in a Black Hole",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "/favicon.png"
+      }
+    },
+    "datePublished": "2025-04-30",
+    "dateModified": "2025-04-30",
+    "contentLocation": {
+      "@type": "Place",
+      "name": "Outer Space"
+    },
+    "inLanguage": currentLanguage,
+    "keywords": "black hole, visualization, 3D model, interactive, torsion, cosmology, physics"
+  };
+  
   return (
     <>
       <Helmet>
@@ -13,8 +43,13 @@ export default function Visualizations() {
         <meta property="og:title" content={`${t('visualizations.title.1')} ${t('visualizations.title.2')} | ${t('meta.title')}`} />
         <meta property="og:description" content={t('visualizations.description')} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1506703719100-a0b3a3c845d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
-        <link rel="canonical" href={`https://universeinablackhole.com/${currentLanguage}/visualizations`} />
+        <meta property="og:image" content="/og-image.png" />
+        <link rel="canonical" href={`https://universe-in-black-hole.replit.app/${currentLanguage}/visualizations`} />
+        
+        {/* Add structured data for search engines */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       
       <div className="pt-24">
