@@ -1,7 +1,7 @@
 import { useTranslations } from '@/hooks/use-translations';
 import CosmicBackground from './animations/CosmicBackground';
 import { scrollToElement } from '@/lib/utils';
-import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
+import blackHoleTorsionImage from '@/assets/images/black-hole-torsion.webp';
 
 export default function HeroSection() {
   const { t } = useTranslations();
@@ -43,7 +43,7 @@ export default function HeroSection() {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-lg aspect-square animate-float">
               <img 
-                src={blackHoleModelImage} 
+                src={blackHoleTorsionImage} 
                 alt="Black hole visualization with torsion preventing singularity" 
                 className="w-full h-full object-cover rounded-full shadow-[0_0_50px_rgba(59,130,246,0.5)]" 
                 loading="eager"
