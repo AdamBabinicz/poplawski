@@ -53,7 +53,7 @@ export default function Footer() {
               <li><a href="https://arxiv.org/abs/1410.3881" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.papers')}</a></li>
               <li><a href="https://www.youtube.com/watch?v=ijpEd1qHBkg" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')}</a></li>
               <li><a href="https://www.insidescience.org/news/every-black-hole-contains-new-universe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.educational')}</a></li>
-              <li><a href="https://www.sciencedaily.com/releases/2010/04/100409092640.htm" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.press')}</a></li>
+              <li><a href="https://phys.org/news/2012-05-black-holes-universe.html" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.press')}</a></li>
             </ul>
           </div>
         </div>
