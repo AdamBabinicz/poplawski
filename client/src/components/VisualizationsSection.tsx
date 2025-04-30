@@ -1,9 +1,9 @@
 import { useTranslations } from '@/hooks/use-translations';
 import BlackHoleModel from './animations/BlackHoleModel';
-import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
-import accretionDiskImage from '@/assets/images/accretion-disk.webp';
-import torsionPhysicsImage from '@/assets/images/torsion-physics.webp';
-import theoryStepsImage from '@/assets/images/theory-steps.webp';
+import matterFallingImage from '@/assets/images/matter-falling.webp';
+import torsionEffectImage from '@/assets/images/torsion-effect.webp';
+import bigBounceImage from '@/assets/images/big-bounce.webp';
+import universeFormationImage from '@/assets/images/universe-formation.webp';
 
 interface GalleryItem {
   image: string;
@@ -16,17 +16,17 @@ export default function VisualizationsSection() {
   
   const galleryItems: GalleryItem[] = [
     {
-      image: blackHoleModelImage, // Zamienione na black-hole-model.webp dla lepszego wyglądu
+      image: matterFallingImage,
       title: t('visualizations.item1.title'),
       description: t('visualizations.item1.description')
     },
     {
-      image: torsionPhysicsImage,
+      image: torsionEffectImage,
       title: t('visualizations.item2.title'),
       description: t('visualizations.item2.description')
     },
     {
-      image: theoryStepsImage,
+      image: universeFormationImage,
       title: t('visualizations.item3.title'),
       description: t('visualizations.item3.description')
     }
