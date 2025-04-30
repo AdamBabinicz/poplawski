@@ -32,28 +32,28 @@ export default function TheorySection() {
       colorClass: "cosmic-blue",
       title: t('theory.step1.title'),
       description: t('theory.step1.description'),
-      image: accretionDiskImage 
+      image: step1Image 
     },
     {
       number: "2",
       colorClass: "cosmic-pink",
       title: t('theory.step2.title'),
       description: t('theory.step2.description'),
-      image: torsionPhysicsImage
+      image: step2Image
     },
     {
       number: "3",
       colorClass: "cosmic-purple",
       title: t('theory.step3.title'),
       description: t('theory.step3.description'),
-      image: theoryStepsImage
+      image: step3Image
     },
     {
       number: "4",
       colorClass: "cosmic-orange",
       title: t('theory.step4.title'),
       description: t('theory.step4.description'),
-      image: blackHoleModelImage
+      image: step4Image
     }
   ];
   

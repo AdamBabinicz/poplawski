@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from '@/hooks/use-translations';
-import blackHoleModelImage from '@/assets/images/black-hole-model.png';
-import accretionDiskImage from '@/assets/images/accretion-disk.png';
-import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
+import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
+import accretionDiskImage from '@/assets/images/accretion-disk.webp';
+import torsionPhysicsImage from '@/assets/images/torsion-physics.webp';
 
 // Definiowanie regionów czarnej dziury
 type Region = 'accretion-disk' | 'event-horizon' | 'torsion-zone';

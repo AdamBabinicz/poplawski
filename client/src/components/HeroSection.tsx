@@ -1,7 +1,7 @@
 import { useTranslations } from '@/hooks/use-translations';
 import CosmicBackground from './animations/CosmicBackground';
 import { scrollToElement } from '@/lib/utils';
-import blackHoleModelImage from '@/assets/images/black-hole-model.png';
+import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
 
 export default function HeroSection() {
   const { t } = useTranslations();
