@@ -1,12 +1,8 @@
 import { useTranslations } from '@/hooks/use-translations';
-import theoryStepsImage from '@/assets/images/theory-steps.webp';
-import accretionDiskImage from '@/assets/images/accretion-disk.webp';
-import torsionPhysicsImage from '@/assets/images/torsion-physics.webp';
-import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
-import step1Image from '@/assets/images/step1.webp';
-import step2Image from '@/assets/images/step2.webp';
-import step3Image from '@/assets/images/step3.webp';
-import step4Image from '@/assets/images/step4.webp';
+import matterFallingImage from '@/assets/images/matter-falling.webp';
+import torsionEffectImage from '@/assets/images/torsion-effect.webp';
+import bigBounceImage from '@/assets/images/big-bounce.webp';
+import universeFormationImage from '@/assets/images/universe-formation.webp';
 
 interface TheoryStep {
   number: string;
@@ -32,28 +28,28 @@ export default function TheorySection() {
       colorClass: "cosmic-blue",
       title: t('theory.step1.title'),
       description: t('theory.step1.description'),
-      image: step1Image 
+      image: matterFallingImage 
     },
     {
       number: "2",
       colorClass: "cosmic-pink",
       title: t('theory.step2.title'),
       description: t('theory.step2.description'),
-      image: step2Image
+      image: torsionEffectImage
     },
     {
       number: "3",
       colorClass: "cosmic-purple",
       title: t('theory.step3.title'),
       description: t('theory.step3.description'),
-      image: step3Image
+      image: bigBounceImage
     },
     {
       number: "4",
       colorClass: "cosmic-orange",
       title: t('theory.step4.title'),
       description: t('theory.step4.description'),
-      image: step4Image
+      image: universeFormationImage
     }
   ];
   
