@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from '@/hooks/use-translations';
 import universeFormationImage from '@/assets/images/universe-formation.webp';
-import matterFallingImage from '@/assets/images/matter-falling.webp';
+import accretionDiskNewImage from '@/assets/images/accretion-disk-new.webp';
 import torsionEffectsNewImage from '@/assets/images/torsion-effects-new.webp';
 import nestedUniversesImage from '@/assets/images/nested-universes.webp';
 import eventHorizonImage from '@/assets/images/event-horizon.webp';
@@ -31,7 +31,7 @@ export default function BlackHoleModel() {
         return {
           title: t('visualizations.legend.accretion'),
           description: t('visualizations.item1.description'),
-          image: matterFallingImage,
+          image: accretionDiskNewImage,
           color: 'cosmic-blue',
           bgColor: 'bg-cosmic-blue',
           textColor: 'text-cosmic-blue'
