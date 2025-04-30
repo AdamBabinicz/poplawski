@@ -1,0 +1,392 @@
+Kompletny Projekt Strony Internetowej: Wszechświat w Czarnej Dziurze - Teoria dr Nikodema Popławskiego
+Środowisko Rozwojowe: Replit (jako IDE i środowisko uruchomieniowe)
+System Kontroli Wersji: Git (repozytorium na GitHub)
+Platforma Wdrożeniowa (Hosting): Netlify
+Framework: Next.js (z App Router)
+Język: TypeScript
+Styling: Tailwind CSS
+Cel: Stworzenie w środowisku Replit informacyjnej, dostępnej, responsywnej i zoptymalizowanej pod SEO strony statycznej (SSG), prezentującej teorię dr. Popławskiego w przystępny sposób, w dwóch wersjach językowych (PL/EN). Kod będzie zarządzany przez Git/GitHub i finalnie wdrożony na Netlify.
+I. Konfiguracja Projektu w Replit i Połączenie z Git:
+Utworzenie Repl'a:
+W Replit wybierz Create Repl.
+Wybierz oficjalny szablon Next.js (lub Blank Repl i zainstaluj Next.js ręcznie w Shellu poniższym poleceniem).
+Ręczna instalacja (jeśli Blank Repl): W zakładce Shell wykonaj:
+npx create-next-app@latest . --typescript --eslint --tailwind --src-dir --app --import-alias "@/*"
+# Uwaga: Kropka '.' na końcu instaluje w bieżącym folderze Repl'a
+Use code with caution.
+Bash
+Poczekaj na zainstalowanie zależności.
+Połączenie z GitHub:
+Przejdź do zakładki Version control (lub Git) w lewym panelu Replit.
+Kliknij Create a Git Repository (jeśli jeszcze nie ma).
+Kliknij Connect to GitHub.
+Postępuj zgodnie z instrukcjami, aby autoryzować Replit i połączyć Repl'a z nowym lub istniejącym repozytorium na Twoim koncie GitHub. Nazwij repozytorium sensownie, np. poplawski-theory-website.
+Wykonaj pierwszy commit i push z poziomu Replit, aby zsynchronizować kod z GitHubem. Pamiętaj o regularnym commitowaniu i pushowaniu zmian podczas pracy!
+Zarządzanie Zależnościami: Używaj zakładki Packages w Replit lub poleceń npm install <nazwa-pakietu> / yarn add <nazwa-pakietu> w Shell do dodawania potrzebnych bibliotek.
+Zmienne Środowiskowe (Dobra Praktyka):
+Do przechowywania ewentualnych przyszłych kluczy API lub konfiguracji używaj zakładki Secrets w Replit. Zostaną one automatycznie dodane do .gitignore.
+Pamiętaj, że te sekrety nie zostaną automatycznie przeniesione do Netlify. Będziesz musiał je ręcznie dodać w ustawieniach Netlify (Site settings -> Build & deploy -> Environment) przed wdrożeniem, jeśli będą potrzebne.
+II. Technologie i Kluczowe Biblioteki (Instalacja w Replit):
+Upewnij się, że wszystkie poniższe są zainstalowane (część będzie z szablonu create-next-app):
+next, react, react-dom: Podstawa (z szablonu).
+typescript, @types/react, @types/node: Wsparcie dla TypeScript (z flagą --typescript).
+tailwindcss, postcss, autoprefixer: Tailwind CSS (z flagą --tailwind).
+eslint, eslint-config-next: Linting (z flagą --eslint).
+Do zainstalowania:
+next-themes: Do obsługi motywów dark/light.
+npm install next-themes
+# lub yarn add next-themes
+Use code with caution.
+Bash
+next-intl: Do obsługi tłumaczeń (i18n).
+npm install next-intl
+# lub yarn add next-intl
+Use code with caution.
+Bash
+(Opcjonalnie) framer-motion: Do zaawansowanych animacji.
+npm install framer-motion
+# lub yarn add framer-motion
+Use code with caution.
+Bash
+III. Struktura Projektu (w Replit):
+Zorganizuj pliki i foldery zgodnie z poniższą strukturą (wygenerowaną częściowo przez create-next-app z flagami --src-dir --app):
+/src
+├── app/
+│   ├── (providers)/          # Komponenty opakowujące (ThemeProvider, IntlProvider itp.)
+│   │   └── Providers.tsx
+│   ├── [lang]/               # Segment dynamiczny dla języka (np. /pl, /en)
+│   │   ├── layout.tsx        # Layout dla danego języka (Navbar, Footer)
+│   │   ├── page.tsx          # Strona główna (np. /pl, /en)
+│   │   ├── teoria/           # Folder dla sekcji o teorii
+│   │   │   ├── page.tsx      # Strona główna sekcji teorii (np. /pl/teoria)
+│   │   │   ├── skret-torsja/ # Podfolder dla strony o skręcie
+│   │   │   │   └── page.tsx  # Strona /pl/teoria/skret-torsja
+│   │   │   ├── wielkie-odbicie/ # Podfolder dla strony o odbiciu
+│   │   │   │   └── page.tsx  # Strona /pl/teoria/wielkie-odbicie
+│   │   │   └── implikacje/   # Podfolder dla strony o implikacjach
+│   │   │       └── page.tsx  # Strona /pl/teoria/implikacje
+│   │   ├── wizualizacje/     # (Opcjonalnie) Galeria wizualizacji
+│   │   │   └── page.tsx      # Strona /pl/wizualizacje
+│   │   └── o-autorze/        # (Opcjonalnie) Notka o autorze teorii
+│   │       └── page.tsx      # Strona /pl/o-autorze
+│   ├── layout.tsx            # Główny layout aplikacji (<html>, <body>, podłączenie Providers)
+│   ├── global.css            # Globalne style Tailwind, własne style bazowe, import fontów
+│   ├── robots.txt            # Plik robots.txt (może być generowany przez Next.js)
+│   └── sitemap.ts            # (Opcjonalnie) Endpoint do generowania sitemap.xml
+├── components/               # Reużywalne komponenty UI
+│   ├── ui/                   # Podstawowe, generyczne komponenty (np. Button.tsx, Card.tsx)
+│   ├── layout/               # Komponenty struktury (Navbar.tsx, Footer.tsx, ThemeToggle.tsx, LangSwitcher.tsx)
+│   └── specific/             # Komponenty specyficzne (np. VisualizationCard.tsx)
+├── locales/                  # Pliki JSON z tłumaczeniami
+│   ├── en.json
+│   └── pl.json
+├── lib/                      # Funkcje pomocnicze, stałe, definicje typów
+│   └── utils.ts              # Funkcje pomocnicze (np. do formatowania)
+│   └── constants.ts          # Stałe (np. definicje ścieżek nawigacji)
+│   └── types.ts              # Globalne definicje typów TypeScript
+├── public/                   # Folder na zasoby statyczne (dostępne bezpośrednio przez URL)
+│   ├── favicons/             # Tutaj umieść wszystkie wygenerowane pliki favicon
+│   ├── images/               # Obrazy używane na stronie (źródłowe pliki JPG, PNG)
+│   └── fonts/                # (Opcjonalnie) Pliki fontów, jeśli hostujesz je lokalnie
+├── styles/                   # (Alternatywa dla global.css w /app, jeśli wolisz oddzielny folder)
+├── middleware.ts             # Plik konfiguracyjny middleware Next.js (np. do routingu i18n z `next-intl`)
+├── next.config.js            # Plik konfiguracyjny Next.js
+├── tailwind.config.ts        # Plik konfiguracyjny Tailwind CSS
+├── tsconfig.json             # Plik konfiguracyjny TypeScript
+└── package.json              # Plik z listą zależności projektu
+# Pliki generowane/konfiguracyjne
+├── .gitignore                # Plik określający, co ma ignorować Git (automatycznie zarządzany przez Replit)
+├── .eslintrc.json            # Konfiguracja ESLint
+├── postcss.config.js         # Konfiguracja PostCSS (dla Tailwind)
+└── README.md                 # Opis projektu
+Use code with caution.
+IV. Implementacja Wymagań (Szczegółowe Wytyczne):
+Dark/Light Mode:
+Biblioteka: Użyj next-themes.
+Konfiguracja Tailwind: W tailwind.config.ts ustaw darkMode: 'class'. Zdefiniuj kolory dla trybu jasnego i ciemnego. Dla trybu ciemnego używaj odcieni szarości (np. zinc, slate, neutral) zamiast czerni, aby uzyskać "niezbyt ciemny" efekt. Przykładowa definicja kolorów:
+// tailwind.config.ts
+theme: {
+  extend: {
+    colors: {
+      background: 'hsl(var(--background))', // Definiowane w CSS
+      foreground: 'hsl(var(--foreground))', // Definiowane w CSS
+      // ... inne kolory semantyczne
+    },
+  },
+},
+Use code with caution.
+JavaScript
+A w global.css:
+/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%; /* Jasne tło */
+  --foreground: 240 10% 3.9%; /* Ciemny tekst */
+  /* ... inne kolory dla trybu jasnego */
+}
+
+.dark {
+  --background: 240 5% 15%; /* Ciemno-szare tło */
+  --foreground: 0 0% 98%;   /* Jasny tekst */
+  /* ... inne kolory dla trybu ciemnego */
+}
+Use code with caution.
+Css
+Provider: Stwórz komponent src/app/(providers)/Providers.tsx, który importuje ThemeProvider z next-themes i opakowuje children. Użyj atrybutów attribute="class" i defaultTheme="system" enableSystem={true}.
+Podłączenie Providera: W głównym src/app/layout.tsx zaimportuj Providers i opakuj nim zawartość <body>.
+Przełącznik: Stwórz komponent src/components/layout/ThemeToggle.tsx, który używa hooka useTheme z next-themes do pobrania aktualnego motywu i funkcji setTheme do jego zmiany. Wyświetlaj ikonę słońca/księżyca lub inny wskaźnik. Umieść go w Navbar.
+Dostępność (Accessibility - WCAG 2.1 Poziom AA):
+Kontrasty Kolorów: Krytyczne! Przy definiowaniu kolorów w tailwind.config.ts i global.css (dla obu motywów) bezwzględnie sprawdzaj kontrasty między tekstem a tłem oraz między elementami UI a tłem. Użyj narzędzi: Chrome DevTools (inspektor kolorów), Firefox Accessibility Inspector, online checker (np. WebAIM Contrast Checker). Celuj w minimum 4.5:1 dla zwykłego tekstu i 3:1 dla dużego tekstu (>18pt lub >14pt bold) i istotnych elementów graficznych/UI.
+Semantyka HTML: Stosuj znaczniki HTML zgodnie z ich przeznaczeniem (<nav>, <main>, <article>, <aside>, <header>, <footer>). Używaj nagłówków (<h1> - tylko jeden na stronę, <h2> - <h6>) do strukturyzacji treści. Stosuj <button> dla akcji, a <a> dla linków nawigacyjnych.
+Atrybuty ARIA: W razie potrzeby używaj aria-* (np. aria-label dla przycisków-ikon bez tekstu, aria-current="page" dla aktywnego linku w nawigacji, aria-hidden dla elementów czysto wizualnych).
+Nawigacja Klawiaturą: Zapewnij, że wszystkie interaktywne elementy (linki, przyciski, ewentualne niestandardowe kontrolki) są osiągalne i obsługiwalne za pomocą klawiatury (Tab, Shift+Tab, Enter, Spacja). Zadbaj o widoczny wskaźnik fokusu (domyślny lub stylizowany w global.css np. :focus-visible { outline: 2px solid blue; outline-offset: 2px; }).
+Teksty Alternatywne (alt): Każdy obrazek (<Image> z next/image) musi mieć sensowny atrybut alt opisujący jego zawartość. Dla obrazów czysto dekoracyjnych użyj alt="".
+Testowanie: Regularnie używaj narzędzi:
+Lighthouse (w Chrome DevTools, zakładka Audits/Lighthouse) - sprawdza wydajność, dostępność, SEO.
+Axe DevTools (rozszerzenie przeglądarki) - szczegółowa analiza dostępności.
+Manualne testy klawiaturą i czytnikiem ekranu (jeśli to możliwe).
+Responsywność (RWD):
+Podejście Mobile-First: Styluj komponenty, zaczynając od widoku mobilnego (domyślne klasy Tailwind). Następnie używaj prefiksów breakpointów (sm:, md:, lg:, xl:, 2xl:) do dostosowania layoutu na większych ekranach.
+Elastyczne Layouty: Wykorzystuj klasy Tailwind dla Flexbox (flex, items-center, justify-between itp.) oraz Grid (grid, grid-cols-*, gap-*) do tworzenia adaptacyjnych układów.
+Obrazy: Komponent next/image pomaga w responsywności obrazów, ale upewnij się, że kontenery obrazów również dostosowują swoje rozmiary.
+Testowanie: Używaj trybu responsywnego w przeglądarce (np. Chrome DevTools -> Toggle device toolbar) do symulacji różnych rozmiarów ekranu. Testuj na realnych urządzeniach, jeśli masz taką możliwość.
+SEO (Optymalizacja dla Wyszukiwarek):
+Metadane (Next.js Metadata API): W każdym pliku layout.tsx i page.tsx używaj funkcji export async function generateMetadata() do definiowania metadanych.
+W głównym src/app/layout.tsx: Zdefiniuj metadataBase (główny URL strony po wdrożeniu), podstawowy title.template (np. %s | Teoria Wszechświata w Czarnej Dziurze), ogólny description.
+W src/app/[lang]/layout.tsx: Ustaw atrybut lang w tagu <html> na podstawie parametru params.lang.
+W plikach page.tsx: Definiuj specyficzny title dla danej strony, unikalny description, keywords (opcjonalnie), alternates (linki do innych wersji językowych tej samej strony), canonical (URL kanoniczny).
+Przykład generateMetadata w page.tsx:
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+  const title = params.lang === 'pl' ? 'Skręt i Torsja Czasoprzestrzeni' : 'Spacetime Torsion';
+  const description = params.lang === 'pl' ? 'Wyjaśnienie roli torsji...' : 'Explaining the role of torsion...';
+  const canonicalUrl = `https://twoja-domena.com/${params.lang}/teoria/skret-torsja`;
+
+  return {
+    title: title,
+    description: description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pl-PL': `https://twoja-domena.com/pl/teoria/skret-torsja`,
+        'en-US': `https://twoja-domena.com/en/teoria/skret-torsja`,
+      },
+    },
+    // OpenGraph i Twitter Cards - patrz pkt 8
+  };
+}
+Use code with caution.
+TypeScript
+Jakość Treści: Twórz unikalne, wartościowe i dobrze napisane teksty popularnonaukowe. Używaj naturalnie słów kluczowych związanych z teorią. Strukturyzuj tekst nagłówkami (h2, h3 itd.).
+SSG (Static Site Generation): Domyślne zachowanie Next.js dla stron bez dynamicznych danych zapewni szybkie ładowanie i doskonałą indeksowalność.
+Sitemap.xml:
+Opcja 1 (Dynamiczny Endpoint): Stwórz plik src/app/sitemap.ts i użyj przykładów z dokumentacji Next.js, aby dynamicznie generować mapę na podstawie struktury routingu.
+Opcja 2 (Plugin Netlify): Możesz pominąć generowanie w Next.js i polegać na wtyczce netlify-plugin-sitemap (skonfigurowanej w netlify.toml lub w UI Netlify), która wygeneruje mapę podczas builda na Netlify.
+Opcja 3 (Statyczny plik): Dla małej strony możesz ręcznie stworzyć sitemap.xml i umieścić go w /public.
+Robots.txt: Stwórz plik src/app/robots.txt (wg dokumentacji Next.js) lub public/robots.txt, aby wskazać wyszukiwarkom, co mogą indeksować (zazwyczaj pozwalasz na wszystko i wskazujesz lokalizację sitemap.xml).
+Wydajność (Core Web Vitals): Dąż do dobrych wyników LCP, FID (lub INP), CLS. Next.js bardzo pomaga przez automatyczną optymalizację obrazów (next/image), code splitting. Monitoruj w Lighthouse i PageSpeed Insights.
+Linki Wewnętrzne: Twórz logiczne powiązania między podstronami za pomocą linków (<Link> z next/link).
+Sprawdzanie: Regularnie używaj narzędzia https://seositecheckup.com/ lub podobnych do monitorowania postępów.
+Wersje Językowe (i18n):
+Biblioteka next-intl: Skonfiguruj ją zgodnie z dokumentacją dla App Router.
+Routing: Implementacja dynamicznego segmentu [lang] w src/app/.
+Pliki Tłumaczeń: Stwórz src/locales/pl.json i src/locales/en.json. Zdefiniuj w nich klucze i odpowiadające im teksty.
+// pl.json
+{
+  "Navbar": {
+    "home": "Strona Główna",
+    "theory": "Teoria",
+    "visualizations": "Wizualizacje"
+  },
+  "TheoryPage": {
+    "title": "Teoria Wszechświata w Czarnej Dziurze",
+    "introduction": "Wprowadzenie do koncepcji..."
+  }
+  // ... inne klucze
+}
+Use code with caution.
+Json
+Middleware: Stwórz src/middleware.ts, aby obsługiwać routing językowy (przekierowania, wykrywanie języka na podstawie preferencji przeglądarki lub cookie) zgodnie z dokumentacją next-intl.
+Provider: Zintegruj provider next-intl w src/app/(providers)/Providers.tsx.
+Użycie Tłumaczeń: W komponentach używaj hooka useTranslations z next-intl, aby pobrać przetłumaczone teksty: const t = useTranslations('Navbar'); <h1>{t('home')}</h1>.
+Przełącznik Języka: Stwórz komponent src/components/layout/LangSwitcher.tsx. Powinien on wyświetlać dostępne języki (np. 'PL' / 'EN') i po kliknięciu przekierowywać użytkownika do tej samej strony, ale w innej wersji językowej (używając hooka usePathname do pobrania bieżącej ścieżki bez języka i funkcji router.push z next/navigation).
+Atrybut lang: W src/app/[lang]/layout.tsx pobierz params.lang i przekaż go do atrybutu lang tagu <html>: <html lang={params.lang}>.
+Favicony:
+Generowanie: Użyj narzędzia online, np. RealFaviconGenerator.net. Wrzuć tam swoje logo (np. w formacie SVG lub PNG o wysokiej rozdzielczości, min. 512x512px). Wygeneruj kompletny zestaw ikon dla różnych platform.
+Pobieranie i Umieszczanie: Pobierz wygenerowany pakiet ZIP. Rozpakuj go i wszystkie pliki (favicon.ico, apple-touch-icon.png, android-chrome-*.png, favicon-*.png, site.webmanifest, browserconfig.xml) umieść w folderze /public/favicons/.
+Podłączenie w Kodzie: W głównym src/app/layout.tsx, w funkcji generateMetadata, użyj klucza icons do wskazania głównych ikon. Dodatkowo, możesz potrzebować dodać niektóre specyficzne tagi <link> i <meta> bezpośrednio w sekcji <head> layoutu, jeśli Metadata API nie pokrywa wszystkich wygenerowanych plików (np. mask-icon, msapplication-TileColor).
+// src/app/layout.tsx
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  // ... inne metadane
+  icons: {
+    icon: '/favicons/favicon.ico', // lub favicon-32x32.png
+    shortcut: '/favicons/favicon.ico', // lub apple-touch-icon.png
+    apple: '/favicons/apple-touch-icon.png',
+    other: [
+      { rel: 'mask-icon', url: '/favicons/safari-pinned-tab.svg', color: '#5bbad5' },
+      // inne potrzebne linki z wygenerowanego HTML
+    ],
+  },
+  manifest: '/favicons/site.webmanifest', // Link do manifestu
+};
+Use code with caution.
+TypeScript
+Sprawdź kod HTML wygenerowany przez RealFaviconGenerator i upewnij się, że wszystkie istotne tagi są obecne w <head> Twojej aplikacji.
+Obrazy .avif:
+Konfiguracja Next.js: W pliku next.config.js dodaj lub upewnij się, że istnieje sekcja images z odpowiednimi formatami:
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // ... inne opcje
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    // Możesz dodać domeny, jeśli ładujesz obrazy z zewnętrznych źródeł
+    // remotePatterns: [ { protocol: 'https', hostname: 'example.com' } ],
+  },
+};
+module.exports = nextConfig;
+Use code with caution.
+JavaScript
+Użycie Komponentu <Image>: Zawsze używaj komponentu <Image> z next/image do wyświetlania obrazów na stronie. Importuj pliki obrazów lub podawaj ścieżki relatywne do folderu /public.
+import Image from 'next/image';
+import myDiagram from '@/public/images/diagram-torsion.png'; // Import obrazu
+
+// ... w komponencie
+<Image src={myDiagram} alt="Diagram ilustrujący torsję czasoprzestrzeni" width={800} height={600} priority={true} />
+// lub ze ścieżki w /public
+<Image src="/images/dr-poplawski.jpg" alt="Dr Nikodem Popławski" width={300} height={400} />
+Use code with caution.
+TypeScript
+Next.js automatycznie zoptymalizuje obrazy i dostarczy format AVIF lub WebP do przeglądarek, które je wspierają.
+Dane Strukturalne (Schema.org JSON-LD) i Open Graph:
+Implementacja w generateMetadata: To preferowane miejsce w App Router.
+Open Graph (OG): W generateMetadata dla każdej strony zwracaj obiekt openGraph:
+openGraph: {
+  title: 'Tytuł dla social media', // Może być taki sam jak title strony
+  description: 'Opis dla social media', // Może być taki sam jak description strony
+  url: canonicalUrl, // Kanoniczny URL tej strony
+  siteName: 'Wszechświat w Czarnej Dziurze - Teoria N. Popławskiego', // Nazwa całej strony
+  images: [
+    {
+      url: 'https://twoja-domena.com/og-image-dla-tej-strony.jpg', // URL do obrazka OG (np. 1200x630px)
+      width: 1200,
+      height: 630,
+      alt: 'Opis obrazka dla OG',
+    },
+  ],
+  locale: params.lang === 'pl' ? 'pl_PL' : 'en_US',
+  type: 'article', // lub 'website' dla strony głównej
+}
+Use code with caution.
+TypeScript
+Twitter Cards: Podobnie, dodaj obiekt twitter:
+twitter: {
+  card: 'summary_large_image', // Typ karty Twittera
+  title: 'Tytuł dla Twittera',
+  description: 'Opis dla Twittera',
+  // siteId: '@TwojeKontoTwitter', // Opcjonalnie
+  // creator: '@AutorArtykułu', // Opcjonalnie
+  images: ['https://twoja-domena.com/twitter-image-dla-tej-strony.jpg'], // URL obrazka dla Twittera
+}
+Use code with caution.
+TypeScript
+JSON-LD (Schema.org):
+Opcja 1 (Metadata API): Możesz dodać pole metadata.other lub próbować osadzić przez specjalne funkcje (sprawdź dokumentację Next.js pod kątem najlepszych praktyk).
+Opcja 2 (Komponent): Stwórz komponent, np. JsonLdScript, który przyjmuje obiekt danych schema i renderuje tag <script type="application/ld+json">. Umieść go na końcu danej strony (page.tsx).
+// Komponent JsonLdScript.tsx
+type Props = { jsonData: Record<string, any> };
+export function JsonLdScript({ jsonData }: Props) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonData) }}
+    />
+  );
+}
+
+// Użycie w page.tsx
+import { JsonLdScript } from '@/components/specific/JsonLdScript';
+
+export default function TheoryPage({ params }: { params: { lang: string }}) {
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article', // lub 'WebPage', 'AboutPage' itp.
+    headline: 'Tytuł artykułu/strony',
+    description: 'Opis artykułu/strony',
+    author: {
+      '@type': 'Person',
+      name: 'Dr Nikodem Popławski', // Jeśli to strona o nim lub jego cytat
+    },
+    // ... inne właściwości schema.org
+  };
+  return (
+    <main>
+      {/* Treść strony */}
+      <JsonLdScript jsonData={schemaData} />
+    </main>
+  );
+}
+Use code with caution.
+TypeScript
+Typy Schema: Używaj odpowiednich typów: WebSite dla strony głównej, Article dla podstron z treścią, AboutPage dla strony "O autorze", CollectionPage dla strony "Wizualizacje".
+Treść Popularnonaukowa:
+Język: Pisz jasno, zrozumiale dla laika, unikaj nadmiernego żargonu technicznego lub wyjaśniaj go. Skup się na fascynujących aspektach teorii.
+Struktura: Podziel tekst na krótkie akapity, używaj nagłówków (h2, h3), list (ul, ol), cytatów (blockquote) dla przejrzystości.
+Wizualizacje: Wplataj przygotowane obrazy i diagramy (<Image>) w treść, aby zilustrować kluczowe koncepcje (skręt, odbicie, nowy wszechświat).
+Nawigacja i Struktura Strony:
+Komponent Navbar.tsx: Umieść go w src/app/[lang]/layout.tsx. Powinien zawierać:
+Logo (linkujące do strony głównej danej wersji językowej).
+Główne linki nawigacyjne (używając <Link> z next/link), np.: "Strona Główna", "Teoria" (może być dropdown z podstronami: "Skręt/Torsja", "Wielkie Odbicie", "Implikacje"), "Wizualizacje", "O Autorze". Zastosuj aria-current="page" dla aktywnego linku.
+Komponent LangSwitcher.tsx.
+Komponent ThemeToggle.tsx.
+Komponent Footer.tsx: Umieść go w src/app/[lang]/layout.tsx. Powinien zawierać:
+Informację o prawach autorskich (© ${new Date().getFullYear()} Twoja Nazwa).
+Ewentualnie powtórzone kluczowe linki lub link do mapy strony.
+Struktura URL: Używaj logicznych, krótkich i opisowych URL (np. /pl/teoria/wielkie-odbicie), co jest naturalne przy użyciu App Router.
+Styl Wizualny "Lifestyle":
+Czcionki: Wybierz czytelną, nowoczesną parę fontów (np. z Google Fonts: jeden dla nagłówków, drugi dla tekstu). Skonfiguruj je w tailwind.config.ts i zaimportuj w global.css lub przez next/font w layoutach.
+Kolory: Używaj zdefiniowanej, spójnej palety (jasnej i "szaro-ciemnej"). Zastosuj kolory semantycznie (np. kolor akcentu dla linków i przycisków).
+Przestrzeń: Stosuj dużo białej przestrzeni (padding, margin - klasy p-*, m-* Tailwind) dla lekkości i czytelności.
+Obrazy: Używaj wysokiej jakości zdjęć i grafik. Możesz dodać subtelne zaokrąglenia rogów (rounded-*), cienie (shadow-*).
+Minimalizm: Unikaj zbędnych ozdobników, skup się na treści i czystym interfejsie.
+Animacje:
+Hover Effects (Tailwind): Na linkach, przyciskach - używaj klas transition, duration-300, ease-in-out w połączeniu ze zmianą właściwości w stanie :hover (np. hover:text-accent, hover:bg-gray-200, hover:scale-105, hover:shadow-md).
+Fade-in (przy scrollowaniu):
+Prosta opcja (CSS + JS): Zdefiniuj animację @keyframes fadeIn w global.css. Użyj JavaScript i Intersection Observer API (np. w niestandardowym hooku useIntersectionObserver), aby dodać klasę CSS (np. is-visible) do elementu, gdy pojawi się on w widoku. W CSS, klasa .is-visible powinna uruchamiać animację fadeIn.
+Zaawansowana opcja (Framer Motion): Zainstaluj framer-motion. Opakuj elementy, które mają się animować, w komponent motion.div. Użyj propsów initial={{ opacity: 0, y: 20 }}, whileInView={{ opacity: 1, y: 0 }}, viewport={{ once: true }} i transition={{ duration: 0.5 }}.
+Smooth Scroll: W pliku src/app/global.css dodaj:
+html {
+  scroll-behavior: smooth;
+}
+Use code with caution.
+Css
+To zapewni płynne przewijanie przy kliknięciu linków wewnętrznych (np. <Link href="#sekcja-odbicie">).
+V. Proces Rozwoju i Wdrożenia:
+Rozwój w Replit:
+Pisz kod, implementując kolejne punkty tego planu.
+Używaj wbudowanego podglądu (Webview) w Replit do bieżącego sprawdzania wyglądu i funkcjonalności.
+Regularnie zapisuj zmiany (Ctrl+S/Cmd+S).
+Często wykonuj commit i push do GitHub z poziomu zakładki Version control w Replit. Opisuj commity sensownie (np. "Implementacja komponentu Navbar", "Dodanie obsługi i18n").
+Testowanie:
+Przeprowadzaj testy funkcjonalne (klikanie linków, przełączanie motywu/języka).
+Testuj responsywność w Webview Replit lub otwierając stronę w nowej karcie i używając narzędzi deweloperskich przeglądarki.
+Wykonuj audyty Lighthouse/Axe dla dostępności i wydajności.
+Sprawdzaj poprawność SEO za pomocą narzędzi online.
+Wdrożenie na Netlify:
+Zaloguj się na Netlify.
+Wybierz "Add new site" -> "Import an existing project".
+Połącz się z GitHubem i wybierz repozytorium, które połączyłeś z Replit.
+Konfiguracja Budowania: Netlify powinien automatycznie wykryć Next.js. Sprawdź ustawienia:
+Build command: npm run build
+Publish directory: .next
+Zmienne Środowiskowe: Jeśli używałeś Secrets w Replit dla jakichkolwiek kluczy/zmiennych potrzebnych do budowy lub działania strony, musisz je ręcznie dodać w Netlify: Site settings -> Build & deploy -> Environment.
+Kliknij "Deploy site". Netlify pobierze kod z GitHuba, zbuduje projekt i wdroży go.
+Po udanym wdrożeniu skonfiguruj własną domenę, jeśli ją posiadasz.
+
+dołącz fotki, które Ci przesłałem
