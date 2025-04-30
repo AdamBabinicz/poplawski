@@ -26,13 +26,13 @@ export default function HeroSection() {
             <div className="pt-4 flex flex-wrap gap-4">
               <button
                 onClick={() => scrollToElement('theory')}
-                className="px-6 py-3 bg-cosmic-gradient text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1"
+                className="px-6 py-3 bg-cosmic-gradient text-white font-medium rounded-lg shadow-lg hover:shadow-cosmic-glow hover:scale-105 transition-all duration-300 ease-in-out animate-subtle-pulse"
               >
                 {t('hero.exploreButton')}
               </button>
               <button
                 onClick={() => scrollToElement('visualizations')}
-                className="px-6 py-3 bg-transparent border border-cosmic-blue dark:border-cosmic-purple text-foreground dark:text-white font-medium rounded-lg hover:bg-cosmic-blue/10 dark:hover:bg-cosmic-purple/10 transition"
+                className="px-6 py-3 bg-background/80 backdrop-blur-sm border-2 border-cosmic-blue dark:border-cosmic-purple text-cosmic-blue dark:text-cosmic-purple font-medium rounded-lg shadow-sm hover:shadow-cosmic-blue/20 dark:hover:shadow-cosmic-purple/20 hover:scale-105 hover:border-opacity-100 transition-all duration-300 ease-in-out hover:bg-cosmic-blue/5 dark:hover:bg-cosmic-purple/10"
               >
                 {t('hero.visualizationsButton')}
               </button>

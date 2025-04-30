@@ -79,10 +79,24 @@ export default {
             height: "0",
           },
         },
+        "subtle-pulse": {
+          "0%, 100%": { 
+            transform: "scale(1)",
+            boxShadow: "0 0 15px rgba(88, 84, 242, 0.4), 0 0 30px rgba(88, 84, 242, 0.2)" 
+          },
+          "50%": { 
+            transform: "scale(1.01)",
+            boxShadow: "0 0 20px rgba(88, 84, 242, 0.6), 0 0 40px rgba(88, 84, 242, 0.3)" 
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "subtle-pulse": "subtle-pulse 3s ease-in-out infinite",
+      },
+      boxShadow: {
+        "cosmic-glow": "0 0 25px rgba(88, 84, 242, 0.7), 0 0 50px rgba(88, 84, 242, 0.4)",
       },
     },
   },
