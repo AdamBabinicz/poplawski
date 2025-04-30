@@ -72,18 +72,21 @@ export default function BlackHoleModel() {
   const handleRegionClick = useCallback((region: Region) => {
     console.log(`Clicked on region: ${region}`);
     if (region === activeRegion) {
-      setActiveRegion(null);
       setShowInfo(false);
+      // Opóźnione resetowanie aktywnego regionu po animacji
+      setTimeout(() => setActiveRegion(null), 300);
     } else {
       setActiveRegion(region);
-      setShowInfo(true);
+      // Dodajemy opóźnienie dla łagodnego pokazania popupu
+      setTimeout(() => setShowInfo(true), 150);
     }
   }, [activeRegion]);
 
   // Zamykanie okienka informacyjnego
   const closeInfoPanel = useCallback(() => {
     setShowInfo(false);
-    setTimeout(() => setActiveRegion(null), 300); // Opóźnijmy reset aktywnego regionu po animacji
+    // Dłuższe opóźnienie, aby wszystkie animacje mogły się zakończyć
+    setTimeout(() => setActiveRegion(null), 400);
   }, []);
 
   // Efekt do debugowania
@@ -197,20 +200,20 @@ export default function BlackHoleModel() {
       {/* Panel informacyjny - wyświetlany po kliknięciu punktu */}
       {activeRegion && (
         <div 
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity ${showInfo ? 'opacity-100' : 'opacity-0'}`}
+          className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 ease-in-out ${showInfo ? 'bg-black/60 backdrop-blur-sm opacity-100' : 'bg-black/0 backdrop-blur-none opacity-0'}`}
           onClick={closeInfoPanel}
           role="dialog"
           aria-modal="true"
           aria-labelledby={`region-title-${activeRegion}`}
         >
           <div 
-            className={`bg-background p-5 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 ${showInfo ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
+            className={`bg-background p-5 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-400 ease-out ${showInfo ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 -translate-y-4'}`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
               <h3 
                 id={`region-title-${activeRegion}`}
-                className={`text-lg font-bold ${getRegionInfo(activeRegion).textColor}`}
+                className={`text-lg font-bold ${getRegionInfo(activeRegion).textColor} transition-all duration-300 ${showInfo ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
               >
                 {getRegionInfo(activeRegion).title}
               </h3>
@@ -227,28 +230,30 @@ export default function BlackHoleModel() {
             </div>
             
             <div className="rounded-lg overflow-hidden mb-4">
-              <img 
-                src={getRegionInfo(activeRegion).image} 
-                alt={getRegionInfo(activeRegion).title} 
-                className="w-full h-48 object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+              <div className="overflow-hidden">
+                <img 
+                  src={getRegionInfo(activeRegion).image} 
+                  alt={getRegionInfo(activeRegion).title} 
+                  className={`w-full h-48 object-cover transition-transform duration-700 ease-out ${showInfo ? 'translate-y-0 scale-100' : '-translate-y-full scale-105'}`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
             
-            <p className="text-muted-foreground mb-4 text-sm">
+            <p className={`text-muted-foreground mb-4 text-sm transition-all duration-500 delay-100 ${showInfo ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
               {getRegionInfo(activeRegion).description}
             </p>
             
             <button
               onClick={closeInfoPanel}
-              className={`${getRegionInfo(activeRegion).bgColor} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity w-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ${
+              className={`${getRegionInfo(activeRegion).bgColor} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-all duration-500 delay-200 w-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ${
                 getRegionInfo(activeRegion).color === 'cosmic-blue' 
                   ? 'focus:ring-offset-cosmic-blue'
                   : getRegionInfo(activeRegion).color === 'cosmic-purple'
                   ? 'focus:ring-offset-cosmic-purple'
                   : 'focus:ring-offset-cosmic-pink'
-              }`}
+              } ${showInfo ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               aria-label={currentLanguage === 'en' ? 'Close dialog' : 'Zamknij okno dialogowe'}
             >
               {currentLanguage === 'en' ? 'Close' : 'Zamknij'}
