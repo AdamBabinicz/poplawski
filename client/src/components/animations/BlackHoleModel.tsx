@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useTranslations } from '@/hooks/use-translations';
+import blackHoleModelImage from '@/assets/images/black-hole-model.png';
+import accretionDiskImage from '@/assets/images/accretion-disk.png';
+import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
 
 type Region = 'accretion-disk' | 'event-horizon' | 'torsion-zone';
 

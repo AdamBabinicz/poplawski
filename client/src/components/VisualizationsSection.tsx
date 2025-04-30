@@ -1,5 +1,9 @@
 import { useTranslations } from '@/hooks/use-translations';
 import BlackHoleModel from './animations/BlackHoleModel';
+import blackHoleModelImage from '@/assets/images/black-hole-model.png';
+import accretionDiskImage from '@/assets/images/accretion-disk.png';
+import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
+import theoryStepsImage from '@/assets/images/theory-steps.png';
 
 interface GalleryItem {
   image: string;
@@ -12,17 +16,17 @@ export default function VisualizationsSection() {
   
   const galleryItems: GalleryItem[] = [
     {
-      image: "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: accretionDiskImage,
       title: t('visualizations.item1.title'),
       description: t('visualizations.item1.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1506703719100-a0b3a3c845d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: torsionPhysicsImage,
       title: t('visualizations.item2.title'),
       description: t('visualizations.item2.description')
     },
     {
-      image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: theoryStepsImage,
       title: t('visualizations.item3.title'),
       description: t('visualizations.item3.description')
     }

@@ -1,4 +1,5 @@
 import { useTranslations } from '@/hooks/use-translations';
+import drPoplawskiImage from '@/assets/images/dr-poplawski.jpg';
 
 export default function AboutSection() {
   const { t } = useTranslations();
@@ -20,10 +21,11 @@ export default function AboutSection() {
             <div className="p-6 md:p-8 md:flex gap-8">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <div className="aspect-square rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                  {/* Placeholder for Dr. Popławski's photo */}
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cosmic-blue/10 to-cosmic-purple/10 dark:from-cosmic-blue/20 dark:to-cosmic-purple/20">
-                    <i className='bx bx-user text-8xl text-gray-400 dark:text-gray-600'></i>
-                  </div>
+                  <img 
+                    src={drPoplawskiImage} 
+                    alt="Dr. Nikodem Popławski" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               

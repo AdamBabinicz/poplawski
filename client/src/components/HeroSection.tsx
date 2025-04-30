@@ -1,6 +1,7 @@
 import { useTranslations } from '@/hooks/use-translations';
 import CosmicBackground from './animations/CosmicBackground';
 import { scrollToElement } from '@/lib/utils';
+import blackHoleModelImage from '@/assets/images/black-hole-model.png';
 
 export default function HeroSection() {
   const { t } = useTranslations();
@@ -42,7 +43,7 @@ export default function HeroSection() {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-lg aspect-square animate-float">
               <img 
-                src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src={blackHoleModelImage} 
                 alt="Black hole visualization" 
                 className="w-full h-full object-cover rounded-full shadow-[0_0_50px_rgba(59,130,246,0.5)]" 
               />

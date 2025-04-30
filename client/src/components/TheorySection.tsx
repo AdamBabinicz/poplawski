@@ -1,4 +1,8 @@
 import { useTranslations } from '@/hooks/use-translations';
+import theoryStepsImage from '@/assets/images/theory-steps.png';
+import accretionDiskImage from '@/assets/images/accretion-disk.png';
+import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
+import blackHoleModelImage from '@/assets/images/black-hole-model.png';
 
 interface TheoryStep {
   number: string;
@@ -24,28 +28,28 @@ export default function TheorySection() {
       colorClass: "cosmic-blue",
       title: t('theory.step1.title'),
       description: t('theory.step1.description'),
-      image: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      image: accretionDiskImage 
     },
     {
       number: "2",
       colorClass: "cosmic-pink",
       title: t('theory.step2.title'),
       description: t('theory.step2.description'),
-      image: "https://images.unsplash.com/photo-1506703719100-a0b3a3c845d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      image: torsionPhysicsImage
     },
     {
       number: "3",
       colorClass: "cosmic-purple",
       title: t('theory.step3.title'),
       description: t('theory.step3.description'),
-      image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      image: theoryStepsImage
     },
     {
       number: "4",
       colorClass: "cosmic-orange",
       title: t('theory.step4.title'),
       description: t('theory.step4.description'),
-      image: "https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+      image: blackHoleModelImage
     }
   ];
   
