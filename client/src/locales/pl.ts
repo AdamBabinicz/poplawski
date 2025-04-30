@@ -4,8 +4,8 @@ const translations = {
   'meta.description': 'Poznaj przełomową teorię dr Nikodema Popławskiego o wszechświatach rodzących się wewnątrz czarnych dziur, wyjaśniającą kosmiczną inflację i Wielkie Odbicie.',
   
   // Navbar
-  'navbar.universe': 'Wszechświat',
-  'navbar.in': 'w',
+  'navbar.universe': 'Wszechświat ',
+  'navbar.in': 'w ',
   'navbar.blackHole': 'Czarnej Dziurze',
   'navbar.home': 'Strona główna',
   'navbar.theory': 'Teoria',
