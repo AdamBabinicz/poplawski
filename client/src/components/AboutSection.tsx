@@ -84,7 +84,7 @@ export default function AboutSection() {
                     {t('about.scholar')}
                   </a>
                   <a 
-                    href="https://www.youtube.com/watch?v=yXsIZSBRsOM" 
+                    href="https://www.youtube.com/watch?v=thRNKtfTv-0" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"

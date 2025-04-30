@@ -83,7 +83,7 @@ export default function Footer() {
             <h3 className="font-display font-semibold text-lg mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-2">
               <li><a href="https://scholar.google.com/citations?user=9LnqIJsAAAAJ" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.papers')}</a></li>
-              <li><a href="https://www.youtube.com/watch?v=yXsIZSBRsOM" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')}</a></li>
+              <li><a href="https://www.youtube.com/watch?v=thRNKtfTv-0" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')}</a></li>
               <li><a href="https://www.youtube.com/watch?v=il8gH6xr0Bo" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')} 2</a></li>
               <li><a href="https://www.youtube.com/watch?v=7t3llhn0-GQ" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')} 3</a></li>
               <li><a href="https://www.tysol.pl/a135929-skromny-polski-geniusz-o-ktorym-morgan-freeman-powiedzial-ze-jest-drugim-kopernikiem" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.educational')}</a></li>
