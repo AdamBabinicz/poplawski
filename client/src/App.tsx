@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +9,7 @@ import { TranslationsProvider } from "@/hooks/use-translations";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
 import Home from "@/pages/home";
 import Theory from "@/pages/theory";
 import Visualizations from "@/pages/visualizations";
@@ -51,6 +52,9 @@ function App() {
               <link rel="preconnect" href="https://fonts.googleapis.com" />
               <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
             </Helmet>
+            
+            {/* Component that scrolls to the top when route changes */}
+            <LocationScrollToTop />
             
             <div className="min-h-screen flex flex-col">
               <Navbar />
