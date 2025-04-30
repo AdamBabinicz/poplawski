@@ -69,7 +69,13 @@
 }
 
 /* Custom styles */
+/* Kosmiczne tło z różnymi wariantami dla trybów jasnego i ciemnego */
 .cosmos-bg {
+  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, rgba(241, 245, 249, 0) 70%), 
+                    linear-gradient(to bottom, rgb(248, 250, 252), rgb(241, 245, 249));
+}
+
+.dark .cosmos-bg {
   background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, rgba(31, 41, 55, 0) 70%), 
                     linear-gradient(to bottom, rgb(17, 24, 39), rgb(9, 9, 11));
 }
@@ -103,9 +109,17 @@
   }
 }
 
+/* Styl obrysu tekstu dla trybu jasnego i ciemnego */
 .hero-text-outline {
+  -webkit-text-stroke: 1px rgba(59, 130, 246, 0.5);
+  color: transparent;
+  text-shadow: 0 4px 8px rgba(59, 130, 246, 0.15);
+}
+
+.dark .hero-text-outline {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   color: transparent;
+  text-shadow: 0 4px 8px rgba(30, 64, 175, 0.2);
 }
 
 .animate-cosmic-pulse {
