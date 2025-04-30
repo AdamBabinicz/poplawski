@@ -184,3 +184,8 @@
 .bg-cosmic-orange {
   background-color: hsl(var(--cosmic-orange));
 }
+
+/* Cień świetlny dla ikon mediów społecznościowych */
+.hover\:shadow-glow:hover {
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.7), 0 0 30px rgba(79, 70, 229, 0.4);
+}
