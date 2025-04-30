@@ -61,6 +61,7 @@ const translations = {
   'visualizations.legend.accretion': 'Dysk akrecyjny',
   'visualizations.legend.horizon': 'Horyzont zdarzeń',
   'visualizations.legend.torsion': 'Strefa torsji',
+  'visualizations.interactive.close': 'Zamknij',
   
   // About Section
   'about.title.1': 'O',

@@ -19,20 +19,26 @@ export default function BlackHoleModel() {
       case 'accretion-disk':
         return {
           title: t('visualizations.legend.accretion'),
-          description: t('visualizations.item1.description')
+          description: t('visualizations.item1.description'),
+          image: accretionDiskImage,
+          color: 'cosmic-blue'
         };
       case 'event-horizon':
         return {
           title: t('visualizations.legend.horizon'),
-          description: 'The point of no return in spacetime, where gravity is so strong that not even light can escape. According to Dr. Popławski, this boundary marks where our parent universe ends and our universe begins.'
+          description: 'The point of no return in spacetime, where gravity is so strong that not even light can escape. According to Dr. Popławski, this boundary marks where our parent universe ends and our universe begins.',
+          image: blackHoleModelImage,
+          color: 'cosmic-purple'
         };
       case 'torsion-zone':
         return {
           title: t('visualizations.legend.torsion'),
-          description: t('visualizations.item2.description')
+          description: t('visualizations.item2.description'),
+          image: torsionPhysicsImage,
+          color: 'cosmic-pink'
         };
       default:
-        return { title: '', description: '' };
+        return { title: '', description: '', image: '', color: '' };
     }
   };
   
@@ -99,9 +105,40 @@ export default function BlackHoleModel() {
       
       {/* Region info popup */}
       {activeRegion && (
-        <div className="absolute bottom-4 left-4 bg-background/90 p-4 rounded-lg shadow-lg text-sm max-w-xs">
-          <h4 className="font-display font-semibold mb-2">{getRegionInfo(activeRegion).title}</h4>
+        <div className="absolute top-4 left-4 bg-background/95 p-4 rounded-lg shadow-lg text-sm max-w-sm border border-border transform transition-all duration-300 animate-fade-in">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className={`font-display font-semibold text-${getRegionInfo(activeRegion).color}`}>
+              {getRegionInfo(activeRegion).title}
+            </h4>
+            <button 
+              onClick={() => setActiveRegion(null)}
+              className="w-6 h-6 rounded-full flex items-center justify-center hover:bg-muted"
+            >
+              <span className="sr-only">Close</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L11 11M1 11L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+          
+          <div className="rounded-md overflow-hidden mb-3">
+            <img 
+              src={getRegionInfo(activeRegion).image} 
+              alt={getRegionInfo(activeRegion).title} 
+              className="w-full h-32 object-cover" 
+            />
+          </div>
+          
           <p className="text-muted-foreground">{getRegionInfo(activeRegion).description}</p>
+          
+          <div className="mt-3 pt-2 border-t border-border">
+            <button
+              onClick={() => setActiveRegion(null)}
+              className={`px-3 py-1.5 rounded text-white text-xs font-medium bg-${getRegionInfo(activeRegion).color} hover:opacity-90 transition-opacity`}
+            >
+              {t('visualizations.interactive.close')}
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { TranslationsProvider } from "@/hooks/use-translations";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
 import Home from "@/pages/home";
 import Theory from "@/pages/theory";
 import Visualizations from "@/pages/visualizations";
@@ -51,6 +52,7 @@ function App() {
                 <Router />
               </main>
               <Footer />
+              <ScrollToTop />
             </div>
             
             <Toaster />

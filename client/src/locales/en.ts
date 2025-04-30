@@ -61,6 +61,7 @@ const translations = {
   'visualizations.legend.accretion': 'Accretion Disk',
   'visualizations.legend.horizon': 'Event Horizon',
   'visualizations.legend.torsion': 'Torsion Zone',
+  'visualizations.interactive.close': 'Close',
   
   // About Section
   'about.title.1': 'About',
