@@ -207,7 +207,13 @@ export default function BlackHoleModel() {
           aria-labelledby={`region-title-${activeRegion}`}
         >
           <div 
-            className={`bg-background p-5 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-400 ease-out ${showInfo ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 -translate-y-4'}`}
+            className={`relative bg-background p-5 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-400 ease-out dark:border ${
+              activeRegion === 'accretion-disk' 
+                ? 'dark:border-cosmic-blue/40 dark:shadow-[0_0_25px_rgba(59,130,246,0.3),0_0_10px_rgba(59,130,246,0.1)] dark:bg-gradient-to-br dark:from-background dark:to-cosmic-blue/5' 
+                : activeRegion === 'event-horizon'
+                ? 'dark:border-cosmic-purple/40 dark:shadow-[0_0_25px_rgba(139,92,246,0.3),0_0_10px_rgba(139,92,246,0.1)] dark:bg-gradient-to-br dark:from-background dark:to-cosmic-purple/5'
+                : 'dark:border-cosmic-pink/40 dark:shadow-[0_0_25px_rgba(236,72,153,0.3),0_0_10px_rgba(236,72,153,0.1)] dark:bg-gradient-to-br dark:from-background dark:to-cosmic-pink/5'
+            } ${showInfo ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 -translate-y-4'}`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
