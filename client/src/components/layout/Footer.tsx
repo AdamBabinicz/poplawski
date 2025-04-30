@@ -22,16 +22,16 @@ export default function Footer() {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="Twitter">
+              <a href="#" rel="noopener noreferrer" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="Twitter">
                 <i className='bx bxl-twitter text-xl'></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="Facebook">
+              <a href="#" rel="noopener noreferrer" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="Facebook">
                 <i className='bx bxl-facebook text-xl'></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="YouTube">
+              <a href="#" rel="noopener noreferrer" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="YouTube">
                 <i className='bx bxl-youtube text-xl'></i>
               </a>
-              <a href="#" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="GitHub">
+              <a href="#" rel="noopener noreferrer" className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition" aria-label="GitHub">
                 <i className='bx bxl-github text-xl'></i>
               </a>
             </div>
@@ -64,9 +64,9 @@ export default function Footer() {
           </p>
           
           <div className="flex space-x-6 order-1 sm:order-2">
-            <a href="#" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.privacy')}</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.terms')}</a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.contact')}</a>
+            <a href="#" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.privacy')}</a>
+            <a href="#" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.terms')}</a>
+            <a href="#" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.contact')}</a>
           </div>
         </div>
       </div>

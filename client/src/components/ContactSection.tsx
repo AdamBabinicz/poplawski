@@ -51,13 +51,13 @@ export default function ContactSection() {
                 </div>
                 
                 <div className="mt-8 flex space-x-4">
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="Twitter">
+                  <a href="#" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="Twitter">
                     <i className='bx bxl-twitter text-white'></i>
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="Facebook">
+                  <a href="#" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="Facebook">
                     <i className='bx bxl-facebook text-white'></i>
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="YouTube">
+                  <a href="#" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition" aria-label="YouTube">
                     <i className='bx bxl-youtube text-white'></i>
                   </a>
                 </div>
