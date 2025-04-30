@@ -44,38 +44,40 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" onClick={closeMobileMenu}>
-            <a className="flex items-center">
-              <BlackHoleLogo className="mr-2" />
-              <span className="font-display font-bold text-xl tracking-tight">
-                <span className="text-cosmic-blue">{t('navbar.universe')}</span> 
-                <span className="text-foreground">{t('navbar.in')}</span> 
-                <span className="text-cosmic-purple">{t('navbar.blackHole')}</span>
-              </span>
-            </a>
-          </Link>
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">{t('navbar.universe')}</span> 
+                  <span className="text-foreground">{t('navbar.in')}</span> 
+                  <span className="text-cosmic-purple">{t('navbar.blackHole')}</span>
+                </span>
+              </div>
+            </Link>
+          </div>
           
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/">
-              <a className={`font-medium ${isActive('/') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
+              <div className={`font-medium ${isActive('/') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
                 {t('navbar.home')}
-              </a>
+              </div>
             </Link>
             <Link href="/theory">
-              <a className={`font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
+              <div className={`font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
                 {t('navbar.theory')}
-              </a>
+              </div>
             </Link>
             <Link href="/visualizations">
-              <a className={`font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
+              <div className={`font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
                 {t('navbar.visualizations')}
-              </a>
+              </div>
             </Link>
             <Link href="/about">
-              <a className={`font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
+              <div className={`font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
                 {t('navbar.about')}
-              </a>
+              </div>
             </Link>
           </nav>
           
@@ -104,26 +106,34 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
-            <Link href="/">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`} onClick={closeMobileMenu}>
-                {t('navbar.home')}
-              </a>
-            </Link>
-            <Link href="/theory">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`} onClick={closeMobileMenu}>
-                {t('navbar.theory')}
-              </a>
-            </Link>
-            <Link href="/visualizations">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`} onClick={closeMobileMenu}>
-                {t('navbar.visualizations')}
-              </a>
-            </Link>
-            <Link href="/about">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`} onClick={closeMobileMenu}>
-                {t('navbar.about')}
-              </a>
-            </Link>
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
+                  {t('navbar.home')}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/theory">
+                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
+                  {t('navbar.theory')}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/visualizations">
+                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
+                  {t('navbar.visualizations')}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/about">
+                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
+                  {t('navbar.about')}
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       )}
