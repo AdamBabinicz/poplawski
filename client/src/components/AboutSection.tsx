@@ -72,10 +72,11 @@ export default function AboutSection() {
                     {t('about.website')}
                   </a>
                   <a 
-                    href="https://scholar.google.com/citations?user=9LnqIJsAAAAJ" 
+                    href="https://www.newhaven.edu/news/blog/2020/nikodem-poplawski-research.php" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    title="Zobacz publikacje naukowe i badania Dr. Popławskiego"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="mr-2" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
