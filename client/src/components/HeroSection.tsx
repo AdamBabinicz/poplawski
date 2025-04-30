@@ -44,8 +44,12 @@ export default function HeroSection() {
             <div className="relative w-full max-w-lg aspect-square animate-float">
               <img 
                 src={blackHoleModelImage} 
-                alt="Black hole visualization" 
+                alt="Black hole visualization with torsion preventing singularity" 
                 className="w-full h-full object-cover rounded-full shadow-[0_0_50px_rgba(59,130,246,0.5)]" 
+                loading="eager"
+                width={500}
+                height={500}
+                // Removed fetchPriority since it's causing issues in this implementation
               />
               
               {/* Annotation lines */}
