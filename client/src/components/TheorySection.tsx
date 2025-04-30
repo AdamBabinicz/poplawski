@@ -1,8 +1,12 @@
 import { useTranslations } from '@/hooks/use-translations';
-import theoryStepsImage from '@/assets/images/theory-steps.png';
-import accretionDiskImage from '@/assets/images/accretion-disk.png';
-import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
-import blackHoleModelImage from '@/assets/images/black-hole-model.png';
+import theoryStepsImage from '@/assets/images/theory-steps.webp';
+import accretionDiskImage from '@/assets/images/accretion-disk.webp';
+import torsionPhysicsImage from '@/assets/images/torsion-physics.webp';
+import blackHoleModelImage from '@/assets/images/black-hole-model.webp';
+import step1Image from '@/assets/images/step1.webp';
+import step2Image from '@/assets/images/step2.webp';
+import step3Image from '@/assets/images/step3.webp';
+import step4Image from '@/assets/images/step4.webp';
 
 interface TheoryStep {
   number: string;
