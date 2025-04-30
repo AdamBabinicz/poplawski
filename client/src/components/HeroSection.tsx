@@ -17,8 +17,11 @@ export default function HeroSection() {
           <div className="space-y-6 max-w-2xl">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
               <span className="block text-gray-900 dark:text-white drop-shadow-sm">{t('hero.title.1')}</span>
-              <span className="block hero-text-outline dark:hero-text-outline-dark text-7xl md:text-8xl -mt-2">{t('hero.title.2')}</span>
-              <span className="bg-clip-text text-transparent bg-cosmic-gradient">{t('hero.title.3')}</span>
+              <div className="flex items-baseline gap-x-2 flex-wrap">
+                <span className="hero-text-outline dark:hero-text-outline-dark text-7xl md:text-8xl -mt-2">{t('hero.title.2')}</span>
+                <span className="text-gray-700 dark:text-gray-300 text-2xl md:text-4xl self-end mb-2">...</span>
+                <span className="bg-clip-text text-transparent bg-cosmic-gradient text-5xl md:text-6xl">{t('hero.title.3')}</span>
+              </div>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
               {t('hero.description')}
