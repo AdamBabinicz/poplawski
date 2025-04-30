@@ -32,7 +32,7 @@ export default function HeroSection() {
               </button>
               <button
                 onClick={() => scrollToElement('visualizations')}
-                className="px-6 py-3 bg-transparent border border-cosmic-blue dark:border-cosmic-purple text-foreground font-medium rounded-lg hover:bg-cosmic-blue/10 dark:hover:bg-cosmic-purple/10 transition"
+                className="px-6 py-3 bg-transparent border border-cosmic-blue dark:border-cosmic-purple text-foreground dark:text-white font-medium rounded-lg hover:bg-cosmic-blue/10 dark:hover:bg-cosmic-purple/10 transition"
               >
                 {t('hero.visualizationsButton')}
               </button>
