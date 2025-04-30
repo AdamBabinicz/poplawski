@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://universe-in-black-hole.replit.app/sitemap.xml
