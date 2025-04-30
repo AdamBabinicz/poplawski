@@ -120,25 +120,43 @@ export default function BlackHoleModel() {
         
         {/* Interaktywne punkty */}
         <button 
-          className="absolute top-[25%] left-[15%] w-10 h-10 rounded-full bg-cosmic-blue/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-blue/80 transition-all z-20"
+          className="absolute top-[25%] left-[15%] w-12 h-12 rounded-full bg-cosmic-blue/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-blue/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
           onClick={() => handleRegionClick('accretion-disk')}
           aria-label={t('visualizations.legend.accretion')}
+          title={t('visualizations.legend.accretion')}
         >
           <span className="sr-only">{t('visualizations.legend.accretion')}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" />
+            <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M12 16V16.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
         <button 
-          className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cosmic-purple/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-purple/80 transition-all z-20"
+          className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cosmic-purple/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-purple/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
           onClick={() => handleRegionClick('event-horizon')}
           aria-label={t('visualizations.legend.horizon')}
+          title={t('visualizations.legend.horizon')}
         >
           <span className="sr-only">{t('visualizations.legend.horizon')}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" />
+            <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M12 16V16.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
         <button 
-          className="absolute bottom-[30%] right-[20%] w-10 h-10 rounded-full bg-cosmic-pink/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-pink/80 transition-all z-20"
+          className="absolute bottom-[30%] right-[20%] w-12 h-12 rounded-full bg-cosmic-pink/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-pink/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
           onClick={() => handleRegionClick('torsion-zone')}
           aria-label={t('visualizations.legend.torsion')}
+          title={t('visualizations.legend.torsion')}
         >
           <span className="sr-only">{t('visualizations.legend.torsion')}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" />
+            <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M12 16V16.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
         </button>
       </div>
       
@@ -159,10 +177,19 @@ export default function BlackHoleModel() {
       </div>
       
       {/* Instrukcja */}
-      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-background/50 px-3 py-1 rounded-full text-sm text-center">
-        {currentLanguage === 'en' 
-          ? 'Click on the colored dots to learn more' 
-          : 'Kliknij w kolorowe punkty, aby dowiedzieć się więcej'}
+      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-background/70 px-4 py-2 rounded-lg text-sm text-center shadow-md border border-border backdrop-blur-sm">
+        <div className="flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 text-cosmic-purple">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" />
+            <path d="M12 16.01L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M12 12L12 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+          <span className="font-medium">
+            {currentLanguage === 'en' 
+              ? 'Click on the colored markers to explore' 
+              : 'Kliknij w kolorowe znaczniki, aby eksplorować'}
+          </span>
+        </div>
       </div>
       
       {/* Panel informacyjny - wyświetlany po kliknięciu punktu */}
