@@ -10,7 +10,10 @@ export default function AboutSection() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
-              {t('about.title.1')} <span className="bg-clip-text text-transparent bg-cosmic-gradient">{t('about.title.2')}</span>
+              {t('about.title.1')} <span className="relative inline-block">
+                <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                <span className="relative z-10 text-white px-2 py-1 rounded-md">{t('about.title.2')}</span>
+              </span>
             </h2>
             <p className="text-lg text-muted-foreground">
               {t('about.description')}
@@ -104,7 +107,10 @@ export default function AboutSection() {
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-display text-3xl font-bold tracking-tight mb-4">
-                Przełomowa Teoria <span className="bg-clip-text text-transparent bg-cosmic-gradient">Wszechświata w Czarnej Dziurze</span>
+                Przełomowa Teoria <span className="relative inline-block">
+                  <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                  <span className="relative z-10 text-white px-2 py-1 rounded-md">Wszechświata w Czarnej Dziurze</span>
+                </span>
               </h2>
               <p className="text-muted-foreground">
                 Na podstawie informacji z <a href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php" target="_blank" rel="noopener noreferrer" className="text-cosmic-blue dark:text-cosmic-purple hover:underline">oficjalnej strony Uniwersytetu New Haven</a>

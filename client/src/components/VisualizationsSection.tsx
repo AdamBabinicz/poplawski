@@ -37,7 +37,10 @@ export default function VisualizationsSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
-            <span className="bg-clip-text text-transparent bg-cosmic-gradient">{t('visualizations.title.1')}</span> {t('visualizations.title.2')}
+            <span className="relative inline-block">
+              <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+              <span className="relative z-10 text-white px-2 py-1 rounded-md">{t('visualizations.title.1')}</span>
+            </span> {t('visualizations.title.2')}
           </h2>
           <p className="text-lg text-muted-foreground">
             {t('visualizations.description')}
