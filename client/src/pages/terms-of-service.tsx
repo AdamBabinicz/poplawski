@@ -14,11 +14,11 @@ export default function TermsOfService() {
     
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-display text-4xl font-bold mb-8 text-center">
+          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
             {currentLanguage === 'en' ? 'Terms of Service' : 'Warunki Usługi'}
           </h1>
           
-          <div className="prose prose-lg dark:prose-invert mx-auto">
+          <div className="prose prose-sm sm:prose-base dark:prose-invert mx-auto">
             <p className="text-muted-foreground mb-8 text-center">
               {currentLanguage === 'en' 
                 ? 'Last updated: April 30, 2024' 

@@ -27,7 +27,7 @@ export default function ContactAdmin() {
     
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-display text-4xl font-bold mb-8 text-center">
+          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
             {currentLanguage === 'en' ? 'Contact Administrator' : 'Kontakt z Administratorem'}
           </h1>
           
@@ -160,7 +160,7 @@ export default function ContactAdmin() {
               )}
               
               <div className="mt-8 border-t border-border pt-8">
-                <h2 className="text-xl font-display font-semibold mb-4 text-center">
+                <h2 className="text-lg sm:text-xl font-display font-semibold mb-4 text-center">
                   {currentLanguage === 'en' ? 'Other Contact Options' : 'Inne Opcje Kontaktu'}
                 </h2>
                 
