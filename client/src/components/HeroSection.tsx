@@ -16,7 +16,7 @@ export default function HeroSection() {
           {/* Text Content */}
           <div className="space-y-6 max-w-2xl">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
-              <span className="block">{t('hero.title.1')}</span>
+              <span className="block text-gray-800 dark:text-white">{t('hero.title.1')}</span>
               <span className="block hero-text-outline text-7xl md:text-8xl -mt-2">{t('hero.title.2')}</span>
               <span className="bg-clip-text text-transparent bg-cosmic-gradient">{t('hero.title.3')}</span>
             </h1>
