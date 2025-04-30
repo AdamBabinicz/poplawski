@@ -3,6 +3,7 @@ import { useTranslations } from '@/hooks/use-translations';
 import universeFormationImage from '@/assets/images/universe-formation.webp';
 import matterFallingImage from '@/assets/images/matter-falling.webp';
 import torsionEffectImage from '@/assets/images/torsion-effect.webp';
+import nestedUniversesImage from '@/assets/images/nested-universes.webp';
 
 // Definiowanie regionów czarnej dziury
 type Region = 'accretion-disk' | 'event-horizon' | 'torsion-zone';
@@ -40,7 +41,7 @@ export default function BlackHoleModel() {
           description: currentLanguage === 'en' 
             ? 'The point of no return in spacetime, where gravity is so strong that not even light can escape. According to Dr. Popławski, this boundary marks where our parent universe ends and our universe begins.'
             : 'Punkt bez powrotu w czasoprzestrzeni, gdzie grawitacja jest tak silna, że nawet światło nie może uciec. Według dr Popławskiego ta granica wyznacza miejsce, gdzie kończy się nasz wszechświat macierzysty i zaczyna nasz wszechświat.',
-          image: universeFormationImage,
+          image: nestedUniversesImage,
           color: 'cosmic-purple',
           bgColor: 'bg-cosmic-purple',
           textColor: 'text-cosmic-purple'

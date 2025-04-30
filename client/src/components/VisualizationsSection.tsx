@@ -2,7 +2,7 @@ import { useTranslations } from '@/hooks/use-translations';
 import BlackHoleModel from './animations/BlackHoleModel';
 import matterFallingImage from '@/assets/images/matter-falling.webp';
 import torsionEffectImage from '@/assets/images/torsion-effect.webp';
-import bigBounceImage from '@/assets/images/big-bounce.webp';
+import nestedUniversesImage from '@/assets/images/nested-universes.webp';
 import universeFormationImage from '@/assets/images/universe-formation.webp';
 
 interface GalleryItem {
@@ -26,7 +26,7 @@ export default function VisualizationsSection() {
       description: t('visualizations.item2.description')
     },
     {
-      image: universeFormationImage,
+      image: nestedUniversesImage,
       title: t('visualizations.item3.title'),
       description: t('visualizations.item3.description')
     }
