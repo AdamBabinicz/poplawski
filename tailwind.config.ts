@@ -100,5 +100,27 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("@tailwindcss/typography"),
+    function({ addUtilities }) {
+      addUtilities({
+        '.text-shadow': {
+          textShadow: '0.05rem 0.05rem 0.05rem rgba(0,0,0,0.21)',
+        },
+        '.text-shadow-sm': {
+          textShadow: '0.05rem 0.05rem 0.03rem rgba(0,0,0,0.1)',
+        },
+        '.text-shadow-md': {
+          textShadow: '0.08rem 0.08rem 0.08rem rgba(0,0,0,0.3)',
+        },
+        '.text-shadow-lg': {
+          textShadow: '0.1rem 0.1rem 0.1rem rgba(0,0,0,0.4)',
+        },
+        '.text-shadow-none': {
+          textShadow: 'none',
+        },
+      });
+    }
+  ],
 } satisfies Config;

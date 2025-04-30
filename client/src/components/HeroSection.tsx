@@ -22,7 +22,7 @@ export default function HeroSection() {
               </div>
               <div className="relative mt-3 inline-block">
                 <div className="absolute inset-0 bg-cosmic-gradient rounded-lg blur-sm opacity-70"></div>
-                <span className="relative text-white text-5xl md:text-6xl z-10 pl-3 pr-5 py-2 rounded-lg block">
+                <span className="relative text-white text-5xl md:text-6xl z-10 pl-3 pr-5 py-2 rounded-lg block text-shadow">
                   <span className="text-gray-200/80 text-2xl md:text-4xl mr-1">...</span> {t('hero.title.3')}
                 </span>
               </div>

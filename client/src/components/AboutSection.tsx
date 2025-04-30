@@ -12,7 +12,7 @@ export default function AboutSection() {
             <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
               {t('about.title.1')} <span className="relative inline-block">
                 <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
-                <span className="relative z-10 text-white px-2 py-1 rounded-md">{t('about.title.2')}</span>
+                <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">{t('about.title.2')}</span>
               </span>
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -109,7 +109,7 @@ export default function AboutSection() {
               <h2 className="font-display text-3xl font-bold tracking-tight mb-4">
                 Przełomowa Teoria <span className="relative inline-block">
                   <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
-                  <span className="relative z-10 text-white px-2 py-1 rounded-md">Wszechświata w Czarnej Dziurze</span>
+                  <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">Wszechświata w Czarnej Dziurze</span>
                 </span>
               </h2>
               <p className="text-muted-foreground">
