@@ -60,7 +60,7 @@ export default function AboutSection() {
                 
                 <div className="flex flex-wrap gap-3">
                   <a 
-                    href="https://www.nikodempoplawski.com/" 
+                    href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
@@ -72,7 +72,7 @@ export default function AboutSection() {
                     {t('about.website')}
                   </a>
                   <a 
-                    href="https://www.nikodempoplawski.com/publications.html" 
+                    href="https://scholar.google.com/citations?user=9LnqIJsAAAAJ" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
@@ -84,7 +84,7 @@ export default function AboutSection() {
                     {t('about.scholar')}
                   </a>
                   <a 
-                    href="https://www.nikodempoplawski.com/presentations.html" 
+                    href="https://www.youtube.com/watch?v=9NTpFlU4dY8" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"

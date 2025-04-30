@@ -15,7 +15,7 @@ export default function Theory() {
     "author": {
       "@type": "Person",
       "name": "Dr. Nikodem Popławski",
-      "url": "https://www.nikodempoplawski.com/"
+      "url": "https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
     },
     "publisher": {
       "@type": "Organization",
