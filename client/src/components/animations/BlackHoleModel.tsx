@@ -120,7 +120,7 @@ export default function BlackHoleModel() {
         
         {/* Interaktywne punkty */}
         <button 
-          className="absolute top-[25%] left-[15%] w-12 h-12 rounded-full bg-cosmic-blue/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-blue/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
+          className="absolute top-[25%] left-[15%] w-12 h-12 rounded-full bg-cosmic-blue/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-blue/90 transition-all z-20 flex items-center justify-center border-2 border-white/70 hover:border-white shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cosmic-blue"
           onClick={() => handleRegionClick('accretion-disk')}
           aria-label={t('visualizations.legend.accretion')}
           title={t('visualizations.legend.accretion')}
@@ -133,7 +133,7 @@ export default function BlackHoleModel() {
           </svg>
         </button>
         <button 
-          className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cosmic-purple/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-purple/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
+          className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-cosmic-purple/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-purple/90 transition-all z-20 flex items-center justify-center border-2 border-white/70 hover:border-white shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cosmic-purple"
           onClick={() => handleRegionClick('event-horizon')}
           aria-label={t('visualizations.legend.horizon')}
           title={t('visualizations.legend.horizon')}
@@ -146,7 +146,7 @@ export default function BlackHoleModel() {
           </svg>
         </button>
         <button 
-          className="absolute bottom-[30%] right-[20%] w-12 h-12 rounded-full bg-cosmic-pink/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-pink/90 transition-all z-20 flex items-center justify-center border-2 border-white/50 hover:border-white shadow-lg"
+          className="absolute bottom-[30%] right-[20%] w-12 h-12 rounded-full bg-cosmic-pink/60 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-pink/90 transition-all z-20 flex items-center justify-center border-2 border-white/70 hover:border-white shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-cosmic-pink"
           onClick={() => handleRegionClick('torsion-zone')}
           aria-label={t('visualizations.legend.torsion')}
           title={t('visualizations.legend.torsion')}
@@ -197,18 +197,25 @@ export default function BlackHoleModel() {
         <div 
           className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 transition-opacity ${showInfo ? 'opacity-100' : 'opacity-0'}`}
           onClick={closeInfoPanel}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={`region-title-${activeRegion}`}
         >
           <div 
             className={`bg-background p-5 rounded-xl shadow-2xl max-w-md w-full mx-4 transform transition-all duration-300 ${showInfo ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className={`text-lg font-bold ${getRegionInfo(activeRegion).textColor}`}>
+              <h3 
+                id={`region-title-${activeRegion}`}
+                className={`text-lg font-bold ${getRegionInfo(activeRegion).textColor}`}
+              >
                 {getRegionInfo(activeRegion).title}
               </h3>
               <button 
                 onClick={closeInfoPanel}
-                className="p-1 hover:bg-muted rounded-full"
+                className="p-1 hover:bg-muted rounded-full focus:outline-none focus:ring-2 focus:ring-cosmic-purple"
+                aria-label={currentLanguage === 'en' ? 'Close dialog' : 'Zamknij okno dialogowe'}
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -222,6 +229,8 @@ export default function BlackHoleModel() {
                 src={getRegionInfo(activeRegion).image} 
                 alt={getRegionInfo(activeRegion).title} 
                 className="w-full h-48 object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             
@@ -231,7 +240,14 @@ export default function BlackHoleModel() {
             
             <button
               onClick={closeInfoPanel}
-              className={`${getRegionInfo(activeRegion).bgColor} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity w-full`}
+              className={`${getRegionInfo(activeRegion).bgColor} text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity w-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 ${
+                getRegionInfo(activeRegion).color === 'cosmic-blue' 
+                  ? 'focus:ring-offset-cosmic-blue'
+                  : getRegionInfo(activeRegion).color === 'cosmic-purple'
+                  ? 'focus:ring-offset-cosmic-purple'
+                  : 'focus:ring-offset-cosmic-pink'
+              }`}
+              aria-label={currentLanguage === 'en' ? 'Close dialog' : 'Zamknij okno dialogowe'}
             >
               {currentLanguage === 'en' ? 'Close' : 'Zamknij'}
             </button>
