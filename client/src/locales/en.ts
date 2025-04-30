@@ -88,8 +88,8 @@ const translations = {
   'contact.subscribe.description': 'Join our newsletter to receive updates on new research and developments in black hole cosmology.',
   'contact.form.name': 'Name',
   'contact.form.email': 'Email',
-  'contact.form.consent': 'I\'m interested in receiving occasional updates about new research',
-  'contact.form.button': 'Subscribe',
+  'contact.form.message': 'Your message',
+  'contact.form.submit': 'Send message',
   
   // Footer
   'footer.description': 'Exploring Dr. Nikodem Popławski\'s groundbreaking theory that proposes our universe may exist inside a black hole.',

@@ -88,8 +88,8 @@ const translations = {
   'contact.subscribe.description': 'Dołącz do naszego newslettera, aby otrzymywać aktualizacje o nowych badaniach i odkryciach w kosmologii czarnych dziur.',
   'contact.form.name': 'Imię',
   'contact.form.email': 'Email',
-  'contact.form.consent': 'Jestem zainteresowany/a otrzymywaniem okazjonalnych aktualizacji o nowych badaniach',
-  'contact.form.button': 'Subskrybuj',
+  'contact.form.message': 'Twoja wiadomość',
+  'contact.form.submit': 'Wyślij wiadomość',
   
   // Footer
   'footer.description': 'Eksploracja przełomowej teorii dr Nikodema Popławskiego sugerującej, że nasz wszechświat może istnieć wewnątrz czarnej dziury.',

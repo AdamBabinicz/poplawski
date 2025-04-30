@@ -71,17 +71,17 @@ export default function BlackHoleModel() {
         
         {/* Hotspots */}
         <button 
-          className="absolute top-[25%] left-[15%] w-5 h-5 rounded-full bg-cosmic-blue/50 animate-cosmic-pulse cursor-pointer"
+          className="absolute top-[25%] left-[15%] w-8 h-8 rounded-full bg-cosmic-blue/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-blue/80 transition-all z-20"
           onClick={() => handleRegionClick('accretion-disk')}
           aria-label={t('visualizations.legend.accretion')}
         />
         <button 
-          className="absolute top-[50%] left-[50%] w-5 h-5 rounded-full bg-cosmic-purple/50 animate-cosmic-pulse cursor-pointer"
+          className="absolute top-[50%] left-[50%] w-8 h-8 rounded-full bg-cosmic-purple/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-purple/80 transition-all z-20"
           onClick={() => handleRegionClick('event-horizon')}
           aria-label={t('visualizations.legend.horizon')}
         />
         <button 
-          className="absolute bottom-[30%] right-[20%] w-5 h-5 rounded-full bg-cosmic-pink/50 animate-cosmic-pulse cursor-pointer"
+          className="absolute bottom-[30%] right-[20%] w-8 h-8 rounded-full bg-cosmic-pink/50 animate-cosmic-pulse cursor-pointer hover:bg-cosmic-pink/80 transition-all z-20"
           onClick={() => handleRegionClick('torsion-zone')}
           aria-label={t('visualizations.legend.torsion')}
         />
@@ -107,7 +107,11 @@ export default function BlackHoleModel() {
       {activeRegion && (
         <div className="absolute top-4 left-4 bg-background/95 p-4 rounded-lg shadow-lg text-sm max-w-sm border border-border transform transition-all duration-300 animate-fade-in">
           <div className="flex items-center justify-between mb-3">
-            <h4 className={`font-display font-semibold text-${getRegionInfo(activeRegion).color}`}>
+            <h4 className={`font-display font-semibold ${getRegionInfo(activeRegion).color === 'cosmic-blue' 
+                  ? 'text-cosmic-blue' 
+                  : getRegionInfo(activeRegion).color === 'cosmic-purple'
+                  ? 'text-cosmic-purple'
+                  : 'text-cosmic-pink'}`}>
               {getRegionInfo(activeRegion).title}
             </h4>
             <button 
@@ -134,7 +138,13 @@ export default function BlackHoleModel() {
           <div className="mt-3 pt-2 border-t border-border">
             <button
               onClick={() => setActiveRegion(null)}
-              className={`px-3 py-1.5 rounded text-white text-xs font-medium bg-${getRegionInfo(activeRegion).color} hover:opacity-90 transition-opacity`}
+              className={`px-3 py-1.5 rounded text-white text-xs font-medium 
+                ${getRegionInfo(activeRegion).color === 'cosmic-blue' 
+                  ? 'bg-cosmic-blue' 
+                  : getRegionInfo(activeRegion).color === 'cosmic-purple'
+                  ? 'bg-cosmic-purple'
+                  : 'bg-cosmic-pink'} 
+                hover:opacity-90 transition-opacity`}
             >
               {currentLanguage === 'en' ? 'Close' : 'Zamknij'}
             </button>

@@ -50,17 +50,17 @@ export default function Footer() {
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.papers')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.educational')}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.press')}</a></li>
+              <li><a href="https://arxiv.org/abs/1410.3881" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.papers')}</a></li>
+              <li><a href="https://www.youtube.com/watch?v=ijpEd1qHBkg" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.lectures')}</a></li>
+              <li><a href="https://www.insidescience.org/news/every-black-hole-contains-new-universe" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.educational')}</a></li>
+              <li><a href="https://www.sciencedaily.com/releases/2010/04/100409092640.htm" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.press')}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm order-2 sm:order-1 mt-4 sm:mt-0">
-            © 2023 {t('footer.copyright')}
+            © 2024 {t('footer.copyright')}
           </p>
           
           <div className="flex space-x-6 order-1 sm:order-2">

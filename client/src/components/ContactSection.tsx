@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslations } from '@/hooks/use-translations';
 
 export default function ContactSection() {
-  const { t } = useTranslations();
+  const { t, currentLanguage } = useTranslations();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [consent, setConsent] = useState(false);
@@ -69,70 +69,68 @@ export default function ContactSection() {
             </div>
             
             <div className="md:w-1/2 p-8">
-              <h3 className="font-display text-2xl font-bold mb-6">{t('contact.subscribe.title')}</h3>
+              <h3 className="font-display text-2xl font-bold mb-6">{t('contact.title')}</h3>
               
-              {isSubmitted ? (
-                <div className="bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 p-4 rounded-lg">
-                  <p>Thank you for subscribing! We'll keep you updated on the latest developments.</p>
+              <p className="text-muted-foreground mb-6">
+                {t('contact.description')}
+              </p>
+              
+              {/* Netlify Form */}
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                className="space-y-4"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden field for Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+                
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.name')}</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
+                  />
                 </div>
-              ) : (
-                <>
-                  <p className="text-muted-foreground mb-6">
-                    {t('contact.subscribe.description')}
-                  </p>
-                  
-                  <form className="space-y-4" onSubmit={handleSubmit}>
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.name')}</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.email')}</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="flex items-center">
-                        <input 
-                          type="checkbox" 
-                          checked={consent}
-                          onChange={(e) => setConsent(e.target.checked)}
-                          required
-                          className="rounded text-cosmic-blue focus:ring-cosmic-blue dark:text-cosmic-purple dark:focus:ring-cosmic-purple h-4 w-4" 
-                        />
-                        <span className="ml-2 text-sm text-muted-foreground">
-                          {t('contact.form.consent')}
-                        </span>
-                      </label>
-                    </div>
-                    
-                    <button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full bg-cosmic-gradient text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1 disabled:opacity-70 disabled:transform-none"
-                    >
-                      {isSubmitting ? 'Submitting...' : t('contact.form.button')}
-                    </button>
-                  </form>
-                </>
-              )}
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.email')}</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">{currentLanguage === 'en' ? 'Your message' : 'Twoja wiadomość'}</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows={4}
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition resize-none" 
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  className="w-full bg-cosmic-gradient text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1"
+                >
+                  {currentLanguage === 'en' ? 'Send message' : 'Wyślij wiadomość'}
+                </button>
+              </form>
             </div>
           </div>
         </div>
