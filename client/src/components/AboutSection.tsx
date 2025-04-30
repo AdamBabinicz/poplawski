@@ -60,7 +60,7 @@ export default function AboutSection() {
                 
                 <div className="flex flex-wrap gap-3">
                   <a 
-                    href="https://poplawski.physics.slu.edu/" 
+                    href="https://www.nikodempoplawski.com/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
@@ -72,18 +72,19 @@ export default function AboutSection() {
                     {t('about.website')}
                   </a>
                   <a 
-                    href="https://scholar.google.com/citations?user=9LnqIJsAAAAJ" 
+                    href="https://www.nikodempoplawski.com/publications.html" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-2" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="mr-2" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+                      <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
                     </svg>
                     {t('about.scholar')}
                   </a>
                   <a 
-                    href="https://www.youtube.com/watch?v=tjl0bP7gVVA" 
+                    href="https://www.nikodempoplawski.com/presentations.html" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"

@@ -15,7 +15,7 @@ export default function Theory() {
     "author": {
       "@type": "Person",
       "name": "Dr. Nikodem Popławski",
-      "url": "https://poplawski.physics.slu.edu/"
+      "url": "https://www.nikodempoplawski.com/"
     },
     "publisher": {
       "@type": "Organization",
