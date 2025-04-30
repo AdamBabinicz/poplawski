@@ -1,0 +1,106 @@
+import { useState } from 'react';
+import { useTranslations } from '@/hooks/use-translations';
+
+type Region = 'accretion-disk' | 'event-horizon' | 'torsion-zone';
+
+export default function BlackHoleModel() {
+  const { t } = useTranslations();
+  const [activeRegion, setActiveRegion] = useState<Region | null>(null);
+  
+  const handleRegionClick = (region: Region) => {
+    setActiveRegion(region === activeRegion ? null : region);
+  };
+  
+  const getRegionInfo = (region: Region) => {
+    switch(region) {
+      case 'accretion-disk':
+        return {
+          title: t('visualizations.legend.accretion'),
+          description: t('visualizations.item1.description')
+        };
+      case 'event-horizon':
+        return {
+          title: t('visualizations.legend.horizon'),
+          description: 'The point of no return in spacetime, where gravity is so strong that not even light can escape. According to Dr. Popławski, this boundary marks where our parent universe ends and our universe begins.'
+        };
+      case 'torsion-zone':
+        return {
+          title: t('visualizations.legend.torsion'),
+          description: t('visualizations.item2.description')
+        };
+      default:
+        return { title: '', description: '' };
+    }
+  };
+  
+  return (
+    <div className="p-6 aspect-video bg-gray-50 dark:bg-gray-900 relative flex items-center justify-center">
+      <div className="relative w-full max-w-md aspect-square">
+        {/* Black hole visualization */}
+        <div className="absolute inset-[35%] rounded-full bg-black shadow-[0_0_30px_rgba(0,0,0,0.8)]"></div>
+        
+        {/* Accretion disk */}
+        <div className="absolute inset-[10%] rounded-full accretion-disk animate-rotate-slow" style={{ clipPath: 'circle(90% at center)' }}></div>
+        
+        {/* Central black hole */}
+        <div className="absolute inset-[34%] rounded-full bg-black z-10"></div>
+        
+        {/* Torsion lines */}
+        <svg className="absolute inset-0" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="torsionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3B82F6" />
+              <stop offset="50%" stopColor="#8B5CF6" />
+              <stop offset="100%" stopColor="#EC4899" />
+            </linearGradient>
+          </defs>
+          
+          <path d="M 50,0 Q 50,50 50,100" fill="none" stroke="url(#torsionGradient)" strokeWidth="0.5" className="torsion-line" />
+          <path d="M 30,0 Q 30,50 30,100" fill="none" stroke="url(#torsionGradient)" strokeWidth="0.5" className="torsion-line" style={{ animationDelay: '0.5s' }} />
+          <path d="M 70,0 Q 70,50 70,100" fill="none" stroke="url(#torsionGradient)" strokeWidth="0.5" className="torsion-line" style={{ animationDelay: '1s' }} />
+        </svg>
+        
+        {/* Hotspots */}
+        <button 
+          className="absolute top-[25%] left-[15%] w-5 h-5 rounded-full bg-cosmic-blue/50 animate-cosmic-pulse cursor-pointer"
+          onClick={() => handleRegionClick('accretion-disk')}
+          aria-label={t('visualizations.legend.accretion')}
+        />
+        <button 
+          className="absolute top-[50%] left-[50%] w-5 h-5 rounded-full bg-cosmic-purple/50 animate-cosmic-pulse cursor-pointer"
+          onClick={() => handleRegionClick('event-horizon')}
+          aria-label={t('visualizations.legend.horizon')}
+        />
+        <button 
+          className="absolute bottom-[30%] right-[20%] w-5 h-5 rounded-full bg-cosmic-pink/50 animate-cosmic-pulse cursor-pointer"
+          onClick={() => handleRegionClick('torsion-zone')}
+          aria-label={t('visualizations.legend.torsion')}
+        />
+      </div>
+      
+      {/* Legend */}
+      <div className="absolute bottom-4 right-4 bg-background/90 p-3 rounded-lg shadow-lg text-sm">
+        <div className="flex items-center mb-2">
+          <div className="w-3 h-3 rounded-full bg-cosmic-blue mr-2"></div>
+          <span>{t('visualizations.legend.accretion')}</span>
+        </div>
+        <div className="flex items-center mb-2">
+          <div className="w-3 h-3 rounded-full bg-cosmic-purple mr-2"></div>
+          <span>{t('visualizations.legend.horizon')}</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-3 h-3 rounded-full bg-cosmic-pink mr-2"></div>
+          <span>{t('visualizations.legend.torsion')}</span>
+        </div>
+      </div>
+      
+      {/* Region info popup */}
+      {activeRegion && (
+        <div className="absolute bottom-4 left-4 bg-background/90 p-4 rounded-lg shadow-lg text-sm max-w-xs">
+          <h4 className="font-display font-semibold mb-2">{getRegionInfo(activeRegion).title}</h4>
+          <p className="text-muted-foreground">{getRegionInfo(activeRegion).description}</p>
+        </div>
+      )}
+    </div>
+  );
+}

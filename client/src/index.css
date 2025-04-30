@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Custom cosmic colors */
+  --cosmic-blue: 221 90% 54%;
+  --cosmic-purple: 264 78% 64%;
+  --cosmic-pink: 330 81% 60%;
+  --cosmic-orange: 21 90% 52%;
+  --cosmic-accent: 199 92% 56%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom styles */
+.cosmos-bg {
+  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, rgba(31, 41, 55, 0) 70%), 
+                    linear-gradient(to bottom, rgb(17, 24, 39), rgb(9, 9, 11));
+}
+
+.accretion-disk {
+  background: conic-gradient(
+    from 0deg,
+    #F97316, #EC4899, #8B5CF6, #3B82F6, #F97316
+  );
+  box-shadow: 0 0 50px rgba(236, 72, 153, 0.3);
+}
+
+.cosmic-particle {
+  background-color: white;
+  width: 2px;
+  height: 2px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.torsion-line {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 0;
+  animation: dash 3s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 80;
+  }
+}
+
+.hero-text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.animate-cosmic-pulse {
+  animation: cosmic-pulse 8s ease infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate 15s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.bg-cosmic-gradient {
+  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-cosmic-gradient;
+}
