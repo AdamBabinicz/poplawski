@@ -57,12 +57,14 @@ function App() {
             <LocationScrollToTop />
             
             <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <main className="flex-grow">
-                <Router />
-              </main>
-              <Footer />
-              <ScrollToTop />
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
             </div>
             
             <Toaster />
