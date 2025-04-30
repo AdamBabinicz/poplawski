@@ -7,7 +7,7 @@ import torsionPhysicsImage from '@/assets/images/torsion-physics.png';
 type Region = 'accretion-disk' | 'event-horizon' | 'torsion-zone';
 
 export default function BlackHoleModel() {
-  const { t } = useTranslations();
+  const { t, currentLanguage } = useTranslations();
   const [activeRegion, setActiveRegion] = useState<Region | null>(null);
   
   const handleRegionClick = (region: Region) => {
@@ -136,7 +136,7 @@ export default function BlackHoleModel() {
               onClick={() => setActiveRegion(null)}
               className={`px-3 py-1.5 rounded text-white text-xs font-medium bg-${getRegionInfo(activeRegion).color} hover:opacity-90 transition-opacity`}
             >
-              {t('visualizations.interactive.close')}
+              {currentLanguage === 'en' ? 'Close' : 'Zamknij'}
             </button>
           </div>
         </div>
