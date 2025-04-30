@@ -13,6 +13,9 @@ import Home from "@/pages/home";
 import Theory from "@/pages/theory";
 import Visualizations from "@/pages/visualizations";
 import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
 import NotFound from "@/pages/not-found";
 import { Helmet } from "react-helmet-async";
 
@@ -23,6 +26,9 @@ function Router() {
       <Route path="/theory" component={Theory} />
       <Route path="/visualizations" component={Visualizations} />
       <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
       <Route component={NotFound} />
     </Switch>
   );

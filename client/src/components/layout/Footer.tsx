@@ -96,9 +96,9 @@ export default function Footer() {
           </p>
           
           <div className="flex space-x-6 order-1 sm:order-2">
-            <a href="/privacy-policy" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.privacy')}</a>
-            <a href="/terms-of-service" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.terms')}</a>
-            <Link href="/#contact" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.contact')}</Link>
+            <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.privacy')}</Link>
+            <Link href="/terms-of-service" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.terms')}</Link>
+            <Link href="/contact-admin" className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">{t('footer.contact')}</Link>
           </div>
         </div>
       </div>
