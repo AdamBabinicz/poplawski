@@ -99,6 +99,112 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
+          
+          {/* Extended Theory Section */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold tracking-tight mb-4">
+                Przełomowa Teoria <span className="bg-clip-text text-transparent bg-cosmic-gradient">Wszechświata w Czarnej Dziurze</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Na podstawie informacji z <a href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php" target="_blank" rel="noopener noreferrer" className="text-cosmic-blue dark:text-cosmic-purple hover:underline">oficjalnej strony Uniwersytetu New Haven</a>
+              </p>
+            </div>
+            
+            <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 mb-8 border border-border/50">
+              <h3 className="font-display text-xl font-semibold mb-4">Kontekst Naukowy</h3>
+              <p className="text-muted-foreground mb-4">
+                Dr. Nikodem Popławski, profesor na Uniwersytecie New Haven, zaproponował rewolucyjną teorię kosmologiczną,
+                która fundamentalnie zmienia nasze rozumienie czarnych dziur i początku wszechświata. 
+                Jego badania koncentrują się na zastosowaniu teorii Einsteina-Cartana, która rozszerza ogólną teorię względności 
+                o własność przestrzeni znaną jako torsja.
+              </p>
+              <p className="text-muted-foreground">
+                Główne odkrycie dr. Popławskiego polega na tym, że materia przekraczająca horyzont zdarzeń czarnej dziury 
+                nie tworzy osobliwości (punktu o nieskończonej gęstości) - jak przewiduje standardowa teoria względności. 
+                Zamiast tego, dzięki efektom kwantowym i torsji przestrzeni, materia odbija się, tworząc nowy, rozszerzający się wszechświat.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">Kluczowe Elementy Teorii</h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">1</span>
+                    <div>
+                      <strong className="font-medium block">Torsja Przestrzeni</strong>
+                      <p className="text-muted-foreground text-sm">Rozszerzenie teorii Einsteina wprowadzające nową właściwość geometryczną przestrzeni, która zapobiega tworzeniu osobliwości.</p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">2</span>
+                    <div>
+                      <strong className="font-medium block">Odbicie Materii</strong>
+                      <p className="text-muted-foreground text-sm">W centrum czarnej dziury materia nie jest nieskończenie ściśnięta, lecz odbija się dzięki siłom kwantowym, tworząc "odbicie" lub "big bounce".</p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">3</span>
+                    <div>
+                      <strong className="font-medium block">Wszechświat-Dziecko</strong>
+                      <p className="text-muted-foreground text-sm">Każda czarna dziura może zawierać w swoim wnętrzu cały nowy, rozszerzający się wszechświat, niedostępny dla zewnętrznych obserwatorów.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">Implikacje Naukowe</h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">Rozwiązanie problemu osobliwości</strong>
+                      <p className="text-muted-foreground text-sm">Teoria eliminuje paradoks nieskończonej gęstości w centrum czarnych dziur, który od zawsze był problemem w fizyce.</p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">Nowe wyjaśnienie Wielkiego Wybuchu</strong>
+                      <p className="text-muted-foreground text-sm">Sugeruje, że nasz własny wszechświat mógł powstać wewnątrz czarnej dziury w innym, większym wszechświecie.</p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">Potencjalne wyjaśnienie ciemnej materii</strong>
+                      <p className="text-muted-foreground text-sm">Teoria może pomóc wyjaśnić niedostrzegalne komponenty kosmiczne, takie jak ciemna materia i ciemna energia.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-cosmic-blue/10 to-cosmic-purple/10 dark:from-cosmic-blue/5 dark:to-cosmic-purple/5 rounded-xl p-6 border border-border/50">
+              <h3 className="font-display text-xl font-semibold mb-4">Potencjalne Obserwacje i Weryfikacja</h3>
+              <p className="text-muted-foreground mb-4">
+                Teoria dr. Popławskiego, choć rewolucyjna, ma potencjał do weryfikacji obserwacyjnej. Według jego prac naukowych, 
+                możliwe jest znalezienie sygnatur teorii w:
+              </p>
+              <ul className="text-muted-foreground space-y-2 mb-4 list-disc list-inside pl-2">
+                <li>Kosmicznym mikrofalowym promieniowaniu tła (obecne dane z teleskopu kosmicznego JWST)</li>
+                <li>Asymetrii w promieniowaniu z czarnych dziur (efekt torsji mógłby być widoczny w promienowaniu Hawkinga)</li>
+                <li>Specyficznej charakterystyce fal grawitacyjnych generowanych przez zderzenia czarnych dziur</li>
+              </ul>
+              <p className="text-muted-foreground">
+                Badania dr. Popławskiego są kontynuowane na Uniwersytecie New Haven, gdzie prowadzi on dalsze analizy 
+                matematyczne i poszukuje empirycznych dowodów na poparcie swojej teorii wszechświata w czarnej dziurze.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
