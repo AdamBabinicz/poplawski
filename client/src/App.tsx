@@ -38,7 +38,8 @@ function Router() {
 function App() {
   // Set up the page title
   useEffect(() => {
-    document.title = "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
   }, []);
 
   return (
@@ -47,15 +48,22 @@ function App() {
         <TranslationsProvider>
           <TooltipProvider>
             <Helmet>
-              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
               <meta name="theme-color" content="#121212" />
               <link rel="preconnect" href="https://fonts.googleapis.com" />
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
             </Helmet>
-            
+
             {/* Component that scrolls to the top when route changes */}
             <LocationScrollToTop />
-            
+
             <div className="min-h-screen flex flex-col">
               <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
                 <Navbar />
@@ -66,7 +74,7 @@ function App() {
                 <ScrollToTop />
               </div>
             </div>
-            
+
             <Toaster />
           </TooltipProvider>
         </TranslationsProvider>
