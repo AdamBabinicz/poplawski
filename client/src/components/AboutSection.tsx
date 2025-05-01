@@ -37,7 +37,7 @@ export default function AboutSection() {
                   Zdjęcie autorstwa{" "}
                   <a
                     href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
-                    className="text-blue-500"
+                    className="text-blue-500 hover:text-blue-700 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -46,7 +46,7 @@ export default function AboutSection() {
                   , licencja:{" "}
                   <a
                     href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    className="text-blue-500"
+                    className="text-blue-500 hover:text-blue-700 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -55,7 +55,7 @@ export default function AboutSection() {
                   , źródło:{" "}
                   <a
                     href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
-                    className="text-blue-500"
+                    className="text-blue-500 hover:text-blue-700 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
