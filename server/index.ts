@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   // Content Security Policy
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://replit.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://unpkg.com; img-src 'self' data: blob:; connect-src 'self' wss://*.replit.app;"
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://blackhole-universe.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://unpkg.com; img-src 'self' data: blob:; connect-src 'self' wss://;"
   );
 
   // Other security headers
