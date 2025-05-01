@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "@/hooks/use-translations";
-import universeFormationImage from "@/assets/images/universe-formation.webp";
-import accretionDiskNewImage from "@/assets/images/accretion-disk-new.webp";
-import torsionEffectsUpdatedImage from "@/assets/images/torsion-effects-updated.webp";
-import nestedUniversesImage from "@/assets/images/nested-universes.webp";
-import eventHorizonImage from "@/assets/images/event-horizon.webp";
+import universeFormationImage from "@/assets/images/universe-formation.avif";
+import accretionDiskNewImage from "@/assets/images/accretion-disk-new.avif";
+import torsionEffectsUpdatedImage from "@/assets/images/torsion-effects-updated.avif";
+import nestedUniversesImage from "@/assets/images/nested-universes.avif";
+import eventHorizonImage from "@/assets/images/event-horizon.avif";
 
 // Definiowanie regionów czarnej dziury
 type Region = "accretion-disk" | "event-horizon" | "torsion-zone";
