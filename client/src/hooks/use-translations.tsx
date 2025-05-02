@@ -3,7 +3,7 @@ import enTranslations from "@/locales/en";
 import plTranslations from "@/locales/pl";
 
 type TranslationsType = typeof enTranslations;
-type LanguageCode = "en" | "pl";
+export type LanguageCode = "en" | "pl";
 
 interface TranslationsContextType {
   t: (key: keyof TranslationsType) => string;
@@ -40,7 +40,7 @@ export function TranslationsProvider({
       return "pl";
     }
 
-    // Default to English
+    // Default to Polish
     return "pl";
   });
 

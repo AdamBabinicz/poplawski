@@ -27,6 +27,19 @@ export default function Navbar() {
     };
   }, []);
 
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -67,15 +80,15 @@ export default function Navbar() {
               <div
                 className={`font-medium ${
                   isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
-                } transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center`}
+                } transition-colors`}
               >
                 {t("navbar.home")}
               </div>
             </Link>
-            <Link href="/theory">
+            <Link href={getLocalizedPath("/theory")}>
               <div
-                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
-                  isActive("/theory")
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
                     ? "text-cosmic-blue"
                     : "hover:text-cosmic-blue"
                 } transition-colors`}
@@ -83,10 +96,10 @@ export default function Navbar() {
                 {t("navbar.theory")}
               </div>
             </Link>
-            <Link href="/visualizations">
+            <Link href={getLocalizedPath("/visualizations")}>
               <div
-                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
-                  isActive("/visualizations")
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
                     ? "text-cosmic-blue"
                     : "hover:text-cosmic-blue"
                 } transition-colors`}
@@ -94,10 +107,10 @@ export default function Navbar() {
                 {t("navbar.visualizations")}
               </div>
             </Link>
-            <Link href="/about">
+            <Link href={getLocalizedPath("/about")}>
               <div
-                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
-                  isActive("/about")
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
                     ? "text-cosmic-blue"
                     : "hover:text-cosmic-blue"
                 } transition-colors`}
@@ -148,10 +161,10 @@ export default function Navbar() {
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
-              <Link href="/theory">
+              <Link href={getLocalizedPath("/theory")}>
                 <div
                   className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
-                    isActive("/theory")
+                    isActive(getLocalizedPath("/theory"))
                       ? "text-cosmic-blue"
                       : "text-foreground hover:text-cosmic-blue"
                   }`}
@@ -161,10 +174,10 @@ export default function Navbar() {
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
-              <Link href="/visualizations">
+              <Link href={getLocalizedPath("/visualizations")}>
                 <div
                   className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
-                    isActive("/visualizations")
+                    isActive(getLocalizedPath("/visualizations"))
                       ? "text-cosmic-blue"
                       : "text-foreground hover:text-cosmic-blue"
                   }`}
@@ -174,10 +187,10 @@ export default function Navbar() {
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
-              <Link href="/about">
+              <Link href={getLocalizedPath("/about")}>
                 <div
                   className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
-                    isActive("/about")
+                    isActive(getLocalizedPath("/about"))
                       ? "text-cosmic-blue"
                       : "text-foreground hover:text-cosmic-blue"
                   }`}

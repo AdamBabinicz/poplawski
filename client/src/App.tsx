@@ -24,12 +24,21 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      {/* Angielskie ścieżki */}
       <Route path="/theory" component={Theory} />
       <Route path="/visualizations" component={Visualizations} />
       <Route path="/about" component={About} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/contact-admin" component={ContactAdmin} />
+
+      {/* Polskie ścieżki */}
+      <Route path="/teoria" component={Theory} />
+      <Route path="/wizualizacje" component={Visualizations} />
+      <Route path="/o-autorze" component={About} />
+      <Route path="/polityka-prywatnosci" component={PrivacyPolicy} />
+      <Route path="/regulamin" component={TermsOfService} />
+      <Route path="/kontakt" component={ContactAdmin} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -50,7 +59,7 @@ function App() {
             <Helmet>
               <meta
                 name="viewport"
-                content="width=device-width, initial-scale=1.0"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1"
               />
               <meta name="theme-color" content="#121212" />
               <link rel="preconnect" href="https://fonts.googleapis.com" />

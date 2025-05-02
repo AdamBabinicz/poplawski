@@ -3,7 +3,20 @@ import { useTranslations } from "@/hooks/use-translations";
 import BlackHoleLogo from "../ui/black-hole-logo";
 
 export default function Footer() {
-  const { t } = useTranslations();
+  const { t, currentLanguage } = useTranslations();
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
 
   return (
     <footer className="bg-background border-t border-border">
@@ -110,7 +123,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/theory"
+                  href={getLocalizedPath("/theory")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
                 >
                   {t("navbar.theory")}
@@ -118,7 +131,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/visualizations"
+                  href={getLocalizedPath("/visualizations")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
                 >
                   {t("navbar.visualizations")}
@@ -126,7 +139,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href={getLocalizedPath("/about")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
                 >
                   {t("navbar.about")}
@@ -207,24 +220,24 @@ export default function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm order-2 sm:order-1 mt-4 sm:mt-0">
-            © 2025 - {new Date().getFullYear()} {t("footer.copyright")}
+            © {new Date().getFullYear()} {t("footer.copyright")}
           </p>
 
           <div className="flex space-x-6 order-1 sm:order-2">
             <Link
-              href="/privacy-policy"
+              href={getLocalizedPath("/privacy-policy")}
               className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
             >
               {t("footer.privacy")}
             </Link>
             <Link
-              href="/terms-of-service"
+              href={getLocalizedPath("/terms-of-service")}
               className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
             >
               {t("footer.terms")}
             </Link>
             <Link
-              href="/contact-admin"
+              href={getLocalizedPath("/contact-admin")}
               className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
             >
               {t("footer.contact")}

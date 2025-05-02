@@ -16,7 +16,7 @@ const translations = {
   // Hero Section
   "hero.title.1": "Nasz Wszechświat",
   "hero.title.2": "Wewnątrz",
-  "hero.title.3": "Czarnej Dziury?",
+  "hero.title.3": " Czarnej Dziury?",
   "hero.description":
     "Poznaj przełomową teorię dr Nikodema Popławskiego sugerującą, że cały nasz wszechświat może znajdować się wewnątrz czarnej dziury, która sama istnieje w większym wszechświecie.",
   "hero.exploreButton": "Poznaj teorię",

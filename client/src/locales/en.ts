@@ -16,7 +16,7 @@ const translations = {
   // Hero Section
   "hero.title.1": "Our Universe",
   "hero.title.2": "Inside a",
-  "hero.title.3": "Black Hole?",
+  "hero.title.3": " Black Hole?",
   "hero.description":
     "Explore Dr. Nikodem Popławski's groundbreaking theory proposing that our entire universe may be inside a black hole, which itself exists within a larger universe.",
   "hero.exploreButton": "Explore the Theory",
