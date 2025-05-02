@@ -57,7 +57,9 @@ export default function Visualizations() {
         <meta property="og:image" content="/og-image.png" />
         <link
           rel="canonical"
-          href={`https://blackhole-universe.netlify.app/${currentLanguage}/visualizations`}
+          href={`https://blackhole-universe.netlify.app${
+            currentLanguage === "pl" ? "" : "/" + currentLanguage
+          }/visualizations`}
         />
 
         {/* Add structured data for search engines */}

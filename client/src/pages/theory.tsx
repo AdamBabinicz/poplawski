@@ -53,7 +53,9 @@ export default function Theory() {
         <meta property="og:image" content="/og-image.png" />
         <link
           rel="canonical"
-          href={`https://blackhole-universe.netlify.app/${currentLanguage}/theory`}
+          href={`https://blackhole-universe.netlify.app${
+            currentLanguage === "pl" ? "" : "/" + currentLanguage
+          }/theory`}
         />
 
         {/* Add structured data for search engines */}

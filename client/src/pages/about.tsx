@@ -50,7 +50,9 @@ export default function About() {
         <meta property="og:image" content="/og-image.png" />
         <link
           rel="canonical"
-          href={`https://blackhole-universe.netlify.app/${currentLanguage}/about`}
+          href={`https://blackhole-universe.netlify.app${
+            currentLanguage === "pl" ? "" : "/" + currentLanguage
+          }/visualizations`}
         />
 
         {/* Add structured data for search engines */}

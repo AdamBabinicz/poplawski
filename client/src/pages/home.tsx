@@ -68,7 +68,9 @@ export default function Home() {
         <meta property="og:image" content="/og-image.png" />
         <link
           rel="canonical"
-          href={`https://blackhole-universe.netlify.app/${currentLanguage}`}
+          href={`https://blackhole-universe.netlify.app${
+            currentLanguage === "pl" ? "" : "/" + currentLanguage
+          }`}
         />
         <meta name="twitter:card" content="summary_large_image" />
 
