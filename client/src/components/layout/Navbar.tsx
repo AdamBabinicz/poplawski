@@ -18,12 +18,12 @@ export default function Navbar() {
         setIsMenuOpen(false);
       }
     };
-    
+
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
+    window.addEventListener("resize", checkScreenSize);
+
     return () => {
-      window.removeEventListener('resize', checkScreenSize);
+      window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
 
@@ -49,46 +49,72 @@ export default function Navbar() {
               <div className="flex items-center">
                 <BlackHoleLogo className="mr-2" />
                 <span className="font-display font-bold text-xl tracking-tight">
-                  <span className="text-cosmic-blue">{t('navbar.universe')}</span> 
-                  <span className="text-foreground">{t('navbar.in')}</span> 
-                  <span className="text-cosmic-purple">{t('navbar.blackHole')}</span>
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
                 </span>
               </div>
             </Link>
           </div>
-          
+
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex space-x-8">
             <Link href="/">
-              <div className={`font-medium ${isActive('/') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
-                {t('navbar.home')}
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center`}
+              >
+                {t("navbar.home")}
               </div>
             </Link>
             <Link href="/theory">
-              <div className={`font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
-                {t('navbar.theory')}
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/theory")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
               </div>
             </Link>
             <Link href="/visualizations">
-              <div className={`font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
-                {t('navbar.visualizations')}
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/visualizations")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
               </div>
             </Link>
             <Link href="/about">
-              <div className={`font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'hover:text-cosmic-blue'} transition-colors`}>
-                {t('navbar.about')}
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/about")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
               </div>
             </Link>
           </nav>
-          
+
           {/* Controls */}
           <div className="flex items-center space-x-4">
             {/* Language Switcher */}
             <LanguageSwitcher />
-            
+
             {/* Theme Toggle */}
             <ThemeToggle />
-            
+
             {/* Mobile Menu Button */}
             <button
               type="button"
@@ -96,41 +122,67 @@ export default function Navbar() {
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               onClick={toggleMobileMenu}
             >
-              <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'} text-2xl`}></i>
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
             </button>
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
             <div onClick={closeMobileMenu}>
               <Link href="/">
-                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
-                  {t('navbar.home')}
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
                 </div>
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
               <Link href="/theory">
-                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/theory') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
-                  {t('navbar.theory')}
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/theory")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
                 </div>
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
               <Link href="/visualizations">
-                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/visualizations') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
-                  {t('navbar.visualizations')}
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/visualizations")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
                 </div>
               </Link>
             </div>
             <div onClick={closeMobileMenu}>
               <Link href="/about">
-                <div className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/about') ? 'text-cosmic-blue' : 'text-foreground hover:text-cosmic-blue'}`}>
-                  {t('navbar.about')}
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/about")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
                 </div>
               </Link>
             </div>
