@@ -5,9 +5,9 @@ const translations = {
     "Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce.",
 
   // Navbar
-  "navbar.universe": "Universe",
+  "navbar.universe": "Universe ",
   "navbar.in": "in a",
-  "navbar.blackHole": "Black Hole",
+  "navbar.blackHole": " Black Hole",
   "navbar.home": "Home",
   "navbar.theory": "Theory",
   "navbar.visualizations": "Visualizations",
