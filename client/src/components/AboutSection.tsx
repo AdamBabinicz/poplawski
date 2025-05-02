@@ -33,35 +33,34 @@ export default function AboutSection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-sm text-center mt-2 text-gray-600 dark:text-gray-400">
-                  Zdjęcie autorstwa{" "}
+                <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
                   <a
                     href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
-                    className="text-blue-500 hover:text-blue-700 hover:underline"
+                    className="text-blue-700 dark:text-blue-400 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Crux007
+                    Zdjęcie autorstwa Crux007
                   </a>
-                  , licencja:{" "}
+                  , licencja:
                   <a
                     href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    className="text-blue-500 hover:text-blue-700 hover:underline"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     CC BY-SA 4.0
                   </a>
-                  , źródło:{" "}
+                  , źródło:
                   <a
                     href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
-                    className="text-blue-500 hover:text-blue-700 hover:underline"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Wikipedia
                   </a>
-                </p>
+                </div>
               </div>
 
               <div className="md:w-2/3">
