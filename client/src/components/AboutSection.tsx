@@ -179,20 +179,20 @@ export default function AboutSection() {
                   </span>
                 </span>
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-gray-700 dark:text-gray-300">
                 Na podstawie informacji z{" "}
                 <a
                   href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cosmic-blue dark:text-cosmic-purple hover:underline"
+                  className="text-blue-700 dark:text-blue-400 hover:underline font-medium"
                 >
                   oficjalnej strony Uniwersytetu New Haven
                 </a>
               </p>
             </div>
 
-            <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 mb-8 border border-border/50">
+            <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-800">
               <h3 className="font-display text-xl font-semibold mb-4">
                 Kontekst Naukowy
               </h3>
