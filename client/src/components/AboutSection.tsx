@@ -317,7 +317,8 @@ export default function AboutSection() {
                       </strong>
                       <p className="text-muted-foreground text-sm">
                         Sugeruje, że nasz własny wszechświat mógł powstać
-                        wewnątrz czarnej dziury w innym, większym wszechświecie.
+                        wewnątrz czarnej dziury w&nbsp;innym, większym
+                        wszechświecie.
                       </p>
                     </div>
                   </li>
