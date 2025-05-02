@@ -1,5 +1,5 @@
 /* Importowanie BoxIcons */
-@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+/* @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'); */
 
 @tailwind base;
 @tailwind components;
@@ -26,7 +26,7 @@
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 20 14.3% 4.1%;
   --radius: 0.5rem;
-  
+
   /* Custom cosmic colors */
   --cosmic-blue: 221 90% 54%;
   --cosmic-purple: 264 78% 64%;
@@ -71,19 +71,31 @@
 /* Custom styles */
 /* Kosmiczne tło z różnymi wariantami dla trybów jasnego i ciemnego */
 .cosmos-bg {
-  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, rgba(241, 245, 249, 0) 70%), 
-                    linear-gradient(to bottom, rgb(248, 250, 252), rgb(241, 245, 249));
+  background-image: radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(241, 245, 249, 0) 70%
+    ),
+    linear-gradient(to bottom, rgb(248, 250, 252), rgb(241, 245, 249));
 }
 
 .dark .cosmos-bg {
-  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, rgba(31, 41, 55, 0) 70%), 
-                    linear-gradient(to bottom, rgb(17, 24, 39), rgb(9, 9, 11));
+  background-image: radial-gradient(
+      circle at center,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(31, 41, 55, 0) 70%
+    ),
+    linear-gradient(to bottom, rgb(17, 24, 39), rgb(9, 9, 11));
 }
 
 .accretion-disk {
   background: conic-gradient(
     from 0deg,
-    #F97316, #EC4899, #8B5CF6, #3B82F6, #F97316
+    #f97316,
+    #ec4899,
+    #8b5cf6,
+    #3b82f6,
+    #f97316
   );
   box-shadow: 0 0 50px rgba(236, 72, 153, 0.3);
 }
@@ -139,27 +151,47 @@
 }
 
 @keyframes cosmic-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .bg-cosmic-gradient {
-  background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
 }
 
 .text-gradient {
