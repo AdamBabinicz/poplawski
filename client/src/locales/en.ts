@@ -1,6 +1,6 @@
 const translations = {
   // Meta data
-  "meta.title": "Universe in a Black Hole - Dr. Nikodem Popławski's Theory",
+  "meta.title": "Dr. Popławski's Theory of the Universe inside a black hole.",
   "meta.description":
     "Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce.",
 

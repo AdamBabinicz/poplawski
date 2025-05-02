@@ -1,7 +1,6 @@
 const translations = {
   // Meta data
-  "meta.title":
-    "Wszechświat w Czarnej Dziurze - Teoria dr Nikodema Popławskiego",
+  "meta.title": "Wszechświat wewnątrz czarnej dziury: Teoria dr Popławskiego",
   "meta.description":
     "Poznaj przełomową teorię dr Nikodema Popławskiego o wszechświatach rodzących się wewnątrz czarnych dziur, wyjaśniającą kosmiczną inflację i Wielkie Odbicie.",
 
