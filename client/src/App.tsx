@@ -59,7 +59,7 @@ function App() {
             <Helmet>
               <meta
                 name="viewport"
-                content="width=device-width, initial-scale=1.0, maximum-scale=1"
+                content="width=device-width, initial-scale=1.0"
               />
               <meta name="theme-color" content="#121212" />
               <link rel="preconnect" href="https://fonts.googleapis.com" />
