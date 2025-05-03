@@ -8,7 +8,6 @@ export default function ContactAdmin() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Funkcja encode pozostaje bez zmian
   const encode = (data: Record<string, string | File | boolean>) => {
     return Object.keys(data)
       .map(
@@ -25,7 +24,7 @@ export default function ContactAdmin() {
 
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-    const formName = form.getAttribute("name"); // Pobieramy nazwę formularza (powinno być 'contact-admin')
+    const formName = form.getAttribute("name");
 
     if (!formName) {
       console.error("Form name attribute is missing!");
@@ -34,12 +33,9 @@ export default function ContactAdmin() {
       return;
     }
 
-    // Tworzymy obiekt z danymi, tak jak w działającym przykładzie
-    const dataToSend: { [key: string]: any } = {}; // Używamy any tymczasowo dla prostoty
+    const dataToSend: { [key: string]: any } = {};
     formData.forEach((value, key) => {
-      // Pomijamy ukryte pole 'form-name', dodamy je jawnie poniżej
       if (key !== "form-name") {
-        // Obsługa checkboxa
         if (
           form.elements.namedItem(key) instanceof HTMLInputElement &&
           (form.elements.namedItem(key) as HTMLInputElement).type === "checkbox"
@@ -54,21 +50,31 @@ export default function ContactAdmin() {
       }
     });
 
-    // Kluczowy krok: wysyłamy POST na '/' i jawnie dodajemy 'form-name' do ciała żądania
+    // --- Dodane Logowanie ---
+    const dataToEncode = {
+      "form-name": formName,
+      ...dataToSend,
+    };
+    const encodedBody = encode(dataToEncode);
+
+    console.log("--- Netlify Form Submission Data ---");
+    console.log("Form Name:", formName);
+    console.log("POST URL:", "/");
+    console.log("Data to Encode:", dataToEncode); // Zobacz obiekt przed kodowaniem
+    console.log("Encoded Body:", encodedBody); // Zobacz finalne ciało żądania
+    console.log("-----------------------------------");
+    // --- Koniec Logowania ---
+
     fetch("/", {
-      // Wysyłamy na root path '/' jak w działającym przykładzie
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": formName, // Jawnie dodajemy nazwę formularza
-        ...dataToSend, // Dodajemy resztę danych
-      }),
+      body: encodedBody, // Użyj zakodowanego ciała
     })
       .then((response) => {
         if (!response.ok && response.status !== 200) {
           throw new Error(`Server responded with status: ${response.status}`);
         }
-        form.reset(); // Czyścimy formularz po sukcesie
+        form.reset();
         setIsSubmitted(true);
       })
       .catch((error) => {
@@ -87,7 +93,6 @@ export default function ContactAdmin() {
   return (
     <>
       <Helmet>
-        {/* Meta tagi bez zmian */}
         <title>
           {" "}
           {currentLanguage === "en"
@@ -158,18 +163,15 @@ export default function ContactAdmin() {
                       {submitError}
                     </div>
                   )}
-                  {/* === ZMIANA: Usunięto atrybut action === */}
                   <form
-                    name="contact-admin" // Upewnij się, że ta nazwa jest poprawna
+                    name="contact-admin"
                     method="POST"
-                    // action={formActionPath} // Usunięto action
+                    // Usunięto action
                     data-netlify="true"
                     className="space-y-6"
                     netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                   >
-                    {/* ===================================== */}
-                    {/* To pole jest nadal BARDZO ważne w HTML */}
                     <input
                       type="hidden"
                       name="form-name"
@@ -182,7 +184,6 @@ export default function ContactAdmin() {
                       </label>
                     </p>
 
-                    {/* Reszta pól formularza bez zmian */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         {" "}
@@ -321,7 +322,6 @@ export default function ContactAdmin() {
               )}
 
               <div className="mt-8 border-t border-border pt-8">
-                {/* Inne opcje kontaktu bez zmian */}
                 <h2 className="text-lg sm:text-xl font-display font-semibold mb-4 text-center">
                   {" "}
                   {currentLanguage === "en"
@@ -329,7 +329,6 @@ export default function ContactAdmin() {
                     : "Inne Opcje Kontaktu"}{" "}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Email */}
                   <div className="flex items-start">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cosmic-blue/10 dark:bg-cosmic-blue/20 flex items-center justify-center text-cosmic-blue">
                       {" "}
@@ -356,7 +355,6 @@ export default function ContactAdmin() {
                       </p>{" "}
                     </div>
                   </div>
-                  {/* Godziny */}
                   <div className="flex items-start">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cosmic-purple/10 dark:bg-cosmic-purple/20 flex items-center justify-center text-cosmic-purple">
                       {" "}
