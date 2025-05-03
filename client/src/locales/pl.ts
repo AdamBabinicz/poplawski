@@ -116,6 +116,10 @@ const translations = {
   "contact.form.message": "Twoja wiadomość",
   "contact.form.submit": "Wyślij wiadomość",
 
+  common: {
+    submit: "Wyślij",
+  },
+
   // Footer
   "footer.description":
     "Eksploracja przełomowej teorii dr Nikodema Popławskiego sugerującej, że nasz wszechświat może istnieć wewnątrz czarnej dziury.",
