@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Dodano useEffect
 import { useTranslations } from "@/hooks/use-translations";
 import { Helmet } from "react-helmet-async";
 
@@ -6,36 +6,46 @@ export default function ContactAdmin() {
   const { t, currentLanguage } = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
     "privacy-consent": false,
+    "bot-field": "",
   });
+
+  // Efekt do ukrywania komunikatu o sukcesie po 5 sekundach
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isSubmitted) {
+      timer = setTimeout(() => {
+        setIsSubmitted(false); // Ukryj komunikat
+      }, 5000); // Czas w milisekundach (5 sekund)
+    }
+    // Funkcja czyszcząca, która anuluje timeout, jeśli komponent zostanie odmontowany
+    return () => clearTimeout(timer);
+  }, [isSubmitted]); // Ten efekt uruchomi się tylko, gdy zmieni się isSubmitted
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-
-    let fieldValue: string | boolean = value;
-
-    if (type === "checkbox") {
-      const target = e.target as HTMLInputElement;
-      fieldValue = target.checked;
-    }
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: fieldValue,
+    const newValue =
+      type === "checkbox" ? (e.target as HTMLInputElement).checked : value;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: newValue,
     }));
   };
 
   const encode = (data: { [key: string]: any }) => {
-    return Object.keys(data)
+    const filteredData = { ...data };
+    return Object.keys(filteredData)
       .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        (key) =>
+          encodeURIComponent(key) + "=" + encodeURIComponent(filteredData[key])
       )
       .join("&");
   };
@@ -43,37 +53,65 @@ export default function ContactAdmin() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null); // Resetuj błąd
 
-    try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact-admin",
-          ...formData,
-        }),
-      });
-
-      setIsSubmitted(true);
-    } catch (error) {
-      alert(
-        currentLanguage === "en"
-          ? "An error occurred. Please try again."
-          : "Wystąpił błąd. Spróbuj ponownie."
-      );
-    } finally {
+    const form = e.currentTarget; // Użyj currentTarget dla typu
+    const formName = form.getAttribute("name");
+    if (!formName) {
+      console.error("Form name attribute is missing!");
+      setSubmitError("Form configuration error.");
       setIsSubmitting(false);
+      return;
     }
+
+    const dataToSubmit = {
+      "form-name": formName,
+      ...formData,
+    };
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(dataToSubmit),
+    })
+      .then((response) => {
+        if (!response.ok && response.status !== 200) {
+          throw new Error(`Server responded with status: ${response.status}`);
+        }
+        // Sukces: wyczyść formularz i pokaż komunikat (zniknie automatycznie dzięki useEffect)
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+          "privacy-consent": false,
+          "bot-field": "",
+        });
+        setIsSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("Netlify form submission error:", error);
+        setSubmitError(
+          currentLanguage === "en"
+            ? "An error occurred while sending the message. Please try again."
+            : "Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie."
+        );
+        setIsSubmitted(false); // Upewnij się, że komunikat sukcesu nie jest pokazywany przy błędzie
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
     <>
       <Helmet>
         <title>
+          {" "}
           {currentLanguage === "en"
             ? "Contact Administrator"
             : "Kontakt z Administratorem"}{" "}
-          | {t("navbar.universe")} {t("navbar.in")} {t("navbar.blackHole")}
+          | {t("navbar.universe")} {t("navbar.in")} {t("navbar.blackHole")}{" "}
         </title>
         <meta
           name="description"
@@ -101,6 +139,7 @@ export default function ContactAdmin() {
                   : "Użyj tego formularza, aby skontaktować się z administratorem strony w sprawie problemów technicznych, poprawek treści lub innych spraw administracyjnych."}
               </p>
 
+              {/* Zmiana: Wyświetlaj formularz LUB komunikat sukcesu */}
               {isSubmitted ? (
                 <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-900 rounded-lg p-6 text-center">
                   <svg
@@ -110,155 +149,273 @@ export default function ContactAdmin() {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
+                    {" "}
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
                       d="M5 13l4 4L19 7"
-                    />
+                    />{" "}
                   </svg>
                   <h3 className="text-xl font-medium text-green-800 dark:text-green-200 mb-2">
+                    {" "}
                     {currentLanguage === "en"
                       ? "Message Sent Successfully!"
-                      : "Wiadomość Wysłana Pomyślnie!"}
+                      : "Wiadomość Wysłana Pomyślnie!"}{" "}
                   </h3>
                   <p className="text-green-700 dark:text-green-300">
+                    {" "}
                     {currentLanguage === "en"
                       ? "Thank you for your message. We will get back to you as soon as possible."
-                      : "Dziękujemy za Twoją wiadomość. Odpowiemy tak szybko, jak to możliwe."}
+                      : "Dziękujemy za Twoją wiadomość. Odpowiemy tak szybko, jak to możliwe."}{" "}
                   </p>
                 </div>
               ) : (
-                <form
-                  name="contact-admin"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  <input type="hidden" name="form-name" value="contact-admin" />
-                  <p className="hidden">
-                    <label>
-                      Don’t fill this out if you’re human:{" "}
-                      <input name="bot-field" onChange={handleChange} />
-                    </label>
-                  </p>
+                <>
+                  {submitError && (
+                    <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900 rounded-lg p-4 text-center text-sm text-red-700 dark:text-red-300">
+                      {submitError}
+                    </div>
+                  )}
+                  <form
+                    name="contact-admin"
+                    method="POST"
+                    data-netlify="true" // Nadal potrzebne dla wykrycia przez Netlify
+                    className="space-y-6"
+                    netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit} // Używamy naszej funkcji AJAX
+                    // action można usunąć lub zostawić, nie ma wpływu na AJAX
+                  >
+                    <input
+                      type="hidden"
+                      name="form-name"
+                      value="contact-admin"
+                    />
+                    <p className="hidden">
+                      <label>
+                        {" "}
+                        Don’t fill this out if you’re human:{" "}
+                        <input
+                          name="bot-field"
+                          value={formData["bot-field"]}
+                          onChange={handleChange}
+                        />{" "}
+                      </label>
+                    </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        {" "}
+                        <label
+                          htmlFor="name"
+                          className="block text-sm font-medium text-foreground mb-1"
+                        >
+                          {" "}
+                          {currentLanguage === "en"
+                            ? "Your Name"
+                            : "Twoje Imię"}
+                          *{" "}
+                        </label>{" "}
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
+                        />{" "}
+                      </div>
+                      <div>
+                        {" "}
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-foreground mb-1"
+                        >
+                          {" "}
+                          {currentLanguage === "en"
+                            ? "Your Email"
+                            : "Twój Email"}
+                          *{" "}
+                        </label>{" "}
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
+                        />{" "}
+                      </div>
+                    </div>
                     <div>
+                      {" "}
                       <label
-                        htmlFor="name"
+                        htmlFor="subject"
                         className="block text-sm font-medium text-foreground mb-1"
                       >
-                        {currentLanguage === "en" ? "Your Name" : "Twoje Imię"}*
-                      </label>
+                        {" "}
+                        {currentLanguage === "en" ? "Subject" : "Temat"}*{" "}
+                      </label>{" "}
                       <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="subject"
+                        name="subject"
                         required
-                        value={formData.name}
+                        value={formData.subject}
                         onChange={handleChange}
                         className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
-                      />
+                      />{" "}
                     </div>
-
                     <div>
+                      {" "}
                       <label
-                        htmlFor="email"
+                        htmlFor="message"
                         className="block text-sm font-medium text-foreground mb-1"
                       >
-                        {currentLanguage === "en" ? "Your Email" : "Twój Email"}
-                        *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        {" "}
+                        {currentLanguage === "en"
+                          ? "Message"
+                          : "Wiadomość"}*{" "}
+                      </label>{" "}
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={6}
                         required
-                        value={formData.email}
+                        value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
-                      />
+                        className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition resize-none"
+                      ></textarea>{" "}
+                    </div>
+                    <div>
+                      {" "}
+                      <label className="flex items-center">
+                        {" "}
+                        <input
+                          type="checkbox"
+                          id="privacy-consent"
+                          name="privacy-consent"
+                          required
+                          checked={formData["privacy-consent"]}
+                          onChange={handleChange}
+                          className="w-4 h-4 text-cosmic-blue bg-background border-border rounded focus:ring-cosmic-blue"
+                        />{" "}
+                        <span className="ml-2 text-sm text-muted-foreground">
+                          {" "}
+                          {currentLanguage === "en"
+                            ? "I agree to the processing of my personal data in accordance with the Privacy Policy."
+                            : "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z Polityką Prywatności."}{" "}
+                        </span>{" "}
+                      </label>{" "}
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-cosmic-gradient text-white font-medium py-3 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          {" "}
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>{" "}
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>{" "}
+                        </svg>
+                      ) : null}
+                      {isSubmitting
+                        ? currentLanguage === "en"
+                          ? "Sending..."
+                          : "Wysyłanie..."
+                        : t("contact.form.submit")}
+                    </button>
+                  </form>
+                </>
+              )}
+
+              <div className="mt-8 border-t border-border pt-8">
+                <h2 className="text-lg sm:text-xl font-display font-semibold mb-4 text-center">
+                  {" "}
+                  {currentLanguage === "en"
+                    ? "Other Contact Options"
+                    : "Inne Opcje Kontaktu"}{" "}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cosmic-blue/10 dark:bg-cosmic-blue/20 flex items-center justify-center text-cosmic-blue">
+                      {" "}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        {" "}
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />{" "}
+                      </svg>{" "}
+                    </div>
+                    <div className="ml-4">
+                      {" "}
+                      <h3 className="text-sm font-medium text-foreground">
+                        {" "}
+                        {currentLanguage === "en" ? "Email" : "Email"}{" "}
+                      </h3>{" "}
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {" "}
+                        puaro@vp.pl{" "}
+                      </p>{" "}
                     </div>
                   </div>
-
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      {currentLanguage === "en" ? "Subject" : "Temat"}*
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-1"
-                    >
-                      {currentLanguage === "en" ? "Message" : "Wiadomość"}*
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={6}
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition resize-none"
-                    ></textarea>
-                  </div>
-
-                  <div>
-                    <label className="flex items-center">
-                      <input
-                        type="checkbox"
-                        name="privacy-consent"
-                        required
-                        checked={formData["privacy-consent"]}
-                        onChange={handleChange}
-                        className="w-4 h-4 text-cosmic-blue bg-background border-border rounded focus:ring-cosmic-blue"
-                      />
-                      <span className="ml-2 text-sm text-muted-foreground">
-                        {currentLanguage === "en"
-                          ? "I agree to the processing of my personal data in accordance with the Privacy Policy."
-                          : "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z Polityką Prywatności."}
-                      </span>
-                    </label>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-cosmic-gradient text-white font-medium py-3 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1 flex justify-center items-center"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cosmic-purple/10 dark:bg-cosmic-purple/20 flex items-center justify-center text-cosmic-purple">
+                      {" "}
                       <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
                       >
-                        {/* ... ścieżki SVG ... */}
-                      </svg>
-                    ) : (
-                      // Użyj poprawnego klucza tłumaczenia
-                      t("contact.form.submit")
-                    )}
-                  </button>
-                </form>
-              )}
+                        {" "}
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />{" "}
+                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />{" "}
+                      </svg>{" "}
+                    </div>
+                    <div className="ml-4">
+                      {" "}
+                      <h3 className="text-sm font-medium text-foreground">
+                        {" "}
+                        {currentLanguage === "en"
+                          ? "Support Hours"
+                          : "Godziny Wsparcia"}{" "}
+                      </h3>{" "}
+                      <p className="text-sm text-muted-foreground mt-1">
+                        {" "}
+                        {currentLanguage === "en"
+                          ? "Monday to Friday, 9am to 5pm CET"
+                          : "Poniedziałek - Piątek, 9:00 - 17:00 CET"}{" "}
+                      </p>{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
