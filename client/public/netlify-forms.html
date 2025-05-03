@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netlify Form Definitions</title>
+  </head>
+  <body>
+    <!--
+      Ten formularz jest tylko dla Netlify podczas budowania.
+      Atrybut 'hidden' sprawia, że nie będzie widoczny, jeśli ktoś przypadkiem go otworzy.
+      Najważniejsze są atrybuty: name, netlify, netlify-honeypot
+      oraz wszystkie pola <input>/<textarea> z poprawnymi atrybutami 'name'.
+    -->
+    <form name="contact-admin" netlify netlify-honeypot="bot-field" hidden>
+      <!-- Ukryte pole wymagane przez Netlify -->
+      <input type="hidden" name="form-name" value="contact-admin" />
+
+      <!-- Ukryte pole honeypot (jeśli używasz) -->
+      <p>
+        <label>Bot field: <input name="bot-field" /></label>
+      </p>
+
+      <!--
+        Teraz dodaj definicje WSZYSTKICH pól, które masz w formularzu React.
+        Użyj tych samych atrybutów 'name'. Typy nie są aż tak krytyczne,
+        ale warto je dodać dla spójności. Nie potrzebujesz tu 'id', 'required',
+        'value', 'onChange' itp.
+      -->
+      <label>Name: <input type="text" name="name" /></label>
+      <label>Email: <input type="email" name="email" /></label>
+      <label>Subject: <input type="text" name="subject" /></label>
+      <label>Message: <textarea name="message"></textarea></label>
+      <label
+        >Privacy Consent: <input type="checkbox" name="privacy-consent"
+      /></label>
+
+      <!-- Przycisk Submit nie jest tu potrzebny -->
+    </form>
+
+    <!--
+      Jeśli masz inne formularze Netlify w aplikacji (np. ten z ContactSection),
+      dodaj ich definicje tutaj w podobny sposób, z ich własnymi nazwami i polami.
+      <form name="inny-formularz" netlify ...>
+          <input type="hidden" name="form-name" value="inny-formularz" />
+          ... pola dla innego formularza ...
+      </form>
+    -->
+  </body>
+</html>
