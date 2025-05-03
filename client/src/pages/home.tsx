@@ -9,7 +9,6 @@ import ContactSection from "@/components/ContactSection";
 export default function Home() {
   const { t, currentLanguage } = useTranslations();
 
-  // Structured data for homepage (WebSite and BreadcrumbList schemas for SEO)
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -65,7 +64,7 @@ export default function Home() {
         <meta property="og:title" content={t("meta.title")} />
         <meta property="og:description" content={t("meta.description")} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="/acretion-disk-new.avif" />
         <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${

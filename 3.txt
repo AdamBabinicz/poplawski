@@ -1,0 +1,3662 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/assets/index-BRD5wFon.css" as="style" />
+    <link rel="stylesheet" href="/assets/index-BRD5wFon.css" />
+
+    <!-- Async load BoxIcons -->
+    <link
+      rel="preload"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      />
+    </noscript>
+    <!-- Primary Meta Tags -->
+    <title>
+      Wszechświat w czarnej dziurze — teoria dr Nikodema Popławskiego
+    </title>
+    <style>
+      /* Inline critical CSS */
+      @import url("/src/critical.css");
+    </style>
+    <meta
+      name="title"
+      content="Wszechświat w czarnej dziurze — teoria dr Nikodema Popławskiego"
+    />
+    <meta
+      name="description"
+      content="Poznaj przełomową teorię dr. Nikodema Popławskiego o powstawaniu wszechświatów wewnątrz czarnych dziur, wyjaśniającą inflację kosmiczną, fizykę torsji i Wielki Odbicie."
+    />
+    <meta name="author" content="Dr Nikodem Popławski" />
+    <meta
+      name="keywords"
+      content="czarna dziura, wszechświat, kosmologia, fizyka, Popławski, torsja, wielkie odbicie, Einstein-Cartan, astrofizyka, grawitacja"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blackhole-universe.netlify.app/" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta
+      property="og:title"
+      content="Wszechświat w czarnej dziurze — teoria dr Nikodema Popławskiego"
+    />
+    <meta
+      property="og:description"
+      content="Poznaj przełomową teorię dr. Nikodema Popławskiego o powstawaniu wszechświatów wewnątrz czarnych dziur, wyjaśniającą inflację kosmiczną, fizykę torsji i Wielki Odbicie."
+    />
+    <meta
+      property="og:image"
+      content="https://blackhole-universe.netlify.app/black-hole-model.avif"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/blackhole-universe.netlify.app/" />
+    <meta
+      property="twitter:title"
+      content="Wszechświat w czarnej dziurze — teoria dr Nikodema Popławskiego"
+    />
+    <meta
+      property="twitter:description"
+      content="Poznaj przełomową teorię dr. Nikodema Popławskiego o powstawaniu wszechświatów wewnątrz czarnych dziur, wyjaśniającą inflację kosmiczną, fizykę torsji i Wielki Odbicie."
+    />
+    <meta
+      property="twitter:image"
+      content="https://blackhole-universe.netlify.app/nested-universes.avif"
+    />
+
+    <!-- Canonical Link -->
+    <link
+      rel="canonical"
+      href="https://blackhole-universe.netlify.app/"
+      hreflang="pl"
+    />
+
+    <!-- Fonts with display=swap for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Performance and caching -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Structured data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Wszechświat w czarnej dziurze — teoria dr Nikodema Popławskiego",
+        "url": "https://blackhole-universe.netlify.app",
+        "description": "Poznaj przełomową teorię dr. Nikodema Popławskiego o powstawaniu wszechświatów wewnątrz czarnych dziur, wyjaśniającą inflację kosmiczną, fizykę torsji i Wielki Odbicie.",
+        "inLanguage": ["en", "pl"],
+        "author": {
+          "@type": "Person",
+          "name": "Dr Nikodem Popławski",
+          "url": "https://poplawski.physics.slu.edu/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Teoria Wszechświata w Czarnej Dziurze",
+          "description": "Teoria naukowa sugerująca, że nasz wszechświat może istnieć wewnątrz czarnej dziury, gdzie torsja zapobiega powstawaniu osobliwości i tworzy nowe wszechświaty."
+        },
+        "keywords": "czarna dziura, wszechświat, kosmologia, fizyka, Popławski, torsja, wielkie odbicie, Einstein-Cartan, astrofizyka, grawitacja"
+      }
+    </script>
+  </body>
+</html>
+
+-------------------------
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+
+    <!-- Primary Meta Tags -->
+    <title>Universe in a Black Hole - Dr. Nikodem Popławski's Theory</title>
+    <meta
+      name="title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      name="description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation, torsion physics and the Big Bounce."
+    />
+    <meta name="author" content="Dr. Nikodem Popławski" />
+    <meta
+      name="keywords"
+      content="black hole, universe, cosmology, physics, Popławski, torsion, big bounce, Einstein-Cartan, astrophysics, gravity"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blackhole-universe.netlify.app/" />
+    <meta
+      property="og:title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      property="og:description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce."
+    />
+    <meta
+      property="og:image"
+      content="https://blackhole-universe.netlify.app/black-hole-model.avif"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://blackhole-universe.netlify.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      property="twitter:description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce."
+    />
+    <meta
+      property="twitter:image"
+      content="https://blackhole-universe.netlify.app/nested-universes.avif"
+    />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://blackhole-universe.netlify.app/" />
+
+    <!-- Fonts with display=swap for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+
+    <!-- Performance and caching -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
+    <style>
+      /* Critical styles */
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+      }
+      .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+      }
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Structured data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Universe in a Black Hole - Dr. Nikodem Popławski's Theory",
+        "url": "https://blackhole-universe.netlify.app/",
+        "description": "Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation, torsion physics and the Big Bounce.",
+        "inLanguage": ["en", "pl"],
+        "author": {
+          "@type": "Person",
+          "name": "Dr. Nikodem Popławski",
+          "url": "https://poplawski.physics.slu.edu/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Universe in a Black Hole Theory",
+          "description": "A scientific theory proposing that our universe may exist inside a black hole, with torsion preventing singularities and creating new universes."
+        },
+        "keywords": "black hole, universe, cosmology, physics, Popławski, torsion, big bounce, Einstein-Cartan, astrophysics, gravity"
+      }
+    </script>
+  </body>
+</html>
+
+----------------------
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+// Usunięto: import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+// Usunięto logikę importu @replit/vite-plugin-cartographer
+
+export default defineConfig({
+  plugins: [
+    react(), // Pozostawiono tylko plugin React
+    // Usunięto: runtimeErrorOverlay(),
+    // Usunięto warunkowe ładowanie cartographer
+  ],
+  resolve: {
+    alias: {
+      // Aliases pozostają bez zmian
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+    },
+  },
+  // Ustawienie root i build pozostają bez zmian
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    emptyOutDir: true,
+  },
+  // Możesz rozważyć dodanie opcji serwera deweloperskiego bezpośrednio tutaj,
+  // jeśli nie potrzebujesz dynamicznego przekazywania 'server' z Expressa dla HMR.
+  // Ale integracja w server/vite.ts jest bardziej elastyczna.
+  // server: {
+  //   // np. port: 3000 (jeśli chcesz uruchamiać Vite dev server osobno)
+  // }
+});
+
+
+-----------------------------
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    /></noscript>
+    <!-- Primary Meta Tags -->
+    <title>Universe in a Black Hole - Dr. Nikodem Popławski's Theory</title>
+    <meta
+      name="title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      name="description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation, torsion physics and the Big Bounce."
+    />
+    <meta name="author" content="Dr. Nikodem Popławski" />
+    <meta
+      name="keywords"
+      content="black hole, universe, cosmology, physics, Popławski, torsion, big bounce, Einstein-Cartan, astrophysics, gravity"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://blackhole-universe.netlify.app/" />
+    <meta
+      property="og:title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      property="og:description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce."
+    />
+    <meta
+      property="og:image"
+      content="https://blackhole-universe.netlify.app/black-hole-model.avif"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://blackhole-universe.netlify.app/"
+    />
+    <meta
+      property="twitter:title"
+      content="Universe in a Black Hole - Dr. Nikodem Popławski's Theory"
+    />
+    <meta
+      property="twitter:description"
+      content="Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation and the Big Bounce."
+    />
+    <meta
+      property="twitter:image"
+      content="https://blackhole-universe.netlify.app/nested-universes.avif"
+    />
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://blackhole-universe.netlify.app/" />
+
+    <!-- Fonts with display=swap for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Performance and caching -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
+    <!-- <style>
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+      }
+      .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+      }
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style> -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Structured data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Universe in a Black Hole - Dr. Nikodem Popławski's Theory",
+        "url": "https://blackhole-universe.netlify.app/",
+        "description": "Explore Dr. Nikodem Popławski's groundbreaking theory about universes being born inside black holes, explaining cosmic inflation, torsion physics and the Big Bounce.",
+        "inLanguage": ["en", "pl"],
+        "author": {
+          "@type": "Person",
+          "name": "Dr. Nikodem Popławski",
+          "url": "https://poplawski.physics.slu.edu/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Universe in a Black Hole Theory",
+          "description": "A scientific theory proposing that our universe may exist inside a black hole, with torsion preventing singularities and creating new universes."
+        },
+        "keywords": "black hole, universe, cosmology, physics, Popławski, torsion, big bounce, Einstein-Cartan, astrophysics, gravity"
+      }
+    </script>
+  </body>
+</html>
+
+
+------------------------------------
+
+import { useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
+import Home from "@/pages/home";
+import Theory from "@/pages/theory";
+import Visualizations from "@/pages/visualizations";
+import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
+import NotFound from "@/pages/not-found";
+import { Helmet } from "react-helmet-async";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/theory" component={Theory} />
+      <Route path="/visualizations" component={Visualizations} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  // Set up the page title
+  useEffect(() => {
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark">
+        <TranslationsProvider>
+          <TooltipProvider>
+            <Helmet>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
+              <meta name="theme-color" content="#121212" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
+            </Helmet>
+
+            {/* Component that scrolls to the top when route changes */}
+            <LocationScrollToTop />
+
+            <div className="min-h-screen flex flex-col">
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
+            </div>
+
+            <Toaster />
+          </TooltipProvider>
+        </TranslationsProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+
+-----------------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors p-3 min-w-[44px] min-h-[44px] flex items-center`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href="/theory">
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/theory")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href="/visualizations">
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/visualizations")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href="/about">
+              <div
+                className={`font-medium p-3 min-w-[44px] min-h-[44px] flex items-center ${
+                  isActive("/about")
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/theory">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/theory")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/visualizations">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/visualizations")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href="/about">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/about")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+
+----------------------------
+
+import { useState, useEffect, createContext, useContext } from "react";
+import enTranslations from "@/locales/en";
+import plTranslations from "@/locales/pl";
+
+type TranslationsType = typeof enTranslations;
+type LanguageCode = "en" | "pl";
+
+interface TranslationsContextType {
+  t: (key: keyof TranslationsType) => string;
+  currentLanguage: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+}
+
+const translationsMap = {
+  en: enTranslations,
+  pl: plTranslations,
+};
+
+// Create context
+const TranslationsContext = createContext<TranslationsContextType | undefined>(
+  undefined
+);
+
+// Provider component
+export function TranslationsProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(() => {
+    // Try to get language from localStorage first
+    const savedLang = localStorage.getItem("language") as LanguageCode;
+    if (savedLang && (savedLang === "en" || savedLang === "pl")) {
+      return savedLang;
+    }
+
+    // Otherwise try to detect from browser
+    const browserLang = navigator.language.split("-")[0];
+    if (browserLang === "pl") {
+      return "pl";
+    }
+
+    // Default to English
+    return "pl";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("language", currentLanguage);
+    // Update HTML lang attribute for accessibility and SEO
+    document.documentElement.lang = currentLanguage;
+  }, [currentLanguage]);
+
+  const t = (key: keyof TranslationsType): string => {
+    return (
+      translationsMap[currentLanguage][key] || translationsMap.en[key] || key
+    );
+  };
+
+  const setLanguage = (lang: LanguageCode) => {
+    setCurrentLanguage(lang);
+  };
+
+  return (
+    <TranslationsContext.Provider value={{ t, currentLanguage, setLanguage }}>
+      {children}
+    </TranslationsContext.Provider>
+  );
+}
+
+// Hook for using translations
+export function useTranslations() {
+  const context = useContext(TranslationsContext);
+  if (context === undefined) {
+    throw new Error(
+      "useTranslations must be used within a TranslationsProvider"
+    );
+  }
+  return context;
+}
+
+
+--------------------------
+
+import { Link } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+
+export default function Footer() {
+  const { t } = useTranslations();
+
+  return (
+    <footer className="bg-background border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="md:col-span-2">
+            <div className="flex items-center mb-4">
+              <BlackHoleLogo className="mr-2" />
+              <span className="font-display font-bold text-xl tracking-tight">
+                <span className="text-cosmic-blue">{t("navbar.universe")}</span>
+                <span className="text-foreground">{t("navbar.in")}</span>
+                <span className="text-cosmic-purple">
+                  {t("navbar.blackHole")}
+                </span>
+              </span>
+            </div>
+            <p className="text-muted-foreground mb-6 max-w-md">
+              {t("footer.description")}
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="https://twitter.com/hashtag/blackhole"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition-all duration-300 transform hover:scale-125"
+                aria-label="Twitter"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/sciastro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-purple transition-all duration-300 transform hover:scale-125"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=9NTpFlU4dY8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cosmic-pink dark:hover:text-cosmic-pink transition-all duration-300 transform hover:scale-125"
+                aria-label="YouTube"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/search?q=black+hole+simulation&type=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cosmic-purple dark:hover:text-cosmic-purple transition-all duration-300 transform hover:scale-125"
+                aria-label="GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold text-lg mb-4">
+              {t("footer.quickLinks")}
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("navbar.home")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/theory"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("navbar.theory")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/visualizations"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("navbar.visualizations")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("navbar.about")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold text-lg mb-4">
+              {t("footer.resources")}
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://www.newhaven.edu/news/blog/2020/nikodem-poplawski-research.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                  title="Informacje o badaniach i publikacjach Dr. Popławskiego"
+                >
+                  {t("footer.papers")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=thRNKtfTv-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("footer.lectures")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=il8gH6xr0Bo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("footer.lectures")} 2
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=7t3llhn0-GQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("footer.lectures")} 3
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.tysol.pl/a135929-skromny-polski-geniusz-o-ktorym-morgan-freeman-powiedzial-ze-jest-drugim-kopernikiem"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("footer.educational")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://pl.linkedin.com/posts/maciejkawecki_ukryty-polski-geniusz-i-prof-nikodem-pop%C5%82awski-activity-7298245029179920384-oZYa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+                >
+                  {t("footer.press")}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-muted-foreground text-sm order-2 sm:order-1 mt-4 sm:mt-0">
+            © 2025 - {new Date().getFullYear()} {t("footer.copyright")}
+          </p>
+
+          <div className="flex space-x-6 order-1 sm:order-2">
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+            >
+              {t("footer.privacy")}
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+            >
+              {t("footer.terms")}
+            </Link>
+            <Link
+              href="/contact-admin"
+              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+            >
+              {t("footer.contact")}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
+----------------------------------
+
+import React from 'react';
+import { useTranslations } from '@/hooks/use-translations';
+import { Helmet } from 'react-helmet-async';
+
+export default function PrivacyPolicy() {
+  const { t, currentLanguage } = useTranslations();
+  
+  return (
+    <>
+      <Helmet>
+        <title>{currentLanguage === 'en' ? 'Privacy Policy' : 'Polityka Prywatności'} | {t('navbar.universe')} {t('navbar.in')} {t('navbar.blackHole')}</title>
+        <meta name="description" content={currentLanguage === 'en' ? 'Our privacy policy outlines how we collect, use, and protect your data when you visit our website.' : 'Nasza polityka prywatności określa, jak zbieramy, wykorzystujemy i chronimy Twoje dane podczas odwiedzania naszej strony.'} />
+      </Helmet>
+    
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
+            {currentLanguage === 'en' ? 'Privacy Policy' : 'Polityka Prywatności'}
+          </h1>
+          
+          <div className="prose prose-sm sm:prose-base dark:prose-invert mx-auto">
+            <p className="text-muted-foreground mb-8 text-center">
+              {currentLanguage === 'en' 
+                ? 'Last updated: April 30, 2024' 
+                : 'Ostatnia aktualizacja: 30 kwietnia 2024'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '1. Introduction' : '1. Wprowadzenie'}</h2>
+            <p>
+              {currentLanguage === 'en' 
+                ? 'This Privacy Policy explains how we collect, use, store, and protect your information when you visit our website "Universe in a Black Hole" dedicated to Dr. Nikodem Popławski\'s theory.'
+                : 'Niniejsza Polityka Prywatności wyjaśnia, w jaki sposób zbieramy, wykorzystujemy, przechowujemy i chronimy Twoje informacje, gdy odwiedzasz naszą stronę internetową "Wszechświat w Czarnej Dziurze" poświęconą teorii dr. Nikodema Popławskiego.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '2. Information We Collect' : '2. Informacje, które zbieramy'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'We collect minimal information necessary to provide and improve our services:'
+                : 'Zbieramy minimalne informacje niezbędne do świadczenia i ulepszania naszych usług:'}
+            </p>
+            <ul>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Information you provide: When you contact us through our form, we collect your name and email address.'
+                  : 'Informacje, które podajesz: Gdy kontaktujesz się z nami poprzez formularz, zbieramy Twoje imię i adres e-mail.'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Automatically collected information: We use cookies and similar technologies to collect information about your device, browser, and browsing actions.'
+                  : 'Automatycznie zbierane informacje: Używamy plików cookie i podobnych technologii do zbierania informacji o Twoim urządzeniu, przeglądarce i działaniach podczas przeglądania.'}
+              </li>
+            </ul>
+            
+            <h2>{currentLanguage === 'en' ? '3. How We Use Your Information' : '3. Jak wykorzystujemy Twoje informacje'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'We use the information we collect to:'
+                : 'Wykorzystujemy zebrane informacje do:'}
+            </p>
+            <ul>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Respond to your inquiries and provide support'
+                  : 'Odpowiadania na Twoje zapytania i udzielania wsparcia'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Improve our website and content'
+                  : 'Ulepszania naszej strony internetowej i treści'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Analyze website usage to enhance user experience'
+                  : 'Analizowania korzystania ze strony w celu poprawy doświadczenia użytkownika'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Ensure website security and proper functioning'
+                  : 'Zapewnienia bezpieczeństwa i prawidłowego funkcjonowania strony'}
+              </li>
+            </ul>
+            
+            <h2>{currentLanguage === 'en' ? '4. Data Security' : '4. Bezpieczeństwo danych'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.'
+                : 'Wdrażamy odpowiednie środki bezpieczeństwa w celu ochrony Twoich danych osobowych przed nieautoryzowanym dostępem, zmianą, ujawnieniem lub zniszczeniem. Jednak żadna metoda transmisji przez Internet ani elektronicznego przechowywania nie jest w 100% bezpieczna i nie możemy zagwarantować całkowitego bezpieczeństwa.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '5. Third-Party Services' : '5. Usługi stron trzecich'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'Our website may use third-party services such as Google Analytics to help analyze how users use the site. These third-party services may use cookies and similar technologies to collect information about your use of our website. We do not have control over the privacy practices of these third parties.'
+                : 'Nasza strona internetowa może korzystać z usług stron trzecich, takich jak Google Analytics, aby pomóc analizować, w jaki sposób użytkownicy korzystają z witryny. Te usługi stron trzecich mogą używać plików cookie i podobnych technologii do zbierania informacji o korzystaniu z naszej strony. Nie mamy kontroli nad praktykami prywatności tych stron trzecich.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '6. Your Rights' : '6. Twoje prawa'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'Depending on your location, you may have rights regarding your personal data, including:'
+                : 'W zależności od Twojej lokalizacji, możesz mieć prawa dotyczące Twoich danych osobowych, w tym:'}
+            </p>
+            <ul>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to access and receive a copy of your personal data'
+                  : 'Prawo dostępu i otrzymania kopii Twoich danych osobowych'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to rectification or correction of inaccurate data'
+                  : 'Prawo do sprostowania lub poprawienia niedokładnych danych'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to erasure (right to be forgotten)'
+                  : 'Prawo do usunięcia (prawo do bycia zapomnianym)'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to restrict processing'
+                  : 'Prawo do ograniczenia przetwarzania'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to object to processing'
+                  : 'Prawo do sprzeciwu wobec przetwarzania'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Right to data portability'
+                  : 'Prawo do przenoszenia danych'}
+              </li>
+            </ul>
+            
+            <h2>{currentLanguage === 'en' ? '7. Changes to This Privacy Policy' : '7. Zmiany w Polityce Prywatności'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.'
+                : 'Możemy aktualizować naszą Politykę Prywatności od czasu do czasu. Powiadomimy Cię o wszelkich zmianach, publikując nową Politykę Prywatności na tej stronie i aktualizując datę "Ostatnia aktualizacja".'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '8. Contact Us' : '8. Kontakt z nami'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'If you have any questions or concerns about this Privacy Policy, please contact us through the contact form on our website or by email at admin@universeinblackhole.org.'
+                : 'Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące niniejszej Polityki Prywatności, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem admin@universeinblackhole.org.'}
+            </p>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}
+
+------------------------------------
+
+import React from 'react';
+import { useTranslations } from '@/hooks/use-translations';
+import { Helmet } from 'react-helmet-async';
+
+export default function TermsOfService() {
+  const { t, currentLanguage } = useTranslations();
+  
+  return (
+    <>
+      <Helmet>
+        <title>{currentLanguage === 'en' ? 'Terms of Service' : 'Warunki Usługi'} | {t('navbar.universe')} {t('navbar.in')} {t('navbar.blackHole')}</title>
+        <meta name="description" content={currentLanguage === 'en' ? 'Terms of Service for Universe in a Black Hole website.' : 'Warunki korzystania ze strony Wszechświat w Czarnej Dziurze.'} />
+      </Helmet>
+    
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
+            {currentLanguage === 'en' ? 'Terms of Service' : 'Warunki Usługi'}
+          </h1>
+          
+          <div className="prose prose-sm sm:prose-base dark:prose-invert mx-auto">
+            <p className="text-muted-foreground mb-8 text-center">
+              {currentLanguage === 'en' 
+                ? 'Last updated: April 30, 2024' 
+                : 'Ostatnia aktualizacja: 30 kwietnia 2024'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '1. Acceptance of Terms' : '1. Akceptacja Warunków'}</h2>
+            <p>
+              {currentLanguage === 'en' 
+                ? 'By accessing or using the Universe in a Black Hole website ("the Website"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Website.'
+                : 'Uzyskując dostęp do strony internetowej Wszechświat w Czarnej Dziurze ("Strona") lub korzystając z niej, zgadzasz się przestrzegać niniejszych Warunków Usługi. Jeśli nie zgadzasz się z tymi warunkami, prosimy o niekorzystanie ze Strony.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '2. Description of Service' : '2. Opis Usługi'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'The Website provides educational content about Dr. Nikodem Popławski\'s theory of the Universe in a Black Hole. Our services include providing scientific information, visualizations, and contact possibilities for educational purposes.'
+                : 'Strona internetowa dostarcza treści edukacyjne na temat teorii dr. Nikodema Popławskiego o Wszechświecie w Czarnej Dziurze. Nasze usługi obejmują dostarczanie informacji naukowych, wizualizacji i możliwości kontaktu w celach edukacyjnych.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '3. Intellectual Property Rights' : '3. Prawa Własności Intelektualnej'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'All content on the Website, including but not limited to text, graphics, logos, images, videos, and software, is the property of the Website owners or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.'
+                : 'Wszystkie treści na Stronie, w tym między innymi tekst, grafika, logo, obrazy, filmy i oprogramowanie, są własnością właścicieli Strony lub jej dostawców treści i są chronione międzynarodowymi prawami autorskimi, znakami towarowymi i innymi prawami własności intelektualnej.'}
+            </p>
+            <p>
+              {currentLanguage === 'en'
+                ? 'You may access, download, or print materials from the Website for your personal, non-commercial use, provided that you keep all copyright and other proprietary notices intact.'
+                : 'Możesz uzyskiwać dostęp, pobierać lub drukować materiały ze Strony do osobistego, niekomercyjnego użytku, pod warunkiem zachowania wszystkich informacji o prawach autorskich i innych prawach własności.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '4. User Conduct' : '4. Zachowanie Użytkownika'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'You agree not to use the Website to:'
+                : 'Zgadzasz się nie używać Strony do:'}
+            </p>
+            <ul>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Engage in any activity that violates any applicable local, state, national, or international law'
+                  : 'Angażowania się w jakąkolwiek działalność, która narusza obowiązujące lokalne, stanowe, krajowe lub międzynarodowe prawo'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Post or transmit any content that is unlawful, harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable'
+                  : 'Publikowania lub przesyłania jakichkolwiek treści, które są niezgodne z prawem, szkodliwe, grożące, obraźliwe, nękające, zniesławiające lub w inny sposób niewłaściwe'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Attempt to interfere with, compromise the system integrity or security, or decipher any transmissions to or from the servers running the Website'
+                  : 'Próby ingerencji, naruszenia integralności lub bezpieczeństwa systemu lub odszyfrowywania jakichkolwiek transmisji do lub z serwerów obsługujących Stronę'}
+              </li>
+              <li>
+                {currentLanguage === 'en'
+                  ? 'Collect or track personal information of others'
+                  : 'Zbierania lub śledzenia danych osobowych innych osób'}
+              </li>
+            </ul>
+            
+            <h2>{currentLanguage === 'en' ? '5. Links to Third-Party Websites' : '5. Linki do Stron Trzecich'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'The Website may contain links to third-party websites that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. We strongly advise you to read the terms and conditions and privacy policy of any third-party website that you visit.'
+                : 'Strona może zawierać linki do stron internetowych stron trzecich, które nie są własnością ani nie są kontrolowane przez nas. Nie mamy kontroli nad treścią, politykami prywatności ani praktykami jakichkolwiek stron internetowych stron trzecich i nie ponosimy za nie odpowiedzialności. Zdecydowanie zalecamy zapoznanie się z warunkami i polityką prywatności każdej odwiedzanej strony internetowej stron trzecich.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '6. Disclaimer of Warranties' : '6. Wyłączenie Gwarancji'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'The Website is provided on an "as is" and "as available" basis. We make no warranties, expressed or implied, regarding the operation or availability of the Website. We do not warrant that the Website is free of viruses or other harmful components.'
+                : 'Strona jest dostarczana w stanie "takim, jaki jest" i "w miarę dostępności". Nie udzielamy żadnych gwarancji, wyraźnych ani dorozumianych, dotyczących działania lub dostępności Strony. Nie gwarantujemy, że Strona jest wolna od wirusów lub innych szkodliwych składników.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '7. Limitation of Liability' : '7. Ograniczenie Odpowiedzialności'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Website.'
+                : 'W maksymalnym zakresie dozwolonym przez obowiązujące prawo, nie ponosimy odpowiedzialności za jakiekolwiek pośrednie, przypadkowe, specjalne, wynikowe lub karne szkody, ani za jakąkolwiek utratę zysków lub przychodów, poniesione bezpośrednio lub pośrednio, ani za jakąkolwiek utratę danych, użytkowania, wartości firmy lub inne straty niematerialne, wynikające z dostępu do Strony lub korzystania z niej lub niemożności dostępu do niej lub korzystania z niej.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '8. Modifications to Terms' : '8. Modyfikacje Warunków'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'We reserve the right to modify these Terms of Service at any time. We will provide notice of significant changes by posting an announcement on the Website. Your continued use of the Website after such modifications constitutes your acceptance of the modified terms.'
+                : 'Zastrzegamy sobie prawo do modyfikacji niniejszych Warunków Usługi w dowolnym momencie. Zawiadomimy o istotnych zmianach, publikując ogłoszenie na Stronie. Dalsze korzystanie ze Strony po takich modyfikacjach stanowi akceptację zmodyfikowanych warunków.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '9. Governing Law' : '9. Prawo Właściwe'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'These Terms shall be governed by and construed in accordance with the laws of Poland, without regard to its conflict of law provisions.'
+                : 'Niniejsze Warunki podlegają prawu polskiemu i są interpretowane zgodnie z nim, bez względu na przepisy kolizyjne.'}
+            </p>
+            
+            <h2>{currentLanguage === 'en' ? '10. Contact Us' : '10. Kontakt z nami'}</h2>
+            <p>
+              {currentLanguage === 'en'
+                ? 'If you have any questions about these Terms, please contact us through the contact form on our website or by email at admin@universeinblackhole.org.'
+                : 'Jeśli masz jakiekolwiek pytania dotyczące niniejszych Warunków, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem admin@universeinblackhole.org.'}
+            </p>
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}
+
+
+---------------------------------
+
+import { useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
+import Home from "@/pages/home";
+import Theory from "@/pages/theory";
+import Visualizations from "@/pages/visualizations";
+import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
+import NotFound from "@/pages/not-found";
+import { Helmet } from "react-helmet-async";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      {/* Angielskie ścieżki */}
+      <Route path="/theory" component={Theory} />
+      <Route path="/visualizations" component={Visualizations} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
+
+      {/* Polskie ścieżki */}
+      <Route path="/teoria" component={Theory} />
+      <Route path="/wizualizacje" component={Visualizations} />
+      <Route path="/o-autorze" component={About} />
+      <Route path="/polityka-prywatnosci" component={PrivacyPolicy} />
+      <Route path="/regulamin" component={TermsOfService} />
+      <Route path="/kontakt" component={ContactAdmin} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  // Set up the page title
+  useEffect(() => {
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark">
+        <TranslationsProvider>
+          <TooltipProvider>
+            <Helmet>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+              />
+              <meta name="theme-color" content="#121212" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
+            </Helmet>
+
+            {/* Component that scrolls to the top when route changes */}
+            <LocationScrollToTop />
+
+            <div className="min-h-screen flex flex-col">
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
+            </div>
+
+            <Toaster />
+          </TooltipProvider>
+        </TranslationsProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+
+
+-----------------------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/theory")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/visualizations")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/about")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/theory")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/theory"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/visualizations")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/visualizations"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/about")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/about"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+------------------------------------
+
+import { useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
+import Home from "@/pages/home";
+import Theory from "@/pages/theory";
+import Visualizations from "@/pages/visualizations";
+import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
+import Contact from "@/components/ContactSection";
+import NotFound from "@/pages/not-found";
+import { Helmet } from "react-helmet-async";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      {/* Angielskie ścieżki */}
+      <Route path="/theory" component={Theory} />
+      <Route path="/visualizations" component={Visualizations} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
+      <Route path="/contact" component={Contact} />
+
+      {/* Polskie ścieżki */}
+      <Route path="/teoria" component={Theory} />
+      <Route path="/wizualizacje" component={Visualizations} />
+      <Route path="/o-autorze" component={About} />
+      <Route path="/polityka-prywatnosci" component={PrivacyPolicy} />
+      <Route path="/regulamin" component={TermsOfService} />
+      <Route path="/kontakt" component={ContactAdmin} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  // Set up the page title
+  useEffect(() => {
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark">
+        <TranslationsProvider>
+          <TooltipProvider>
+            <Helmet>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1"
+              />
+              <meta name="theme-color" content="#121212" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
+            </Helmet>
+
+            {/* Component that scrolls to the top when route changes */}
+            <LocationScrollToTop />
+
+            <div className="min-h-screen flex flex-col">
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
+            </div>
+
+            <Toaster />
+          </TooltipProvider>
+        </TranslationsProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+
+
+-------------------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt-admin",
+      "/contact": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/theory")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/visualizations")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/about")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/contact")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/contact"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("footer.contact")}
+              </div>
+            </Link>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/theory")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/theory"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/visualizations")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/visualizations"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/about")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/about"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/contact")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/contact"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("footer.contact")}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+
+--------------------------------
+
+import { useState } from 'react';
+import { useTranslations } from '@/hooks/use-translations';
+
+export default function ContactSection() {
+  const { t, currentLanguage } = useTranslations();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setName('');
+      setEmail('');
+      setConsent(false);
+    }, 1000);
+  };
+  
+  return (
+    <section id="contact" className="relative py-16 bg-muted dark:bg-dark-bg">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto bg-background dark:bg-dark-surface rounded-2xl shadow-lg overflow-hidden">
+          <div className="md:flex">
+            <div className="md:w-1/2 p-8 bg-cosmic-gradient text-white relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="font-display text-2xl font-bold mb-4">{t('contact.title')}</h3>
+                <p className="mb-6 text-white/80">
+                  {t('contact.description')}
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="mr-3">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                    </svg>
+                    <span>{t('contact.email')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="mr-3">
+                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                    </svg>
+                    <span>{t('contact.location')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="mr-3">
+                      <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                    </svg>
+                    <span>{t('contact.response')}</span>
+                  </div>
+                </div>
+                
+                <div className="mt-8 flex space-x-4">
+                  <a 
+                    href="https://twitter.com/hashtag/blackhole" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-blue/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow" 
+                    aria-label="Twitter"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="text-white">
+                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/sciastro" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-blue/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow" 
+                    aria-label="Facebook"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="text-white">
+                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://www.youtube.com/watch?v=ijpEd1qHBkg" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-pink/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow" 
+                    aria-label="YouTube"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="text-white">
+                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://github.com/search?q=black+hole+simulation&type=repositories" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-purple/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow" 
+                    aria-label="GitHub"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16" className="text-white">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              
+              {/* Background decoration */}
+              <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full border-8 border-white/10"></div>
+              <div className="absolute top-12 -right-12 w-32 h-32 rounded-full border-4 border-white/10"></div>
+            </div>
+            
+            <div className="md:w-1/2 p-8">
+              <h3 className="font-display text-2xl font-bold mb-6">{t('contact.title')}</h3>
+              
+              <p className="text-muted-foreground mb-6">
+                {t('contact.description')}
+              </p>
+              
+              {/* Netlify Form */}
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                className="space-y-4"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden field for Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+                
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.name')}</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">{t('contact.form.email')}</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition" 
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">{currentLanguage === 'en' ? 'Your message' : 'Twoja wiadomość'}</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows={4}
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition resize-none" 
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  className="w-full bg-cosmic-gradient text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1"
+                >
+                  {currentLanguage === 'en' ? 'Send message' : 'Wyślij wiadomość'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+-----------------------------
+
+import { useState, useEffect } from "react";
+
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Pokazuj przycisk tylko po przewinięciu o określoną odległość
+  // Użyj mniejszej wartości progowej dla małych ekranów
+  const toggleVisibility = () => {
+    const isMobile = window.innerWidth < 768;
+    const threshold = isMobile ? 150 : 300;
+
+    if (window.pageYOffset > threshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  // Funkcja do płynnego przewijania do góry strony
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    // Dodaj listener na scroll i na zmianę rozmiaru okna
+    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility);
+
+    // Wywołaj toggleVisibility od razu, aby poprawnie ustawić stan przy pierwszym renderze
+    toggleVisibility();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
+  }, []);
+
+  return (
+    <>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 sm:bottom-16 right-6 p-3 rounded-full bg-cosmic-gradient text-white shadow-lg hover:shadow-xl z-50 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            className="sm:w-5 sm:h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      )}
+    </>
+  );
+}
+
+export default ScrollToTop;
+
+
+------------------------------
+
+import { useEffect } from 'react';
+import { useLocation } from 'wouter';
+
+/**
+ * Component that scrolls to the top of the page when the location (route) changes
+ */
+export default function LocationScrollToTop() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    // Scroll to top when location changes
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return null; // This component doesn't render anything
+}
+
+------------------------
+
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [location] = useLocation();
+
+  // Pokazuj przycisk tylko po przewinięciu o określoną odległość
+  // Użyj mniejszej wartości progowej dla małych ekranów
+  const toggleVisibility = () => {
+    const isMobile = window.innerWidth < 768;
+    const threshold = isMobile ? 150 : 300;
+
+    if (window.pageYOffset > threshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  // Funkcja do płynnego przewijania do góry strony
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    // Scroll to top when location changes
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location]);
+
+  useEffect(() => {
+    // Dodaj listener na scroll i na zmianę rozmiaru okna
+    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility);
+
+    // Wywołaj toggleVisibility od razu, aby poprawnie ustawić stan przy pierwszym renderze
+    toggleVisibility();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
+  }, []);
+
+  return (
+    <>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 sm:bottom-16 right-6 p-3 rounded-full bg-cosmic-gradient text-white shadow-lg hover:shadow-xl z-50 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            className="sm:w-5 sm:h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      )}
+    </>
+  );
+}
+
+export default ScrollToTop;
+
+------------------------------
+
+import { useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+// import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
+import Home from "@/pages/home";
+import Theory from "@/pages/theory";
+import Visualizations from "@/pages/visualizations";
+import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
+import Contact from "@/components/ContactSection";
+import NotFound from "@/pages/not-found";
+import { Helmet } from "react-helmet-async";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      {/* Angielskie ścieżki */}
+      <Route path="/theory" component={Theory} />
+      <Route path="/visualizations" component={Visualizations} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
+
+      {/* Polskie ścieżki */}
+      <Route path="/teoria" component={Theory} />
+      <Route path="/wizualizacje" component={Visualizations} />
+      <Route path="/o-autorze" component={About} />
+      <Route path="/polityka-prywatnosci" component={PrivacyPolicy} />
+      <Route path="/regulamin" component={TermsOfService} />
+      <Route path="/kontakt" component={ContactAdmin} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  // Set up the page title
+  useEffect(() => {
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark">
+        <TranslationsProvider>
+          <TooltipProvider>
+            <Helmet>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1"
+              />
+              <meta name="theme-color" content="#121212" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
+            </Helmet>
+
+            {/* Component that scrolls to the top when route changes */}
+            {/* <LocationScrollToTop /> */}
+
+            <div className="min-h-screen flex flex-col">
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
+            </div>
+
+            <Toaster />
+          </TooltipProvider>
+        </TranslationsProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+
+------------------------
+
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [location] = useLocation();
+
+  const toggleVisibility = () => {
+    const isMobile = window.innerWidth < 768;
+    const threshold = isMobile ? 150 : 300;
+
+    if (window.pageYOffset > threshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [location]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility);
+    toggleVisibility();
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
+  }, []);
+
+  return (
+    <>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 sm:bottom-16 right-6 p-3 rounded-full bg-cosmic-gradient text-white shadow-lg hover:shadow-xl z-50 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            className="sm:w-5 sm:h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      )}
+    </>
+  );
+}
+
+export default ScrollToTop;
+
+
+--------------------
+
+import { useState } from "react";
+import { useTranslations } from "@/hooks/use-translations";
+
+export default function ContactSection() {
+  const { t, currentLanguage } = useTranslations();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setName("");
+      setEmail("");
+      setConsent(false);
+    }, 1000);
+  };
+
+  return (
+    <section
+      id={currentLanguage === "pl" ? "kontakt" : "contact"}
+      className="relative py-16 bg-muted dark:bg-dark-bg"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto bg-background dark:bg-dark-surface rounded-2xl shadow-lg overflow-hidden">
+          <div className="md:flex">
+            <div className="md:w-1/2 p-8 bg-cosmic-gradient text-white relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="font-display text-2xl font-bold mb-4">
+                  {t("contact.title")}
+                </h3>
+                <p className="mb-6 text-white/80">{t("contact.description")}</p>
+
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="mr-3"
+                    >
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                    </svg>
+                    <span>{t("contact.email")}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="mr-3"
+                    >
+                      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                    </svg>
+                    <span>{t("contact.location")}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="mr-3"
+                    >
+                      <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                    </svg>
+                    <span>{t("contact.response")}</span>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex space-x-4">
+                  <a
+                    href="https://twitter.com/hashtag/blackhole"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-blue/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow"
+                    aria-label="Twitter"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="text-white"
+                    >
+                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/sciastro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-blue/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow"
+                    aria-label="Facebook"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="text-white"
+                    >
+                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=ijpEd1qHBkg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-pink/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow"
+                    aria-label="YouTube"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="text-white"
+                    >
+                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://github.com/search?q=black+hole+simulation&type=repositories"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center hover:bg-cosmic-purple/50 transition-all duration-300 transform hover:scale-110 hover:shadow-glow"
+                    aria-label="GitHub"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                      className="text-white"
+                    >
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Background decoration */}
+              <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full border-8 border-white/10"></div>
+              <div className="absolute top-12 -right-12 w-32 h-32 rounded-full border-4 border-white/10"></div>
+            </div>
+
+            <div className="md:w-1/2 p-8">
+              <h3 className="font-display text-2xl font-bold mb-6">
+                {t("contact.title")}
+              </h3>
+
+              <p className="text-muted-foreground mb-6">
+                {t("contact.description")}
+              </p>
+
+              {/* Netlify Form */}
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                className="space-y-4"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden field for Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-foreground mb-1"
+                  >
+                    {t("contact.form.name")}
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-foreground mb-1"
+                  >
+                    {t("contact.form.email")}
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-foreground mb-1"
+                  >
+                    {currentLanguage === "en"
+                      ? "Your message"
+                      : "Twoja wiadomość"}
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-cosmic-blue dark:focus:ring-cosmic-purple focus:border-transparent outline-none transition resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-cosmic-gradient text-white font-medium py-2 px-4 rounded-lg shadow hover:shadow-lg transform transition hover:-translate-y-1"
+                >
+                  {currentLanguage === "en"
+                    ? "Send message"
+                    : "Wyślij wiadomość"}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+---------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/theory")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/visualizations")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/about")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+            <a
+              href={`/#${currentLanguage === "pl" ? "kontakt" : "contact"}`}
+              className="font-medium hover:text-cosmic-blue transition-colors"
+            >
+              {t("contact.title")}
+            </a>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/theory")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/theory"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/visualizations")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/visualizations"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/about")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/about"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <a
+                href={`/#${currentLanguage === "pl" ? "kontakt" : "contact"}`}
+                className="px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center text-foreground hover:text-cosmic-blue"
+              >
+                {t("contact.title")}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+
+---------------------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      const headerOffset = 80;
+      const elementPosition = contactSection.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+      setIsMenuOpen(false);
+    }
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/theory")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/visualizations")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/about")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+            <button
+              onClick={scrollToContact}
+              className="font-medium hover:text-cosmic-blue transition-colors"
+            >
+              {t("contact.title")}
+            </button>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/theory")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/theory"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/visualizations")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/visualizations"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/about")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/about"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+
+----------------------------------
+
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useTranslations } from "@/hooks/use-translations";
+import BlackHoleLogo from "../ui/black-hole-logo";
+import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [location] = useLocation();
+  const { t, currentLanguage } = useTranslations();
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
+  const getLocalizedPath = (enPath: string) => {
+    const pathMap: Record<string, string> = {
+      "/theory": "/teoria",
+      "/visualizations": "/wizualizacje",
+      "/about": "/o-autorze",
+      "/privacy-policy": "/polityka-prywatnosci",
+      "/terms-of-service": "/regulamin",
+      "/contact-admin": "/kontakt",
+    };
+
+    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const isActive = (path: string) => {
+    return location === path;
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div onClick={closeMobileMenu} className="cursor-pointer">
+            <Link href="/">
+              <div className="flex items-center">
+                <BlackHoleLogo className="mr-2" />
+                <span className="font-display font-bold text-xl tracking-tight">
+                  <span className="text-cosmic-blue">
+                    {t("navbar.universe")}
+                  </span>
+                  <span className="text-foreground">{t("navbar.in")}</span>
+                  <span className="text-cosmic-purple">
+                    {t("navbar.blackHole")}
+                  </span>
+                </span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Desktop */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/">
+              <div
+                className={`font-medium ${
+                  isActive("/") ? "text-cosmic-blue" : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.home")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/theory")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/theory"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.theory")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/visualizations")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/visualizations"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.visualizations")}
+              </div>
+            </Link>
+            <Link href={getLocalizedPath("/about")}>
+              <div
+                className={`font-medium ${
+                  isActive(getLocalizedPath("/about"))
+                    ? "text-cosmic-blue"
+                    : "hover:text-cosmic-blue"
+                } transition-colors`}
+              >
+                {t("navbar.about")}
+              </div>
+            </Link>
+            <button
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  const headerOffset = 80;
+                  const elementPosition =
+                    contactSection.getBoundingClientRect().top;
+                  const offsetPosition =
+                    elementPosition + window.pageYOffset - headerOffset;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              className="font-medium hover:text-cosmic-blue transition-colors"
+            >
+              {t("contact.title")}
+            </button>
+          </nav>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="md:hidden p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-cosmic-blue dark:hover:text-cosmic-blue"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              onClick={toggleMobileMenu}
+            >
+              <i
+                className={`bx ${isMenuOpen ? "bx-x" : "bx-menu"} text-2xl`}
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-b border-border">
+            <div onClick={closeMobileMenu}>
+              <Link href="/">
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive("/")
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.home")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/theory")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/theory"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.theory")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/visualizations")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/visualizations"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.visualizations")}
+                </div>
+              </Link>
+            </div>
+            <div onClick={closeMobileMenu}>
+              <Link href={getLocalizedPath("/about")}>
+                <div
+                  className={`px-3 py-2 rounded-md text-base font-medium min-w-[44px] min-h-[44px] flex items-center ${
+                    isActive(getLocalizedPath("/about"))
+                      ? "text-cosmic-blue"
+                      : "text-foreground hover:text-cosmic-blue"
+                  }`}
+                >
+                  {t("navbar.about")}
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
+
+-------------------------
+
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+
+export function ScrollToTop() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Pokazuj przycisk tylko po przewinięciu o określoną odległość
+  // Użyj mniejszej wartości progowej dla małych ekranów
+  const toggleVisibility = () => {
+    const isMobile = window.innerWidth < 768;
+    const threshold = isMobile ? 150 : 300;
+
+    if (window.pageYOffset > threshold) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  // Funkcja do płynnego przewijania do góry strony
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    // Dodaj listener na scroll i na zmianę rozmiaru okna
+    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", toggleVisibility);
+
+    // Wywołaj toggleVisibility od razu, aby poprawnie ustawić stan przy pierwszym renderze
+    toggleVisibility();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", toggleVisibility);
+    };
+  }, []);
+
+  return (
+    <>
+      {isVisible && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-32 sm:bottom-16 right-6 p-3 rounded-full bg-cosmic-gradient text-white shadow-lg hover:shadow-xl z-50 transition-all duration-300 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            className="sm:w-5 sm:h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      )}
+    </>
+  );
+}
+
+export default ScrollToTop;
+
+----------------------------
+
+import { useEffect } from "react";
+import { Switch, Route, useLocation } from "wouter";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { queryClient } from "./lib/queryClient";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TranslationsProvider } from "@/hooks/use-translations";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import Home from "@/pages/home";
+import Theory from "@/pages/theory";
+import Visualizations from "@/pages/visualizations";
+import About from "@/pages/about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
+import ContactAdmin from "@/pages/contact-admin";
+import Contact from "@/components/ContactSection";
+import NotFound from "@/pages/not-found";
+import { Helmet } from "react-helmet-async";
+import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/" component={Home} />
+      {/* Angielskie ścieżki */}
+      <Route path="/theory" component={Theory} />
+      <Route path="/visualizations" component={Visualizations} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact-admin" component={ContactAdmin} />
+      <Route path="/contact" component={Contact} />
+
+      {/* Polskie ścieżki */}
+      <Route path="/teoria" component={Theory} />
+      <Route path="/wizualizacje" component={Visualizations} />
+      <Route path="/o-autorze" component={About} />
+      <Route path="/polityka-prywatnosci" component={PrivacyPolicy} />
+      <Route path="/regulamin" component={TermsOfService} />
+      <Route path="/kontakt" component={ContactAdmin} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+function App() {
+  // Set up the page title
+  useEffect(() => {
+    document.title =
+      "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark">
+        <TranslationsProvider>
+          <TooltipProvider>
+            <Helmet>
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1"
+              />
+              <meta name="theme-color" content="#121212" />
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link
+                rel="preconnect"
+                href="https://fonts.gstatic.com"
+                crossOrigin=""
+              />
+            </Helmet>
+            {/* Component that scrolls to the top when route changes */}
+            <LocationScrollToTop />
+            <div className="min-h-screen flex flex-col">
+              <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
+                <Navbar />
+                <main className="flex-grow">
+                  <Router />
+                </main>
+                <Footer />
+                <ScrollToTop />
+              </div>
+            </div>
+
+            <Toaster />
+          </TooltipProvider>
+        </TranslationsProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
+

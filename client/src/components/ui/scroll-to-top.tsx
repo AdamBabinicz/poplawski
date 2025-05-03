@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Pokazuj przycisk tylko po przewinięciu o określoną odległość
-  // Użyj mniejszej wartości progowej dla małych ekranów
   const toggleVisibility = () => {
     const isMobile = window.innerWidth < 768;
     const threshold = isMobile ? 150 : 300;
@@ -16,7 +14,6 @@ export function ScrollToTop() {
     }
   };
 
-  // Funkcja do płynnego przewijania do góry strony
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -25,14 +22,10 @@ export function ScrollToTop() {
   };
 
   useEffect(() => {
-    // Dodaj listener na scroll i na zmianę rozmiaru okna
     window.addEventListener("scroll", toggleVisibility);
     window.addEventListener("resize", toggleVisibility);
-
-    // Wywołaj toggleVisibility od razu, aby poprawnie ustawić stan przy pierwszym renderze
     toggleVisibility();
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
       window.removeEventListener("resize", toggleVisibility);
@@ -66,5 +59,3 @@ export function ScrollToTop() {
     </>
   );
 }
-
-export default ScrollToTop;

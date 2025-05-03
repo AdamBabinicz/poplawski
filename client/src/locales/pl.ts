@@ -91,8 +91,9 @@ const translations = {
   "about.bio.2":
     "Wykorzystując teorię Einsteina-Cartana, która rozszerza ogólną teorię względności Einsteina o spin kwantowy, Popławski opracował model, który rozwiązuje kilka istniejących problemów w kosmologii, w tym osobliwość Wielkiego Wybuchu i kosmiczną inflację.",
   "about.research": "Obszary badawcze",
+  // <--- TUTAJ JEST ZMIANA
   "about.research.items":
-    "• Teoria grawitacji\n• Kosmologia\n• Fizyka czarnych dziur\n• Teoria Einsteina-Cartana",
+    "• Teoria grawitacji\n• Kosmologia\n• Fizyka czarnych dziur\n• Teoria Einsteina-Cartana\n• Teorie pól zunifikowanych", // Dodano na końcu
   "about.publications": "Kluczowe publikacje",
   "about.publications.items":
     "• Wszechświat w czarnej dziurze (2010)\n• Kosmologia z torsją (2013)\n• Czarne dziury jako portale (2016)\n• Testowanie teorii czarnej dziury (2020)",
@@ -101,12 +102,12 @@ const translations = {
   "about.lectures": "Wykłady",
 
   // Contact Section
-  "contact.title": "Kontakt",
+  "contact.title": "Media",
   "contact.description":
-    "Masz pytania dotyczące teorii dr Popławskiego? Chcesz dowiedzieć się więcej o badaniach?",
-  "contact.email": "puaro@vp.pl",
-  "contact.location": "Radom",
-  "contact.response": "Odpowiedzi w ciągu 2-3 dni roboczych",
+    "Pytania dotyczące bezpośrednio teorii naukowej dr. Popławskiego prosimy kierować do oficjalnych kanałów akademickich lub zapoznać się z dostępnymi publikacjami.",
+  "contact.email": "puaro@vp.pl (Kontakt ws. strony)",
+  "contact.location": "Radom (Lokalizacja administratora strony)",
+  "contact.response": "Twoje uwagi pomagają ulepszać tę cyfrową eksplorację.",
   "contact.subscribe.title": "Subskrybuj aktualizacje",
   "contact.subscribe.description":
     "Dołącz do naszego newslettera, aby otrzymywać aktualizacje o nowych badaniach i odkryciach w kosmologii czarnych dziur.",

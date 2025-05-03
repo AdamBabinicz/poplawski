@@ -181,8 +181,8 @@ export default function PrivacyPolicy() {
             </h2>
             <p>
               {currentLanguage === "en"
-                ? "If you have any questions or concerns about this Privacy Policy, please contact us through the contact form on our website or by email at admin@universeinblackhole.org."
-                : "Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące niniejszej Polityki Prywatności, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem admin@universeinblackhole.org."}
+                ? "If you have any questions or concerns about this Privacy Policy, please contact us through the contact form on our website or by email at puaro@vp.pl."
+                : "Jeśli masz jakiekolwiek pytania lub wątpliwości dotyczące niniejszej Polityki Prywatności, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem puaro@vp.pl."}
             </p>
           </div>
         </div>

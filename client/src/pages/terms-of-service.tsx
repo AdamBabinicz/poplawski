@@ -105,7 +105,6 @@ export default function TermsOfService() {
                   : "Zbierania lub śledzenia danych osobowych innych osób"}
               </li>
             </ul>
-
             <h2>
               {currentLanguage === "en"
                 ? "5. Links to Third-Party Websites"
@@ -113,8 +112,18 @@ export default function TermsOfService() {
             </h2>
             <p>
               {currentLanguage === "en"
-                ? "The Website may contain links to third-party websites that are not owned or controlled by us. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. We strongly advise you to read the terms and conditions and privacy policy of any third-party website that you visit."
-                : "Strona może zawierać linki do stron internetowych stron trzecich, które nie są własnością ani nie są kontrolowane przez nas. Nie mamy kontroli nad treścią, politykami prywatności ani praktykami jakichkolwiek stron internetowych stron trzecich i nie ponosimy za nie odpowiedzialności. Zdecydowanie zalecamy zapoznanie się z warunkami i polityką prywatności każdej odwiedzanej strony internetowej stron trzecich."}
+                ? "The Website may contain links to third-party websites, including official social media profiles or faculty pages of academic institutions like the University of New Haven, that are not owned or controlled by us. These links are provided for informational purposes only."
+                : "Strona może zawierać linki do stron internetowych stron trzecich, w tym oficjalnych profili mediów społecznościowych lub stron wykładowców instytucji akademickich, takich jak Uniwersytet New Haven, które nie są własnością ani nie są kontrolowane przez nas. Linki te są udostępniane wyłącznie w celach informacyjnych."}
+
+              {
+                currentLanguage === "en"
+                  ? "Inclusion of such links, specifically those related to the University of New Haven or other institutions, does not imply endorsement or affiliation. This Website is an independent, unofficial project and is not associated with the University of New Haven. " // Dodano jawne odniesienie
+                  : "Umieszczenie takich linków, w szczególności tych odnoszących się do Uniwersytetu New Haven lub innych instytucji, nie oznacza poparcia ani powiązania. Niniejsza Strona jest niezależnym, nieoficjalnym projektem i nie jest powiązana z Uniwersytetem New Haven. " // Dodano jawne odniesienie
+              }
+              {/* KONIEC ZMIENIONEGO TEKSTU */}
+              {currentLanguage === "en"
+                ? "We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. We strongly advise you to read the terms and conditions and privacy policy of any third-party website that you visit."
+                : "Nie mamy kontroli nad treścią, politykami prywatności ani praktykami jakichkolwiek stron internetowych stron trzecich i nie ponosimy za nie odpowiedzialności. Zdecydowanie zalecamy zapoznanie się z warunkami i polityką prywatności każdej odwiedzanej strony internetowej stron trzecich."}
             </p>
 
             <h2>
@@ -168,8 +177,8 @@ export default function TermsOfService() {
             </h2>
             <p>
               {currentLanguage === "en"
-                ? "If you have any questions about these Terms, please contact us through the contact form on our website or by email at admin@universeinblackhole.org."
-                : "Jeśli masz jakiekolwiek pytania dotyczące niniejszych Warunków, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem admin@universeinblackhole.org."}
+                ? "If you have any questions about these Terms, please contact us through the contact form on our website or by email at puaro@vp.pl."
+                : "Jeśli masz jakiekolwiek pytania dotyczące niniejszych Warunków, skontaktuj się z nami za pomocą formularza kontaktowego na naszej stronie lub przez e-mail pod adresem puaro@vp.pl."}
             </p>
           </div>
         </div>

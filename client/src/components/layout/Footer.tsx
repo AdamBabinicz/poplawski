@@ -1,9 +1,10 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useTranslations } from "@/hooks/use-translations";
 import BlackHoleLogo from "../ui/black-hole-logo";
 
 export default function Footer() {
   const { t, currentLanguage } = useTranslations();
+  const [location, navigate] = useLocation();
 
   const getLocalizedPath = (enPath: string) => {
     const pathMap: Record<string, string> = {
@@ -15,7 +16,44 @@ export default function Footer() {
       "/contact-admin": "/kontakt",
     };
 
-    return currentLanguage === "pl" ? pathMap[enPath] || enPath : enPath;
+    if (currentLanguage === "pl" && pathMap[enPath]) {
+      return pathMap[enPath];
+    }
+    return enPath;
+  };
+
+  const scrollToContact = (smooth: boolean = true) => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      const headerOffset = 80;
+      const elementPosition = contactSection.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition < 0 ? 0 : offsetPosition,
+        behavior: smooth ? "smooth" : "auto",
+      });
+    } else {
+      console.warn(
+        "Element #contact nie został znaleziony (potrzebny dla Quick Links Contact)."
+      );
+    }
+  };
+
+  const handleContactClick = () => {
+    const contactPagePath = getLocalizedPath("/about");
+    if (location === contactPagePath) {
+      scrollToContact(true);
+    } else {
+      navigate(contactPagePath);
+      setTimeout(() => scrollToContact(false), 150);
+    }
+  };
+
+  const handleNavLinkClick = (path: string) => {
+    if (location === path) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -45,11 +83,10 @@ export default function Footer() {
                 aria-label="Twitter"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
                   width="24"
                   height="24"
                   fill="currentColor"
-                  viewBox="0 0 16 16"
                 >
                   <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                 </svg>
@@ -62,11 +99,10 @@ export default function Footer() {
                 aria-label="Facebook"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
                   width="24"
                   height="24"
                   fill="currentColor"
-                  viewBox="0 0 16 16"
                 >
                   <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
                 </svg>
@@ -79,11 +115,10 @@ export default function Footer() {
                 aria-label="YouTube"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
                   width="24"
                   height="24"
                   fill="currentColor"
-                  viewBox="0 0 16 16"
                 >
                   <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
                 </svg>
@@ -96,11 +131,10 @@ export default function Footer() {
                 aria-label="GitHub"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
                   width="24"
                   height="24"
                   fill="currentColor"
-                  viewBox="0 0 16 16"
                 >
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
                 </svg>
@@ -113,7 +147,10 @@ export default function Footer() {
               {t("footer.quickLinks")}
             </h3>
             <ul className="space-y-2">
-              <li>
+              <li
+                className="cursor-pointer"
+                onClick={() => handleNavLinkClick("/")}
+              >
                 <Link
                   href="/"
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
@@ -121,7 +158,10 @@ export default function Footer() {
                   {t("navbar.home")}
                 </Link>
               </li>
-              <li>
+              <li
+                className="cursor-pointer"
+                onClick={() => handleNavLinkClick(getLocalizedPath("/theory"))}
+              >
                 <Link
                   href={getLocalizedPath("/theory")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
@@ -129,7 +169,12 @@ export default function Footer() {
                   {t("navbar.theory")}
                 </Link>
               </li>
-              <li>
+              <li
+                className="cursor-pointer"
+                onClick={() =>
+                  handleNavLinkClick(getLocalizedPath("/visualizations"))
+                }
+              >
                 <Link
                   href={getLocalizedPath("/visualizations")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
@@ -137,13 +182,21 @@ export default function Footer() {
                   {t("navbar.visualizations")}
                 </Link>
               </li>
-              <li>
+              <li
+                className="cursor-pointer"
+                onClick={() => handleNavLinkClick(getLocalizedPath("/about"))}
+              >
                 <Link
                   href={getLocalizedPath("/about")}
                   className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
                 >
                   {t("navbar.about")}
                 </Link>
+              </li>
+              <li onClick={handleContactClick} className="cursor-pointer">
+                <span className="text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition">
+                  {t("contact.title")}
+                </span>
               </li>
             </ul>
           </div>
@@ -220,28 +273,51 @@ export default function Footer() {
 
         <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm order-2 sm:order-1 mt-4 sm:mt-0">
-            © {new Date().getFullYear()} {t("footer.copyright")}
+            2025 - {new Date().getFullYear()} {t("footer.copyright")}
           </p>
 
-          <div className="flex space-x-6 order-1 sm:order-2">
-            <Link
-              href={getLocalizedPath("/privacy-policy")}
-              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+          <div className="flex items-baseline space-x-6 order-1 sm:order-2">
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                handleNavLinkClick(getLocalizedPath("/privacy-policy"))
+              }
             >
-              {t("footer.privacy")}
-            </Link>
-            <Link
-              href={getLocalizedPath("/terms-of-service")}
-              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+              <Link
+                href={getLocalizedPath("/privacy-policy")}
+                className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+              >
+                {t("footer.privacy")}
+              </Link>
+            </div>
+
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                handleNavLinkClick(getLocalizedPath("/terms-of-service"))
+              }
             >
-              {t("footer.terms")}
-            </Link>
-            <Link
-              href={getLocalizedPath("/contact-admin")}
-              className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+              <Link
+                href={getLocalizedPath("/terms-of-service")}
+                className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+              >
+                {t("footer.terms")}
+              </Link>
+            </div>
+
+            <div
+              className="cursor-pointer"
+              onClick={() =>
+                handleNavLinkClick(getLocalizedPath("/contact-admin"))
+              }
             >
-              {t("footer.contact")}
-            </Link>
+              <Link
+                href={getLocalizedPath("/contact-admin")}
+                className="text-sm text-muted-foreground hover:text-cosmic-blue dark:hover:text-cosmic-purple transition"
+              >
+                {t("footer.contact")}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

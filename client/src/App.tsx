@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { TranslationsProvider } from "@/hooks/use-translations";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ScrollToTop from "@/components/ui/scroll-to-top";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import LocationScrollToTop from "@/components/ui/location-scroll-to-top";
 import Home from "@/pages/home";
 import Theory from "@/pages/theory";
@@ -17,6 +17,7 @@ import About from "@/pages/about";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsOfService from "@/pages/terms-of-service";
 import ContactAdmin from "@/pages/contact-admin";
+import Contact from "@/components/ContactSection";
 import NotFound from "@/pages/not-found";
 import { Helmet } from "react-helmet-async";
 
@@ -24,15 +25,14 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* Angielskie ścieżki */}
       <Route path="/theory" component={Theory} />
       <Route path="/visualizations" component={Visualizations} />
       <Route path="/about" component={About} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/contact-admin" component={ContactAdmin} />
+      <Route path="/contact" component={Contact} />
 
-      {/* Polskie ścieżki */}
       <Route path="/teoria" component={Theory} />
       <Route path="/wizualizacje" component={Visualizations} />
       <Route path="/o-autorze" component={About} />
@@ -45,7 +45,6 @@ function Router() {
 }
 
 function App() {
-  // Set up the page title
   useEffect(() => {
     document.title =
       "Universe in a Black Hole - Dr. Nikodem Popławski's Theory";
@@ -59,7 +58,7 @@ function App() {
             <Helmet>
               <meta
                 name="viewport"
-                content="width=device-width, initial-scale=1.0"
+                content="width=device-width, initial-scale=1.0, maximum-scale=1"
               />
               <meta name="theme-color" content="#121212" />
               <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -69,10 +68,7 @@ function App() {
                 crossOrigin=""
               />
             </Helmet>
-
-            {/* Component that scrolls to the top when route changes */}
             <LocationScrollToTop />
-
             <div className="min-h-screen flex flex-col">
               <div className="max-w-screen-2xl mx-auto w-full px-0 md:px-6 lg:px-12 xl:px-16 2xl:px-24">
                 <Navbar />
@@ -83,7 +79,6 @@ function App() {
                 <ScrollToTop />
               </div>
             </div>
-
             <Toaster />
           </TooltipProvider>
         </TranslationsProvider>

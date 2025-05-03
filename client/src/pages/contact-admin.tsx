@@ -89,7 +89,6 @@ export default function ContactAdmin() {
                   netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
                 >
-                  {/* Hidden field for Netlify */}
                   <input type="hidden" name="form-name" value="contact-admin" />
                   <p className="hidden">
                     <label>
