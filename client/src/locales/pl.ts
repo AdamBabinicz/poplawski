@@ -106,7 +106,7 @@ const translations = {
   "contact.description":
     "Pytania dotyczące bezpośrednio teorii naukowej dr. Popławskiego prosimy kierować do oficjalnych kanałów akademickich lub zapoznać się z dostępnymi publikacjami.",
   "contact.email": "puaro@vp.pl (Kontakt ws. strony)",
-  "contact.location": "Radom (Lokalizacja administratora strony)",
+  "contact.location": "Radom, Polska (Lokalizacja administratora strony)",
   "contact.response": "Twoje uwagi pomagają ulepszać tę cyfrową eksplorację.",
   "contact.subscribe.title": "Subskrybuj aktualizacje",
   "contact.subscribe.description":

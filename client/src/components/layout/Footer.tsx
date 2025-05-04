@@ -140,6 +140,48 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
+            <div className="space-y-4 mt-8">
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  className="mr-3"
+                >
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                </svg>
+                <span>{t("contact.email")}</span>
+              </div>
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  className="mr-3"
+                >
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                </svg>
+                <span>{t("contact.location")}</span>
+              </div>
+              <div className="flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  className="mr-2.5"
+                >
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.064.293.006.399.287.47l.45.083.082.38-.287.29-.287.287A1 1 0 0 1 5.37 12.1l.287-.287.287-.287.082-.38-.45-.083a1 1 0 0 1-.288-.469l.738-3.468c.064-.293-.006-.399-.287-.47l-.45-.083-.082-.38.287-.29L8.11 5.1a1 1 0 0 1 1.442.093l.287.287.287.287.082.38-.45.083a1 1 0 0 1-.288.469l-.738 3.468c-.064.293.006.399.287.47l.45.083.082.38-.287.29-.287.287a1 1 0 0 1-1.176.01zM8 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                </svg>
+                <span>{t("contact.response")}</span>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -200,7 +242,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">
               {t("footer.resources")}

@@ -38,7 +38,7 @@ export default function ContactSection() {
                 </h3>
                 <p className="mb-6 text-white/80">{t("contact.description")}</p>
                 <div className="h-px w-full bg-white opacity-50 mb-6"></div>
-                <div className="space-y-4">
+                {/* <div className="space-y-4">
                   <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +79,7 @@ export default function ContactSection() {
                     </svg>
                     <span>{t("contact.response")}</span>
                   </div>
-                </div>
-
+                </div> */}
                 <div className="mt-8 flex space-x-4">
                   <a
                     href="https://x.com/unewhaven"

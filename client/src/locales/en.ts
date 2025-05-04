@@ -106,7 +106,7 @@ const translations = {
   "contact.description":
     "For questions directly concerning Dr. Popławski's scientific theory, please direct them to official academic channels or consult available publications.",
   "contact.email": "puaro@vp.pl (Website Contact)",
-  "contact.location": "Radom (Website Admin Location)",
+  "contact.location": "Radom, Poland (Website Admin Location)",
   "contact.response": "Your feedback helps improve this digital exploration.",
   "contact.subscribe.title": "Subscribe for Updates",
   "contact.subscribe.description":
