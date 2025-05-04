@@ -64,7 +64,7 @@ export default function Home() {
         <meta property="og:title" content={t("meta.title")} />
         <meta property="og:description" content={t("meta.description")} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/acretion-disk-new.avif" />
+        <meta property="og:image" content="/torsion-effects-updated.webp" />
         <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
