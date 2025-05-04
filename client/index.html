@@ -14,7 +14,7 @@
         rel="stylesheet"
         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     /></noscript>
-    <!-- Primary Meta Tags -->
+
     <title>Wszechświat wewnątrz czarnej dziury: Teoria dr Popławskiego.</title>
     <meta
       name="title"
@@ -30,7 +30,6 @@
       content="czarna dziura, wszechświat, kosmologia, fizyka, Popławski, torsja, Wielkie Odbicie, Einstein-Cartan, astrofizyka, grawitacja"
     />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://blackhole-universe.netlify.app/" />
     <meta
@@ -46,7 +45,6 @@
       content="https://blackhole-universe.netlify.app/black-hole-model.avif"
     />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
@@ -65,10 +63,10 @@
       content="https://blackhole-universe.netlify.app/nested-universes.avif"
     />
     <link
-      rel="stylesheet"
+      rel="preload"
       href="/assets/index-DHrumhDG.css"
-      media="print"
-      onload="this.media='all'"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
       ><link rel="stylesheet" href="/assets/index-DHrumhDG.css"
@@ -76,7 +74,6 @@
     <!-- Canonical Link -->
     <!-- <link rel="canonical" href="https://blackhole-universe.netlify.app/" /> -->
 
-    <!-- Fonts with display=swap for better performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -92,19 +89,15 @@
       />
     </noscript>
 
-    <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <!-- Performance and caching -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="#000000" />
-    <!-- Usunięty blok <style>, zgodnie z poprzednimi ustaleniami -->
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Structured data for SEO (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
