@@ -11,7 +11,8 @@ export default function Theory() {
     "@type": "Article",
     headline: `${t("theory.title.1")} ${t("theory.title.2")}`,
     description: t("theory.description"),
-    image: "/torsion-effects-updated.webp",
+    image:
+      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
     author: {
       "@type": "Person",
       name: "Dr. Nikodem Popławski",
@@ -50,7 +51,10 @@ export default function Theory() {
         />
         <meta property="og:description" content={t("theory.description")} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="/torsion-effects-updated.webp" />
+        <meta
+          property="og:image"
+          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+        />
         <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
