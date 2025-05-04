@@ -1,42 +1,37 @@
 [build]
-  # Twój skrypt budujący aplikację (np. npm run build, yarn build)
   command = "npm run build"
+  publish = "dist/public" # Upewnij się, że to jest na pewno poprawny katalog
 
-  # WAŻNE: Katalog, który zawiera punkt wejściowy Twojej zbudowanej strony (index.html)
-  # ORAZ gdzie powinien znajdować się Twój plik 404.html.
-  # Potwierdziłeś, że "dist/public" jest poprawny dla Twojej konfiguracji.
-  publish = "dist/public"
+# --- KROK 1: Jawna Obsługa Błędu 404 ---
+# Ta reguła powinna przechwycić wszystkie żądania, które nie pasują
+# do istniejących plików i zaserwować Twój plik 404.html z poprawnym statusem.
+# WAŻNE: Umieść ją PRZED ogólną regułą dla SPA.
+[[redirects]]
+  from = "/*"          # Dla wszystkich ścieżek...
+  to = "/404.html"     # ...serwuj ten plik...
+  status = 404         # ...z kodem statusu 404.
+                        # Status 404 implikuje, że reguła stosuje się tylko,
+                        # gdy plik źródłowy (z 'from') nie istnieje.
 
-# --- Reguła Przekierowania dla SPA ---
-# Ta reguła zapewnia, że bezpośredni dostęp do tras SPA (np. /o-nas)
-# oraz odświeżanie strony działają poprawnie, serwując główny plik index.html.
-# Netlify POWINNO automatycznie sprawdzić istnienie fizycznego pliku pasującego do URL
-# ORAZ sprawdzić istnienie pliku 404.html w katalogu 'publish' *ZANIM*
-# zastosuje tę regułę przepisywania (rewrite).
+# --- KROK 2: Reguła Przekierowania dla SPA ---
+# Ta reguła obsłuży pozostałe przypadki (głównie bezpośrednie wejścia
+# na ścieżki routingu SPA), serwując główny plik index.html.
+# Powinna być zastosowana tylko wtedy, gdy plik nie istnieje ORAZ
+# nie został już obsłużony przez powyższą regułę 404.
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# --- Opcjonalne, ale Zalecane Nagłówki ---
-
-# Pomaga proxy i CDN poprawnie cache'ować różne wersje kodowania (np. gzip, brotli)
+# --- Nagłówki ---
 [[headers]]
   for = "/*"
   [headers.values]
     Vary = "Accept-Encoding"
 
-# Zapewnia, że pliki HTML są poprawnie interpretowane z kodowaniem UTF-8
-# Dotyczy zarówno /index.html, jak i /404.html (jeśli jest serwowany)
 [[headers]]
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
 
-# Poniżej możesz dodać bardziej specyficzne nagłówki dla zasobów (JS, CSS, obrazki)
-# np. dla cachingu, bezpieczeństwa itp. Przykład:
-#
-# [[headers]]
-#  for = "/assets/*"
-#  [headers.values]
-#    Cache-Control = "public, max-age=31536000, immutable"
+# Możesz dodać inne nagłówki poniżej
