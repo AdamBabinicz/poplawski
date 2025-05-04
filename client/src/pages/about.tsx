@@ -12,7 +12,7 @@ export default function About() {
     "@type": "Person",
     name: "Dr. Nikodem Popławski",
     description: t("about.description"),
-    image: "/og-image.png",
+    image: "/torsion-effects-updated.webp",
     url: "https://blackhole-universe.netlify.app/",
     sameAs: [
       "https://poplawski.physics.slu.edu/",
@@ -47,7 +47,7 @@ export default function About() {
         />
         <meta property="og:description" content={t("about.description")} />
         <meta property="og:type" content="profile" />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="/torsion-effects-updated.webp" />
         <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${

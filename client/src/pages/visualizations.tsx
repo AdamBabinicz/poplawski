@@ -11,7 +11,7 @@ export default function Visualizations() {
     "@type": "ImageGallery",
     headline: `${t("visualizations.title.1")} ${t("visualizations.title.2")}`,
     description: t("visualizations.description"),
-    image: "/og-image.png",
+    image: "/torsion-effects-updated.webp",
     url: `https://blackhole-universe.netlify.app/${currentLanguage}/visualizations`,
     author: {
       "@type": "Person",
@@ -54,7 +54,7 @@ export default function Visualizations() {
           content={t("visualizations.description")}
         />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="/og-image.png" />
+        <meta property="og:image" content="/torsion-effects-updated.webp" />
         <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
