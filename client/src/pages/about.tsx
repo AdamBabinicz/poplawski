@@ -56,7 +56,7 @@ export default function About() {
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
             currentLanguage === "pl" ? "" : "/" + currentLanguage
-          }/visualizations`}
+          }/about`}
         />
 
         {/* Add structured data for search engines */}

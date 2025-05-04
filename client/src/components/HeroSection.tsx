@@ -63,7 +63,6 @@ export default function HeroSection() {
                 loading="eager"
                 width={500}
                 height={500}
-                // Removed fetchPriority since it's causing issues in this implementation
               />
 
               {/* Annotation lines */}
