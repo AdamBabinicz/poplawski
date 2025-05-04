@@ -22,7 +22,7 @@ export default function Visualizations() {
       name: "Universe in a Black Hole",
       logo: {
         "@type": "ImageObject",
-        url: "/favicon.png",
+        url: "/favicon.ico",
       },
     },
     datePublished: "2025-04-30",

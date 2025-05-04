@@ -1,18 +1,42 @@
 [build]
+  # Twój skrypt budujący aplikację (np. npm run build, yarn build)
   command = "npm run build"
+
+  # WAŻNE: Katalog, który zawiera punkt wejściowy Twojej zbudowanej strony (index.html)
+  # ORAZ gdzie powinien znajdować się Twój plik 404.html.
+  # Potwierdziłeś, że "dist/public" jest poprawny dla Twojej konfiguracji.
   publish = "dist/public"
 
+# --- Reguła Przekierowania dla SPA ---
+# Ta reguła zapewnia, że bezpośredni dostęp do tras SPA (np. /o-nas)
+# oraz odświeżanie strony działają poprawnie, serwując główny plik index.html.
+# Netlify POWINNO automatycznie sprawdzić istnienie fizycznego pliku pasującego do URL
+# ORAZ sprawdzić istnienie pliku 404.html w katalogu 'publish' *ZANIM*
+# zastosuje tę regułę przepisywania (rewrite).
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# --- Opcjonalne, ale Zalecane Nagłówki ---
+
+# Pomaga proxy i CDN poprawnie cache'ować różne wersje kodowania (np. gzip, brotli)
 [[headers]]
   for = "/*"
   [headers.values]
-  Vary = "Accept-Encoding"
+    Vary = "Accept-Encoding"
 
+# Zapewnia, że pliki HTML są poprawnie interpretowane z kodowaniem UTF-8
+# Dotyczy zarówno /index.html, jak i /404.html (jeśli jest serwowany)
 [[headers]]
- for = "/*.html"
- [headers.values]
- Content-Type = "text/html; charset=utf-8"
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+
+# Poniżej możesz dodać bardziej specyficzne nagłówki dla zasobów (JS, CSS, obrazki)
+# np. dla cachingu, bezpieczeństwa itp. Przykład:
+#
+# [[headers]]
+#  for = "/assets/*"
+#  [headers.values]
+#    Cache-Control = "public, max-age=31536000, immutable"
