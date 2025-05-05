@@ -1,9 +1,9 @@
 [build]
   command = "npm run build"
-  # Wracamy do tego, co najprawdopodobniej generuje Twój build
-  publish = "dist/public"
+  # Poprawiona ścieżka do katalogu generowanego przez `vite build` i `esbuild`
+  publish = "dist"
 
-# --- Przekierowania (pozostają bez zmian, skonsolidowane tutaj) ---
+# --- Przekierowania (pozostają bez zmian) ---
 [[redirects]]
   from = "https://www.blackhole-universe.netlify.app/*"
   to = "https://blackhole-universe.netlify.app/:splat"
