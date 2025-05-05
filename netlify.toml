@@ -1,10 +1,28 @@
 [build]
+  # Upewnij się, że ta komenda tworzy katalog 'public'
   command = "npm run build"
+  # Potwierdziliśmy, że wdrażany jest katalog 'public'
+  publish = "public"
 
+# --- Przekierowania ---
+# Netlify przetwarza te reguły w kolejności od góry do dołu.
+# Najpierw reguły bardziej specyficzne.
+
+# 1. Reguła Kanonikalizacji (z www na non-www) - Zastępuje plik _redirects
+[[redirects]]
+  from = "https://www.blackhole-universe.netlify.app/*"
+  to = "https://blackhole-universe.netlify.app/:splat"
+  status = 301
+  force = true  # force=true gwarantuje, że przekierowanie zadziała zawsze dla tego hosta
+
+# 2. Reguła dla Single Page Application (SPA) - Najbardziej ogólna na końcu
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  # force = false jest domyślne dla statusu 200,
+  # co pozwala Netlify serwować istniejące pliki (CSS, JS, obrazki, 404.html)
+  # zanim zastosuje tę regułę.
 
 # --- Nagłówki ---
 [[headers]]
