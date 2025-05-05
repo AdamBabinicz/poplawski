@@ -1,23 +1,16 @@
 [build]
   command = "npm run build"
-  publish = "dist/public" # Upewnij się, że to jest na pewno poprawny katalog
+  publish = "dist/public"
 
-# --- KROK 1: Jawna Obsługa Błędu 404 ---
-# Ta reguła powinna przechwycić wszystkie żądania, które nie pasują
-# do istniejących plików i zaserwować Twój plik 404.html z poprawnym statusem.
-# WAŻNE: Umieść ją PRZED ogólną regułą dla SPA.
+
 [[redirects]]
-  from = "/*"          # Dla wszystkich ścieżek...
-  to = "/404.html"     # ...serwuj ten plik...
-  status = 404         # ...z kodem statusu 404.
-                        # Status 404 implikuje, że reguła stosuje się tylko,
-                        # gdy plik źródłowy (z 'from') nie istnieje.
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
-# --- KROK 2: Reguła Przekierowania dla SPA ---
-# Ta reguła obsłuży pozostałe przypadki (głównie bezpośrednie wejścia
-# na ścieżki routingu SPA), serwując główny plik index.html.
-# Powinna być zastosowana tylko wtedy, gdy plik nie istnieje ORAZ
-# nie został już obsłużony przez powyższą regułę 404.
+
+
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -33,5 +26,3 @@
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
-
-# Możesz dodać inne nagłówki poniżej
