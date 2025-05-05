@@ -1,21 +1,10 @@
 [build]
   command = "npm run build"
-  # Upewnij się, że 'dist/public' to na pewno właściwy katalog
-  publish = "dist/public"
 
-# --- Reguła dla Single Page Application (SPA) ---
-# Wszystkie żądania, które nie pasują do istniejącego pliku,
-# są kierowane do /index.html, aby router JS mógł zadziałać.
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# --- Obsługa strony 404 ---
-# Netlify automatycznie użyje pliku '404.html' z katalogu 'publish',
-# gdy żądany zasób NAPRAWDĘ nie istnieje (nie jest plikiem statycznym
-# i nie został przechwycony przez powyższą regułę jako ścieżka dla SPA).
-# NIE JEST POTRZEBNA oddzielna reguła [[redirects]] dla 404 w tym przypadku.
 
 # --- Nagłówki ---
 [[headers]]
