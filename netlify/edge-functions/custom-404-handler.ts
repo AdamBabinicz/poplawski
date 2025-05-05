@@ -20,7 +20,7 @@ export default async (request: Request, context: Context) => {
         console.log(
           `[Edge Function] context.next() returned 404. Fetching custom 404 page...`
         ); // <-- LOG 5
-        const fourOhFourUrl = new URL("/404.html", url.origin);
+        const fourOhFourUrl = new URL("/error-page.html", url.origin);
         const fourOhFourResponse = await fetch(fourOhFourUrl.toString());
 
         if (fourOhFourResponse.ok) {
