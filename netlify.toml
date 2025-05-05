@@ -2,7 +2,6 @@
   command = "npm run build"
   publish = "dist"
 
-# --- Przekierowania (powinny być poprawne) ---
 [[redirects]]
   from = "https://www.blackhole-universe.netlify.app/*"
   to = "https://blackhole-universe.netlify.app/:splat"
@@ -13,14 +12,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# --- Nagłówki (powinny być poprawne) ---
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Vary = "Accept-Encoding"
-
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Content-Type = "text/html; charset=utf-8"
