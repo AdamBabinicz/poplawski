@@ -1,9 +1,9 @@
 [build]
   command = "npm run build"
-  # Poprawiona ścieżka do katalogu generowanego przez `vite build` i `esbuild`
-  publish = "dist"
+  # Katalog wyjściowy zdefiniowany w vite.config.js dla frontendu
+  publish = "dist/public"
 
-# --- Przekierowania (pozostają bez zmian) ---
+# --- Przekierowania (powinny być poprawne) ---
 [[redirects]]
   from = "https://www.blackhole-universe.netlify.app/*"
   to = "https://blackhole-universe.netlify.app/:splat"
@@ -15,7 +15,7 @@
   to = "/index.html"
   status = 200
 
-# --- Nagłówki (pozostają bez zmian) ---
+# --- Nagłówki (powinny być poprawne) ---
 [[headers]]
   for = "/*"
   [headers.values]
