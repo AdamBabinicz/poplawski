@@ -1,6 +1,5 @@
 [build]
   command = "npm run build"
-  # Katalog wyjściowy zdefiniowany w vite.config.js dla frontendu
   publish = "dist"
 
 # --- Przekierowania (powinny być poprawne) ---
@@ -13,7 +12,7 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 200!
 
 # --- Nagłówki (powinny być poprawne) ---
 [[headers]]
