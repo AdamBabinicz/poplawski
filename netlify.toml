@@ -9,10 +9,10 @@
   status = 301
   force = true
 
-# [[redirects]]
-#  from = "/*"
-#  to = "/index.html"
-#  status = 200
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 # --- Nagłówki (powinny być poprawne) ---
 [[headers]]
@@ -24,3 +24,8 @@
   for = "/*.html"
   [headers.values]
     Content-Type = "text/html; charset=utf-8"
+
+[[edge_functions]]
+  # Uruchom tę funkcję dla wszystkich ścieżek
+  path = "/*"
+  function = "custom-404-handler"
