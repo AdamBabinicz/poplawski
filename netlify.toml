@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   # Katalog wyjściowy zdefiniowany w vite.config.js dla frontendu
-  publish = "dist/public"
+  publish = "dist"
 
 # --- Przekierowania (powinny być poprawne) ---
 [[redirects]]
