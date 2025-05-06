@@ -28,14 +28,18 @@ export default function AboutSection() {
             <div className="p-6 md:p-8 md:flex gap-8">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <div className="aspect-[2/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                  {/* Używa Twojego oryginalnego klucza about.image.alt */}
                   <img
                     src={drPoplawskiImage}
                     alt={t("about.image.alt")}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                {/* === Użycie NOWYCH kluczy dla informacji o zdjęciu === */}
+                <div className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  <p className="font-semibold">
+                    {t("about.affiliation.line1")}
+                  </p>
+                  <p className="italic">{t("about.affiliation.line2")}</p>
+                </div>
                 <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
                   <a
                     href="https://pl.wikipedia.org/wiki/Nikodem_Pop%C5%82awski#/media/Plik:NikodemPoplawski.jpg"

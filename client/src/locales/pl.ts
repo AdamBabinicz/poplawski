@@ -148,6 +148,9 @@ const translations = {
     "Specyficznej charakterystyce fal grawitacyjnych generowanych przez zderzenia czarnych dziur",
   "about.theorySection.observations.p2":
     "Badania dr. Popławskiego są kontynuowane na Uniwersytecie New Haven, gdzie prowadzi on dalsze analizy matematyczne i poszukuje empirycznych dowodów na poparcie swojej teorii wszechświata w czarnej dziurze.",
+  "about.affiliation.line1": "dr Nikodem Popławski",
+  "about.affiliation.line2":
+    "Katedra Fizyki, Uniwersytet New Haven (Connecticut, USA)",
   "about.imageCredit.authorLinkText": "Zdjęcia autorstwa Crux007",
   "about.imageCredit.licensePrefix": "licencja:",
   "about.imageCredit.licenseLinkText": "CC BY-SA 4.0",
