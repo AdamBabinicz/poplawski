@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
+import { useLocation } from "wouter";
 import HeroSection from "@/components/HeroSection";
 import TheorySection from "@/components/TheorySection";
 import VisualizationsSection from "@/components/VisualizationsSection";
@@ -9,6 +10,8 @@ import SeoTags from "@/components/SeoTags";
 
 export default function Home() {
   const { t, currentLanguage } = useTranslations();
+
+  const [location] = useLocation();
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -69,26 +72,21 @@ export default function Home() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        {/* <link
-          rel="canonical"
-          href={`https://blackhole-universe.netlify.app${
-            currentLanguage === "pl" ? "" : "/" + currentLanguage
-          }`}
-        /> */}
         <meta name="twitter:card" content="summary_large_image" />
-
-        {/* Add structured data for search engines */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
         canonicalUrl={`https://blackhole-universe.netlify.app${
           currentLanguage === "pl" ? "" : "/" + currentLanguage
         }`}
         currentLanguage={currentLanguage}
-        path="/"
+        path={location}
       />
+
       <HeroSection />
       <TheorySection />
       <VisualizationsSection />

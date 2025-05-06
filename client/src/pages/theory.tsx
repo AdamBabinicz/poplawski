@@ -56,18 +56,13 @@ export default function Theory() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        {/* <link
-          rel="canonical"
-          href={`https://blackhole-universe.netlify.app${
-            currentLanguage === "pl" ? "" : "/" + currentLanguage
-          }/theory`}
-        /> */}
-
-        {/* Add structured data for search engines */}
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
         canonicalUrl={`https://blackhole-universe.netlify.app${
           currentLanguage === "pl" ? "" : "/" + currentLanguage

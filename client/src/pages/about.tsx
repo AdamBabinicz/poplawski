@@ -53,18 +53,13 @@ export default function About() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        {/* <link
-          rel="canonical"
-          href={`https://blackhole-universe.netlify.app${
-            currentLanguage === "pl" ? "" : "/" + currentLanguage
-          }/about`}
-        /> */}
-
-        {/* Add structured data for search engines */}
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
         canonicalUrl={`https://blackhole-universe.netlify.app${
           currentLanguage === "pl" ? "" : "/" + currentLanguage
@@ -72,6 +67,7 @@ export default function About() {
         currentLanguage={currentLanguage}
         path="/about"
       />
+
       <div className="pt-24">
         <AboutSection />
         <ContactSection />
