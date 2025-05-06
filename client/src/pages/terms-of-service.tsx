@@ -43,7 +43,7 @@ export default function TermsOfService() {
             <p>
               {currentLanguage === "en"
                 ? 'By accessing or using the Universe in a Black Hole website ("the Website"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Website.'
-                : 'Uzyskując dostęp do strony internetowej Wszechświat w Czarnej Dziurze ("Strona") lub korzystając z niej, zgadzasz się przestrzegać niniejszych Warunków Usługi. Jeśli nie zgadzasz się z tymi warunkami, prosimy o niekorzystanie ze Strony.'}
+                : 'Uzyskując dostęp do strony internetowej Wszechświat w Czarnej Dziurze ("https://blackhole-universe.netlify.app/") lub korzystając z niej, zgadzasz się przestrzegać niniejszych Warunków Usługi. Jeśli nie zgadzasz się z tymi warunkami, prosimy o niekorzystanie ze Strony.'}
             </p>
 
             <h2>
