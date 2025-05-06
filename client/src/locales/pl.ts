@@ -101,7 +101,8 @@ const translations = {
   "about.scholarTitle": "Google Scholar",
   "about.lectures": "Wykłady",
   "about.research_url": "Google Scholar",
-
+  "about.image.alt": "Opis obrazka",
+  "about.youtubeLinkTitle": "Obejrzyj na YouTube",
   "about.theorySection.title.1": "Przełomowa Teoria",
   "about.theorySection.title.2": "Wszechświata w Czarnej Dziurze",
   "about.theorySection.subtitle.1": "Na podstawie informacji z",

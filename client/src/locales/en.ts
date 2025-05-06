@@ -101,6 +101,8 @@ const translations = {
   "about.scholarTitle": "Google Scholar",
   "about.lectures": "Lectures",
   "about.research_url": "Google Scholar",
+  "about.image.alt": "Alternative text for image",
+  "about.youtubeLinkTitle": "Watch on YouTube",
   "about.theorySection.title.1": "Groundbreaking Theory",
   "about.theorySection.title.2": "of a Universe in a Black Hole",
   "about.theorySection.subtitle.1": "Based on information from",
