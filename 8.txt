@@ -1,0 +1,378 @@
+// SeoTags.tsx
+import React from "react";
+
+interface SeoTagsProps {
+  canonicalUrl: string;
+  currentLanguage: "pl" | "en";
+  path: string;
+}
+
+const SeoTags: React.FC<SeoTagsProps> = ({
+  canonicalUrl,
+  currentLanguage,
+  path,
+}) => {
+  const baseUrl = "https://blackhole-universe.netlify.app";
+  const alternateLang = currentLanguage === "pl" ? "en" : "pl";
+  const alternateHref =
+    alternateLang === "pl"
+      ? `${baseUrl}${path}`
+      : `${baseUrl}/${alternateLang}${path}`;
+
+  return (
+    <>
+      <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hrefLang="pl" href={`${baseUrl}${path}`} />
+      <link rel="alternate" hrefLang="en" href={`${baseUrl}/en${path}`} />
+    </>
+  );
+};
+
+export default SeoTags;
+
+-----------------------------------
+
+import { Helmet } from "react-helmet-async";
+import { useTranslations } from "@/hooks/use-translations";
+import { useLocation } from "wouter";
+import HeroSection from "@/components/HeroSection";
+import TheorySection from "@/components/TheorySection";
+import VisualizationsSection from "@/components/VisualizationsSection";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import SeoTags from "@/components/SeoTags";
+
+export default function Home() {
+  const { t, currentLanguage } = useTranslations();
+
+  const [location] = useLocation();
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://blackhole-universe.netlify.app/#website",
+        url: "https://blackhole-universe.netlify.app/",
+        name: t("meta.title"),
+        description: t("meta.description"),
+        inLanguage: ["en", "pl"],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://blackhole-universe.netlify.app/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://blackhole-universe.netlify.app/",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "What is the Universe in a Black Hole Theory?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Dr. Nikodem Popławski's theory proposes that our universe exists inside a black hole. Einstein-Cartan theory with torsion prevents singularity formation and induces a Big Bounce, creating a new universe inside each black hole.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How does torsion prevent singularities?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "In Einstein-Cartan theory, spacetime torsion linked to particle spin creates repulsive forces that counteract gravitational collapse, preventing singularities and potentially explaining cosmic inflation.",
+            },
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{t("meta.title")}</title>
+        <meta name="description" content={t("meta.description")} />
+        <meta property="og:title" content={t("meta.title")} />
+        <meta property="og:description" content={t("meta.description")} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }`}
+        currentLanguage={currentLanguage}
+        path={location}
+      />
+
+      <HeroSection />
+      <TheorySection />
+      <VisualizationsSection />
+      <AboutSection />
+      <ContactSection />
+    </>
+  );
+----------------------------
+
+import { Helmet } from "react-helmet-async";
+import { useTranslations } from "@/hooks/use-translations";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import SeoTags from "@/components/SeoTags";
+
+export default function About() {
+  const { t, currentLanguage } = useTranslations();
+
+  // Structured data for about page (Person schema for SEO)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Dr. Nikodem Popławski",
+    description: t("about.description"),
+    image:
+      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
+    url: "https://blackhole-universe.netlify.app/",
+    sameAs: [
+      "https://poplawski.physics.slu.edu/",
+      "https://en.wikipedia.org/wiki/Nikodem_Popławski",
+    ],
+    jobTitle: "Theoretical Physicist",
+    worksFor: {
+      "@type": "Organization",
+      name: "University of New Haven",
+    },
+    knowsAbout: [
+      "Black holes",
+      "Cosmology",
+      "Einstein-Cartan theory",
+      "Torsion",
+      "Big Bounce",
+    ],
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{`${t("about.title.1")} ${t("about.title.2")} | ${t(
+          "meta.title"
+        )}`}</title>
+        <meta name="description" content={t("about.description")} />
+        <meta
+          property="og:title"
+          content={`${t("about.title.1")} ${t("about.title.2")} | ${t(
+            "meta.title"
+          )}`}
+        />
+        <meta property="og:description" content={t("about.description")} />
+        <meta property="og:type" content="profile" />
+        <meta
+          property="og:image"
+          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }/about`}
+        currentLanguage={currentLanguage}
+        path="/about"
+      />
+
+      <div className="pt-24">
+        <AboutSection />
+        <ContactSection />
+      </div>
+    </>
+  );
+}
+
+
+-------------------------------
+
+import { Helmet } from "react-helmet-async";
+import { useTranslations } from "@/hooks/use-translations";
+import TheorySection from "@/components/TheorySection";
+import SeoTags from "@/components/SeoTags";
+
+export default function Theory() {
+  const { t, currentLanguage } = useTranslations();
+
+  // Structured data for theory page (for better SEO)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${t("theory.title.1")} ${t("theory.title.2")}`,
+    description: t("theory.description"),
+    image:
+      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
+    author: {
+      "@type": "Person",
+      name: "Dr. Nikodem Popławski",
+      url: "https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Universe in a Black Hole",
+      logo: {
+        "@type": "ImageObject",
+        url: "/favicon.ico",
+      },
+    },
+    datePublished: "2025-04-30",
+    dateModified: "2025-04-30",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://blackhole-universe.netlify.app/${currentLanguage}/theory`,
+    },
+    keywords:
+      "black hole, universe, cosmology, physics, torsion, big bounce, Einstein-Cartan, astrophysics, gravity",
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{`${t("theory.title.1")} ${t("theory.title.2")} | ${t(
+          "meta.title"
+        )}`}</title>
+        <meta name="description" content={t("theory.description")} />
+        <meta
+          property="og:title"
+          content={`${t("theory.title.1")} ${t("theory.title.2")} | ${t(
+            "meta.title"
+          )}`}
+        />
+        <meta property="og:description" content={t("theory.description")} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:image"
+          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }/theory`}
+        currentLanguage={currentLanguage}
+        path="/theory"
+      />
+
+      <div className="pt-24">
+        <TheorySection />
+      </div>
+    </>
+  );
+}
+
+--------------------------------
+
+import { Helmet } from "react-helmet-async";
+import { useTranslations } from "@/hooks/use-translations";
+import VisualizationsSection from "@/components/VisualizationsSection";
+import SeoTags from "@/components/SeoTags";
+
+export default function Visualizations() {
+  const { t, currentLanguage } = useTranslations();
+
+  // Structured data for visualizations page (ImageGallery schema for SEO)
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    headline: `${t("visualizations.title.1")} ${t("visualizations.title.2")}`,
+    description: t("visualizations.description"),
+    image:
+      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
+    url: `https://blackhole-universe.netlify.app/${currentLanguage}/visualizations`,
+    author: {
+      "@type": "Person",
+      name: "Dr. Nikodem Popławski",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Universe in a Black Hole",
+      logo: {
+        "@type": "ImageObject",
+        url: "/favicon.ico",
+      },
+    },
+    datePublished: "2025-04-30",
+    dateModified: "2025-04-30",
+    contentLocation: {
+      "@type": "Place",
+      name: "Outer Space",
+    },
+    inLanguage: currentLanguage,
+    keywords:
+      "black hole, visualization, 3D model, interactive, torsion, cosmology, physics",
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>{`${t("visualizations.title.1")} ${t(
+          "visualizations.title.2"
+        )} | ${t("meta.title")}`}</title>
+        <meta name="description" content={t("visualizations.description")} />
+        <meta
+          property="og:title"
+          content={`${t("visualizations.title.1")} ${t(
+            "visualizations.title.2"
+          )} | ${t("meta.title")}`}
+        />
+        <meta
+          property="og:description"
+          content={t("visualizations.description")}
+        />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:image"
+          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+
+      {/* Przekazujemy location jako path do SeoTags */}
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }/visualizations`}
+        currentLanguage={currentLanguage}
+        path="/visualizations"
+      />
+
+      <div className="pt-24">
+        <VisualizationsSection />
+      </div>
+    </>
+  );
+}
