@@ -24,11 +24,11 @@ export default function PrivacyPolicy() {
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
             {currentLanguage === "en"
               ? "Privacy Policy"
               : "Polityka Prywatności"}
-          </h1>
+          </h2>
 
           <div className="prose prose-sm sm:prose-base dark:prose-invert mx-auto max-w-none">
             <p className="text-muted-foreground mb-8 text-center">

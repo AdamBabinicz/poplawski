@@ -125,11 +125,11 @@ export default function ContactAdmin() {
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 text-center">
             {currentLanguage === "en"
               ? "Contact Administrator"
               : "Kontakt z Administratorem"}
-          </h1>
+          </h2>
 
           <div className="bg-background dark:bg-dark-surface rounded-2xl shadow-lg overflow-hidden">
             <div className="p-8">
