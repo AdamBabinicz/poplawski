@@ -1,39 +1,45 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
+import { useLocation } from "wouter";
 import VisualizationsSection from "@/components/VisualizationsSection";
 import SeoTags from "@/components/SeoTags";
 
 export default function Visualizations() {
-  const { t, currentLanguage } = useTranslations();
+  const { t, currentLanguage } = useTranslations(); // currentLanguage może być potrzebny dla structuredData.inLanguage
+  const [currentPath] = useLocation();
 
-  // Structured data for visualizations page (ImageGallery schema for SEO)
+  const baseUrl = "https://blackhole-universe.netlify.app";
+  const supportedLanguages = ["pl", "en"];
+  const canonicalPageUrl = `${baseUrl}${currentPath}`;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    headline: `${t("visualizations.title.1")} ${t("visualizations.title.2")}`,
+    headline: `${t("visualizations.title.1", {
+      defaultValue: "Visualizations",
+    })} ${t("visualizations.title.2", { defaultValue: "of Black Holes" })}`,
     description: t("visualizations.description"),
-    image:
-      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
-    url: `https://blackhole-universe.netlify.app/${currentLanguage}/visualizations`,
+    image: `${baseUrl}/torsion-effects-updated.webp`, // Główny obraz galerii lub reprezentatywny
+    url: canonicalPageUrl,
     author: {
       "@type": "Person",
       name: "Dr. Nikodem Popławski",
     },
     publisher: {
       "@type": "Organization",
-      name: "Universe in a Black Hole",
+      name: t("meta.title", { defaultValue: "Universe in a Black Hole" }),
       logo: {
         "@type": "ImageObject",
-        url: "/favicon.ico",
+        url: `${baseUrl}/favicon.ico`,
       },
     },
-    datePublished: "2025-04-30",
-    dateModified: "2025-04-30",
+    datePublished: "2024-01-01", // Rozważ dynamiczną datę lub aktualną
+    dateModified: "2024-05-15", // Rozważ dynamiczną datę lub aktualną
     contentLocation: {
       "@type": "Place",
       name: "Outer Space",
     },
-    inLanguage: currentLanguage,
+    inLanguage: currentLanguage, // Język, w którym prezentowana jest galeria (np. opisy)
     keywords:
       "black hole, visualization, 3D model, interactive, torsion, cosmology, physics",
   };
@@ -41,24 +47,30 @@ export default function Visualizations() {
   return (
     <>
       <Helmet>
-        <title>{`${t("visualizations.title.1")} ${t(
-          "visualizations.title.2"
-        )} | ${t("meta.title")}`}</title>
+        <title>{`${t("visualizations.title.1", {
+          defaultValue: "Visualizations",
+        })} ${t("visualizations.title.2", {
+          defaultValue: "of Black Holes",
+        })} | ${t("meta.title")}`}</title>
         <meta name="description" content={t("visualizations.description")} />
+        <meta property="og:url" content={canonicalPageUrl} />
         <meta
           property="og:title"
-          content={`${t("visualizations.title.1")} ${t(
-            "visualizations.title.2"
-          )} | ${t("meta.title")}`}
+          content={`${t("visualizations.title.1", {
+            defaultValue: "Visualizations",
+          })} ${t("visualizations.title.2", {
+            defaultValue: "of Black Holes",
+          })} | ${t("meta.title")}`}
         />
         <meta
           property="og:description"
           content={t("visualizations.description")}
         />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="article" />{" "}
+        {/* Lub "website" jeśli galeria to główna treść */}
         <meta
           property="og:image"
-          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+          content={`${baseUrl}/torsion-effects-updated.webp`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -66,13 +78,11 @@ export default function Visualizations() {
         </script>
       </Helmet>
 
-      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
-        canonicalUrl={`https://blackhole-universe.netlify.app${
-          currentLanguage === "pl" ? "" : "/" + currentLanguage
-        }/visualizations`}
-        currentLanguage={currentLanguage}
-        path="/visualizations"
+        canonicalUrl={canonicalPageUrl}
+        currentPath={currentPath}
+        supportedLanguages={supportedLanguages}
+        baseUrl={baseUrl}
       />
 
       <div className="pt-24">

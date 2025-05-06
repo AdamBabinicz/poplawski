@@ -9,30 +9,33 @@ import ContactSection from "@/components/ContactSection";
 import SeoTags from "@/components/SeoTags";
 
 export default function Home() {
-  const { t, currentLanguage } = useTranslations();
+  const { t } = useTranslations();
+  const [currentPath] = useLocation();
 
-  const [location] = useLocation();
+  const baseUrl = "https://blackhole-universe.netlify.app";
+  const supportedLanguages = ["pl", "en"];
+  const canonicalPageUrl = `${baseUrl}${currentPath}`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://blackhole-universe.netlify.app/#website",
-        url: "https://blackhole-universe.netlify.app/",
+        "@id": `${baseUrl}/#website`,
+        url: baseUrl,
         name: t("meta.title"),
         description: t("meta.description"),
-        inLanguage: ["en", "pl"],
+        inLanguage: supportedLanguages,
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://blackhole-universe.netlify.app/#breadcrumb",
+        "@id": `${baseUrl}${currentPath}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
-            item: "https://blackhole-universe.netlify.app/",
+            name: t("navbar.home", { defaultValue: "Strona główna" }),
+            item: canonicalPageUrl,
           },
         ],
       },
@@ -67,10 +70,11 @@ export default function Home() {
         <meta name="description" content={t("meta.description")} />
         <meta property="og:title" content={t("meta.title")} />
         <meta property="og:description" content={t("meta.description")} />
+        <meta property="og:url" content={canonicalPageUrl} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+          content={`${baseUrl}/torsion-effects-updated.webp`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -78,13 +82,11 @@ export default function Home() {
         </script>
       </Helmet>
 
-      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
-        canonicalUrl={`https://blackhole-universe.netlify.app${
-          currentLanguage === "pl" ? "" : "/" + currentLanguage
-        }`}
-        currentLanguage={currentLanguage}
-        path={location}
+        canonicalUrl={canonicalPageUrl}
+        currentPath={currentPath}
+        supportedLanguages={supportedLanguages}
+        baseUrl={baseUrl}
       />
 
       <HeroSection />

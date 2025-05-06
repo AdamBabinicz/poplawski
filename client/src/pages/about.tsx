@@ -1,21 +1,25 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
+import { useLocation } from "wouter"; // Dodajemy useLocation
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import SeoTags from "@/components/SeoTags";
 
 export default function About() {
-  const { t, currentLanguage } = useTranslations();
+  const { t } = useTranslations();
+  const [currentPath] = useLocation(); // Pobieramy aktualną ścieżkę (powinno być np. "/about")
 
-  // Structured data for about page (Person schema for SEO)
+  const baseUrl = "https://blackhole-universe.netlify.app";
+  const supportedLanguages = ["pl", "en"];
+  const canonicalPageUrl = `${baseUrl}${currentPath}`; // np. https://blackhole-universe.netlify.app/about
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Dr. Nikodem Popławski",
     description: t("about.description"),
-    image:
-      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
-    url: "https://blackhole-universe.netlify.app/",
+    image: `${baseUrl}/torsion-effects-updated.webp`,
+    url: canonicalPageUrl, // Używamy dynamicznego URL strony "O mnie"
     sameAs: [
       "https://poplawski.physics.slu.edu/",
       "https://en.wikipedia.org/wiki/Nikodem_Popławski",
@@ -37,21 +41,24 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>{`${t("about.title.1")} ${t("about.title.2")} | ${t(
-          "meta.title"
-        )}`}</title>
+        <title>{`${t("about.title.1", { defaultValue: "About" })} ${t(
+          "about.title.2",
+          { defaultValue: "Dr. Popławski" }
+        )} | ${t("meta.title")}`}</title>
         <meta name="description" content={t("about.description")} />
+        <meta property="og:url" content={canonicalPageUrl} />
         <meta
           property="og:title"
-          content={`${t("about.title.1")} ${t("about.title.2")} | ${t(
-            "meta.title"
-          )}`}
+          content={`${t("about.title.1", { defaultValue: "About" })} ${t(
+            "about.title.2",
+            { defaultValue: "Dr. Popławski" }
+          )} | ${t("meta.title")}`}
         />
         <meta property="og:description" content={t("about.description")} />
         <meta property="og:type" content="profile" />
         <meta
           property="og:image"
-          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+          content={`${baseUrl}/torsion-effects-updated.webp`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -59,13 +66,11 @@ export default function About() {
         </script>
       </Helmet>
 
-      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
-        canonicalUrl={`https://blackhole-universe.netlify.app${
-          currentLanguage === "pl" ? "" : "/" + currentLanguage
-        }/about`}
-        currentLanguage={currentLanguage}
-        path="/about"
+        canonicalUrl={canonicalPageUrl}
+        currentPath={currentPath}
+        supportedLanguages={supportedLanguages}
+        baseUrl={baseUrl}
       />
 
       <div className="pt-24">

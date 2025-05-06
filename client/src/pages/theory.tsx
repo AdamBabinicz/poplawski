@@ -1,19 +1,26 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
+import { useLocation } from "wouter";
 import TheorySection from "@/components/TheorySection";
 import SeoTags from "@/components/SeoTags";
 
 export default function Theory() {
-  const { t, currentLanguage } = useTranslations();
+  const { t } = useTranslations();
+  const [currentPath] = useLocation();
 
-  // Structured data for theory page (for better SEO)
+  const baseUrl = "https://blackhole-universe.netlify.app";
+  const supportedLanguages = ["pl", "en"];
+  const canonicalPageUrl = `${baseUrl}${currentPath}`;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${t("theory.title.1")} ${t("theory.title.2")}`,
+    headline: `${t("theory.title.1", { defaultValue: "The Universe" })} ${t(
+      "theory.title.2",
+      { defaultValue: "in a Black Hole" }
+    )}`,
     description: t("theory.description"),
-    image:
-      "https://blackhole-universe.netlify.app/torsion-effects-updated.webp",
+    image: `${baseUrl}/torsion-effects-updated.webp`,
     author: {
       "@type": "Person",
       name: "Dr. Nikodem Popławski",
@@ -21,17 +28,17 @@ export default function Theory() {
     },
     publisher: {
       "@type": "Organization",
-      name: "Universe in a Black Hole",
+      name: t("meta.title", { defaultValue: "Universe in a Black Hole" }),
       logo: {
         "@type": "ImageObject",
-        url: "/favicon.ico",
+        url: `${baseUrl}/favicon.ico`,
       },
     },
-    datePublished: "2025-04-30",
-    dateModified: "2025-04-30",
+    datePublished: "2024-01-01", // Rozważ dynamiczną datę lub aktualną
+    dateModified: "2024-05-15", // Rozważ dynamiczną datę lub aktualną
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://blackhole-universe.netlify.app/${currentLanguage}/theory`,
+      "@id": canonicalPageUrl,
     },
     keywords:
       "black hole, universe, cosmology, physics, torsion, big bounce, Einstein-Cartan, astrophysics, gravity",
@@ -40,13 +47,17 @@ export default function Theory() {
   return (
     <>
       <Helmet>
-        <title>{`${t("theory.title.1")} ${t("theory.title.2")} | ${t(
-          "meta.title"
-        )}`}</title>
+        <title>{`${t("theory.title.1", { defaultValue: "The Universe" })} ${t(
+          "theory.title.2",
+          { defaultValue: "in a Black Hole" }
+        )} | ${t("meta.title")}`}</title>
         <meta name="description" content={t("theory.description")} />
+        <meta property="og:url" content={canonicalPageUrl} />
         <meta
           property="og:title"
-          content={`${t("theory.title.1")} ${t("theory.title.2")} | ${t(
+          content={`${t("theory.title.1", {
+            defaultValue: "The Universe",
+          })} ${t("theory.title.2", { defaultValue: "in a Black Hole" })} | ${t(
             "meta.title"
           )}`}
         />
@@ -54,7 +65,7 @@ export default function Theory() {
         <meta property="og:type" content="article" />
         <meta
           property="og:image"
-          content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
+          content={`${baseUrl}/torsion-effects-updated.webp`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
@@ -62,13 +73,11 @@ export default function Theory() {
         </script>
       </Helmet>
 
-      {/* Przekazujemy location jako path do SeoTags */}
       <SeoTags
-        canonicalUrl={`https://blackhole-universe.netlify.app${
-          currentLanguage === "pl" ? "" : "/" + currentLanguage
-        }/theory`}
-        currentLanguage={currentLanguage}
-        path="/theory"
+        canonicalUrl={canonicalPageUrl}
+        currentPath={currentPath}
+        supportedLanguages={supportedLanguages}
+        baseUrl={baseUrl}
       />
 
       <div className="pt-24">

@@ -1,30 +1,36 @@
-// SeoTags.tsx
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 interface SeoTagsProps {
   canonicalUrl: string;
-  currentLanguage: "pl" | "en";
-  path: string;
+  currentPath: string;
+  supportedLanguages: string[];
+  baseUrl: string;
 }
 
 const SeoTags: React.FC<SeoTagsProps> = ({
   canonicalUrl,
-  currentLanguage,
-  path,
+  currentPath,
+  supportedLanguages,
+  baseUrl,
 }) => {
-  const baseUrl = "https://blackhole-universe.netlify.app";
-  const alternateLang = currentLanguage === "pl" ? "en" : "pl";
-  const alternateHref =
-    alternateLang === "pl"
-      ? `${baseUrl}${path}`
-      : `${baseUrl}/${alternateLang}${path}`;
+  const pageUrlForHreflang = `${baseUrl}${currentPath}`;
 
   return (
-    <>
+    <Helmet>
       <link rel="canonical" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="pl" href={`${baseUrl}${path}`} />
-      <link rel="alternate" hrefLang="en" href={`${baseUrl}/en${path}`} />
-    </>
+
+      {supportedLanguages.map((langCode) => (
+        <link
+          key={langCode}
+          rel="alternate"
+          hrefLang={langCode}
+          href={pageUrlForHreflang}
+        />
+      ))}
+
+      <link rel="alternate" hrefLang="x-default" href={pageUrlForHreflang} />
+    </Helmet>
   );
 };
 
