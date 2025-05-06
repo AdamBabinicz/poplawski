@@ -5,6 +5,7 @@ import TheorySection from "@/components/TheorySection";
 import VisualizationsSection from "@/components/VisualizationsSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import SeoTags from "@/components/SeoTags";
 
 export default function Home() {
   const { t, currentLanguage } = useTranslations();
@@ -68,12 +69,12 @@ export default function Home() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        <link
+        {/* <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
             currentLanguage === "pl" ? "" : "/" + currentLanguage
           }`}
-        />
+        /> */}
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* Add structured data for search engines */}
@@ -81,7 +82,13 @@ export default function Home() {
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
-
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }`}
+        currentLanguage={currentLanguage}
+        path="/"
+      />
       <HeroSection />
       <TheorySection />
       <VisualizationsSection />

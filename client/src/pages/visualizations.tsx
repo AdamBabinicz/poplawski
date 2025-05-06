@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
 import VisualizationsSection from "@/components/VisualizationsSection";
+import SeoTags from "@/components/SeoTags";
 
 export default function Visualizations() {
   const { t, currentLanguage } = useTranslations();
@@ -59,18 +60,25 @@ export default function Visualizations() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        <link
+        {/* <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
             currentLanguage === "pl" ? "" : "/" + currentLanguage
           }/visualizations`}
-        />
+        /> */}
 
         {/* Add structured data for search engines */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }/visualizations`}
+        currentLanguage={currentLanguage}
+        path="/visualizations"
+      />
 
       <div className="pt-24">
         <VisualizationsSection />

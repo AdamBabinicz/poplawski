@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useTranslations } from "@/hooks/use-translations";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import SeoTags from "@/components/SeoTags";
 
 export default function About() {
   const { t, currentLanguage } = useTranslations();
@@ -52,19 +53,25 @@ export default function About() {
           property="og:image"
           content="https://blackhole-universe.netlify.app/torsion-effects-updated.webp"
         />
-        <link
+        {/* <link
           rel="canonical"
           href={`https://blackhole-universe.netlify.app${
             currentLanguage === "pl" ? "" : "/" + currentLanguage
           }/about`}
-        />
+        /> */}
 
         {/* Add structured data for search engines */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
-
+      <SeoTags
+        canonicalUrl={`https://blackhole-universe.netlify.app${
+          currentLanguage === "pl" ? "" : "/" + currentLanguage
+        }/about`}
+        currentLanguage={currentLanguage}
+        path="/about"
+      />
       <div className="pt-24">
         <AboutSection />
         <ContactSection />
