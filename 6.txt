@@ -1,0 +1,1923 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+
+export default defineConfig({
+  plugins: [
+    react(), // Tylko potrzebny plugin React
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+    },
+
+
+---------------------------------
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+
+export default defineConfig({
+  plugins: [
+    react(), // Tylko potrzebny plugin React
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+    },
+  },
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist"),
+    emptyOutDir: true,
+  },
+});
+
+
+--------------------------
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# --- Przekierowania (powinny być poprawne) ---
+[[redirects]]
+  from = "https://www.blackhole-universe.netlify.app/*"
+  to = "https://blackhole-universe.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# --- Nagłówki (powinny być poprawne) ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Vary = "Accept-Encoding"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+___________________
+
+Subject: Persistent Issue: Custom 404 Not Served for Static Files (SPA Redirect Conflict) & Build Output Problems - Site: blackhole-universe.netlify.app
+Body:
+Hi Netlify Support,
+I'm writing to report a persistent and complex issue on my site blackhole-universe.netlify.app (API ID: YOUR_API_ID_IF_YOU_HAVE_IT) regarding custom 404 pages and SPA redirects.
+Core Problem:
+When requesting a non-existent static file (e.g., /non-existent-image.jpg), Netlify serves /index.html with a 200 status due to the SPA fallback rule (/* -> /index.html 200). This causes my SPA router to show its internal 404 message, instead of serving my dedicated 404.html file with a proper HTTP 404 status.
+Troubleshooting Summary:
+We have spent considerable time trying to resolve this, including:
+Standard 404 Placement: Placing 404.html in the publish directory (dist/) and later in the repository root.
+Build Process Issues: We observed that vite build consistently fails to copy client/public/404.html to the dist directory within the Netlify build environment, even though other files from client/public are copied and the build logs show success. Debug logs (vite build --debug) confirm Vite config seems correct (copyPublicDir: true, correct publicDir path) but show no trace of 404.html being processed.
+Manual Copy Attempts: Attempts to manually copy 404.html to dist/ using cp in the build command (package.json) or using vite-plugin-static-copy also failed to reliably place the file in the final deployed dist directory (verified via Deploy File Browser), despite build logs indicating success or the copy command completing without error.
+Current Workaround (Partial): We placed 404.html in the repository root.
+Redirect Rule Conflict: We confirmed the conflict by commenting out the /* -> /index.html 200 redirect. Only then is the root 404.html correctly served for /non-existent-image.jpg. However, this breaks SPA routing (e.g., refreshing /theory shows 404).
+Edge Function Attempt: We implemented an Edge Function to intercept requests, check for 404 status from context.next(), and manually fetch/serve the root 404.html. This also failed, resulting in the SPA router's 404 message, suggesting context.next() might still be hitting the SPA redirect rule first or the fetch for the root 404.html failed unexpectedly.
+Current State:
+publish = "dist" in netlify.toml and UI.
+404.html exists in the repository root.
+netlify.toml contains the standard SPA redirect (/* -> /index.html 200).
+Requesting non-existent files serves index.html (200 OK).
+Could you please investigate why the SPA redirect rule seems to have such high precedence that it overrides both standard 404 file handling (from root or publish dir) and prevents the Edge Function workaround from correctly serving the 404? Is there a configuration setting or platform behavior we are missing?
+I'm happy to provide access to the repository or specific deploy logs if needed.
+Thanks,
+[Your Name]
+  },
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    emptyOutDir: true,
+  },
+});
+
+----------------------------------------
+
+import { useTranslations } from "@/hooks/use-translations";
+import drPoplawskiImage from "@/assets/images/dr-poplawski.avif";
+
+export default function AboutSection() {
+  const { t } = useTranslations();
+
+  return (
+    <section id="about" className="relative py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
+              {t("about.title.1")}{" "}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">
+                  {t("about.title.2")}
+                </span>
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {t("about.description")}
+            </p>
+          </div>
+
+          <div className="bg-muted dark:bg-dark-bg rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-6 md:p-8 md:flex gap-8">
+              <div className="md:w-1/3 mb-6 md:mb-0">
+                <div className="aspect-[2/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={drPoplawskiImage}
+                    alt="Dr. Nikodem Popławski"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Zdjęcie autorstwa Crux007
+                  </a>
+                  , licencja:
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                  , źródło:
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wikipedia
+                  </a>
+                </div>
+              </div>
+
+              <div className="md:w-2/3">
+                <h3 className="font-display text-2xl font-bold mb-4">
+                  {t("about.role")}
+                </h3>
+                <p className="text-muted-foreground mb-4">{t("about.bio.1")}</p>
+                <p className="text-muted-foreground mb-6">{t("about.bio.2")}</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.research")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {t("about.research.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.publications")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {t("about.publications.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                      />
+                    </svg>
+                    {t("about.website")}
+                  </a>
+                  <a
+                    href="https://www.newhaven.edu/news/blog/2020/nikodem-poplawski-research.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    title="Zobacz publikacje naukowe i badania Dr. Popławskiego"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
+                      <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
+                    </svg>
+                    {t("about.scholar")}
+                  </a>
+                  <a
+                    href="https://www.youtube.com/watch?v=thRNKtfTv-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                    </svg>
+                    {t("about.lectures")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Extended Theory Section */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold tracking-tight mb-4">
+                Przełomowa Teoria{" "}
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                  <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">
+                    Wszechświata w Czarnej Dziurze
+                  </span>
+                </span>
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                Na podstawie informacji z{" "}
+                <a
+                  href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 dark:text-blue-400 hover:underline font-medium"
+                >
+                  oficjalnej strony Uniwersytetu New Haven
+                </a>
+              </p>
+            </div>
+
+            <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-800">
+              <h3 className="font-display text-xl font-semibold mb-4">
+                Kontekst Naukowy
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Dr. Nikodem Popławski, profesor na Uniwersytecie New Haven,
+                zaproponował rewolucyjną teorię kosmologiczną, która
+                fundamentalnie zmienia nasze rozumienie czarnych dziur i
+                początku wszechświata. Jego badania koncentrują się na
+                zastosowaniu teorii Einsteina-Cartana, która rozszerza ogólną
+                teorię względności o własność przestrzeni znaną jako torsja.
+              </p>
+              <p className="text-muted-foreground">
+                Główne odkrycie dr. Popławskiego polega na tym, że materia
+                przekraczająca horyzont zdarzeń czarnej dziury nie tworzy
+                osobliwości (punktu o nieskończonej gęstości) - jak przewiduje
+                standardowa teoria względności. Zamiast tego, dzięki efektom
+                kwantowym i torsji przestrzeni, materia odbija się, tworząc
+                nowy, rozszerzający się wszechświat.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">
+                  Kluczowe Elementy Teorii
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      1
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        Torsja Przestrzeni
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        Rozszerzenie teorii Einsteina wprowadzające nową
+                        właściwość geometryczną przestrzeni, która zapobiega
+                        tworzeniu osobliwości.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      2
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        Odbicie Materii
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        W centrum czarnej dziury materia nie jest nieskończenie
+                        ściśnięta, lecz odbija się dzięki siłom kwantowym,
+                        tworząc "odbicie" lub "big bounce".
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      3
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        Wszechświat-Dziecko
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        Każda czarna dziura może zawierać w swoim wnętrzu cały
+                        nowy, rozszerzający się wszechświat, niedostępny dla
+                        zewnętrznych obserwatorów.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">
+                  Implikacje Naukowe
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">
+                        Rozwiązanie problemu osobliwości
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        Teoria eliminuje paradoks nieskończonej gęstości w
+                        centrum czarnych dziur, który od zawsze był problemem w
+                        fizyce.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">
+                        Nowe wyjaśnienie Wielkiego Wybuchu
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        Sugeruje, że nasz własny wszechświat mógł powstać
+                        wewnątrz czarnej dziury w&nbsp;innym, większym
+                        wszechświecie.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                      <strong className="font-medium block">
+                        Potencjalne wyjaśnienie ciemnej materii
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        Teoria może pomóc wyjaśnić niedostrzegalne komponenty
+                        kosmiczne, takie jak ciemna materia i ciemna energia.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-cosmic-blue/10 to-cosmic-purple/10 dark:from-cosmic-blue/5 dark:to-cosmic-purple/5 rounded-xl p-6 border border-border/50">
+              <h3 className="font-display text-xl font-semibold mb-4">
+                Potencjalne Obserwacje i Weryfikacja
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Teoria dr. Popławskiego, choć rewolucyjna, ma potencjał do
+                weryfikacji obserwacyjnej. Według jego prac naukowych, możliwe
+                jest znalezienie sygnatur teorii w:
+              </p>
+              <ul className="text-muted-foreground space-y-2 mb-4 list-disc list-inside pl-2">
+                <li>
+                  Kosmicznym mikrofalowym promieniowaniu tła (obecne dane z
+                  teleskopu kosmicznego JWST)
+                </li>
+                <li>
+                  Asymetrii w promieniowaniu z czarnych dziur (efekt torsji
+                  mógłby być widoczny w promienowaniu Hawkinga)
+                </li>
+                <li>
+                  Specyficznej charakterystyce fal grawitacyjnych generowanych
+                  przez zderzenia czarnych dziur
+                </li>
+              </ul>
+              <p className="text-muted-foreground">
+                Badania dr. Popławskiego są kontynuowane na Uniwersytecie New
+                Haven, gdzie prowadzi on dalsze analizy matematyczne i poszukuje
+                empirycznych dowodów na poparcie swojej teorii wszechświata w
+                czarnej dziurze.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+--------------------------------
+
+const translations = {
+  // Meta data
+  "meta.title": "Wszechświat wewnątrz czarnej dziury: Teoria dr Popławskiego",
+  "meta.description":
+    "Poznaj przełomową teorię dr Nikodema Popławskiego o wszechświatach rodzących się wewnątrz czarnych dziur, wyjaśniającą kosmiczną inflację i Wielkie Odbicie.",
+
+  // Navbar
+  "navbar.universe": "Wszechświat ",
+  "navbar.in": "w ",
+  "navbar.blackHole": "Czarnej Dziurze",
+  "navbar.home": "Strona główna",
+  "navbar.theory": "Teoria",
+  "navbar.visualizations": "Wizualizacje",
+  "navbar.about": "O dr Popławskim",
+
+  // Hero Section
+  "hero.title.1": "Nasz Wszechświat",
+  "hero.title.2": "Wewnątrz",
+  "hero.title.3": " Czarnej Dziury?",
+  "hero.description":
+    "Poznaj przełomową teorię dr Nikodema Popławskiego sugerującą, że cały nasz wszechświat może znajdować się wewnątrz czarnej dziury, która sama istnieje w większym wszechświecie.",
+  "hero.exploreButton": "Poznaj teorię",
+  "hero.visualizationsButton": "Zobacz wizualizacje",
+  "hero.annotation.1": "Horyzont zdarzeń",
+  "hero.annotation.2": "Dysk akrecyjny",
+  "hero.annotation.3": "Torsja czasoprzestrzeni",
+
+  // Theory Section
+  "theory.title.1": "Teoria",
+  "theory.title.2": "Wyjaśniona",
+  "theory.description":
+    "Teoria dr Popławskiego łączy teorię względności Einsteina z koncepcją torsji, aby wyjaśnić, jak wszechświaty mogą powstawać wewnątrz czarnych dziur.",
+  "theory.step1.title": "Materia wpada do czarnej dziury",
+  "theory.step1.description":
+    "Gdy materia jest wciągana do czarnej dziury, ekstremalne siły grawitacyjne ściskają ją poza nasze zrozumienie fizyki.",
+  "theory.step2.title": "Torsja czasoprzestrzeni",
+  "theory.step2.description":
+    "W przeciwieństwie do teorii Einsteina, Popławski uwzględnia koncept torsji - skręcającą właściwość samej czasoprzestrzeni.",
+  "theory.step3.title": "Wielkie Odbicie",
+  "theory.step3.description":
+    'Zamiast osobliwości, torsja tworzy siłę odpychającą, powodując, że materia "odbija się" i rozszerza na zewnątrz.',
+  "theory.step4.title": "Formowanie nowego wszechświata",
+  "theory.step4.description":
+    "Ta ekspansja tworzy nowy wszechświat wewnątrz czarnej dziury, oddzielony, ale połączony z macierzystym wszechświatem.",
+  "theory.implications": "Kluczowe implikacje",
+  "theory.implication1.title": "Nieskończona regresja",
+  "theory.implication1.description":
+    "Nasz wszechświat może znajdować się w czarnej dziurze, która istnieje w innym wszechświecie, tworząc potencjalnie nieskończony łańcuch.",
+  "theory.implication2.title": "Wyjaśnia inflację",
+  "theory.implication2.description":
+    "Teoria naturalnie wyjaśnia kosmiczną inflację bez potrzeby dodatkowych hipotetycznych pól.",
+  "theory.implication3.title": "Brak początku i końca",
+  "theory.implication3.description":
+    'Kwestionuje ideę osobliwości Wielkiego Wybuchu z mechanizmem "odbicia", który unika początku czasu.',
+  "theory.implication4.title": "Testowalne przewidywania",
+  "theory.implication4.description":
+    "Tworzy przewidywania dotyczące kosmicznego promieniowania tła i fal grawitacyjnych, które mogą być testowane.",
+
+  // Visualizations Section
+  "visualizations.title.1": "Eksploracja",
+  "visualizations.title.2": "Wizualna",
+  "visualizations.description":
+    "Eksploruj koncepcję poprzez te wizualizacje, które ilustrują kluczowe aspekty teorii.",
+  "visualizations.item1.title": "Formowanie czarnej dziury",
+  "visualizations.item1.description":
+    "Zapadająca się do czarnej dziury materia tworzy warunki, w których torsja staje się znacząca, potencjalnie prowadząc do powstania nowego wszechświata.",
+  "visualizations.item2.title": "Mechanika torsji",
+  "visualizations.item2.description":
+    "Ilustracja tego, jak torsja czasoprzestrzeni działa na poziomie kwantowym, powodując siłę odpychającą, gdy materia osiąga ekstremalną gęstość.",
+  "visualizations.item3.title": "Zagnieżdżone wszechświaty",
+  "visualizations.item3.description":
+    "Koncepcyjna wizualizacja tego, jak wszechświaty mogą być zagnieżdżone jeden w drugim, każdy pochodzący z czarnej dziury w macierzystym wszechświecie.",
+  "visualizations.interactive.title": "Interaktywny model czarnej dziury",
+  "visualizations.interactive.description":
+    "Odkryj kluczowe strefy czarnej dziury według teorii dr Popławskiego.",
+  "visualizations.interactive.help":
+    'Kliknij na różne regiony czarnej dziury, aby dowiedzieć się więcej o tym, co dzieje się według teorii. Ten diagram ilustruje, jak torsja zapobiega tworzeniu się osobliwości i zamiast tego tworzy "odbicie", które formuje nowy wszechświat.',
+  "visualizations.legend.accretion": "Dysk akrecyjny",
+  "visualizations.legend.horizon": "Horyzont zdarzeń",
+  "visualizations.legend.torsion": "Strefa torsji",
+  "visualizations.interactive.close": "Zamknij",
+
+  // About Section
+  "about.title.1": "O",
+  "about.title.2": "dr Nikodemie Popławskim",
+  "about.description":
+    "Fizyk stojący za teorią, że nasz wszechświat istnieje wewnątrz czarnej dziury.",
+  "about.role": "Fizyk teoretyczny",
+  "about.bio.1":
+    "Dr Nikodem Popławski jest fizykiem teoretycznym znanym z przełomowej pracy w kosmologii, szczególnie jego teorii, że nasz wszechświat może istnieć wewnątrz czarnej dziury.",
+  "about.bio.2":
+    "Wykorzystując teorię Einsteina-Cartana, która rozszerza ogólną teorię względności Einsteina o spin kwantowy, Popławski opracował model, który rozwiązuje kilka istniejących problemów w kosmologii, w tym osobliwość Wielkiego Wybuchu i kosmiczną inflację.",
+  "about.research": "Obszary badawcze",
+  // <--- TUTAJ JEST ZMIANA
+  "about.research.items":
+    "• Teoria grawitacji\n• Kosmologia\n• Fizyka czarnych dziur\n• Teoria Einsteina-Cartana\n• Teorie pól zunifikowanych", // Dodano na końcu
+  "about.publications": "Kluczowe publikacje",
+  "about.publications.items":
+    "• Wszechświat w czarnej dziurze (2010)\n• Kosmologia z torsją (2013)\n• Czarne dziury jako portale (2016)\n• Testowanie teorii czarnej dziury (2020)",
+  "about.website": "Oficjalna strona",
+  "about.scholar": "Google Scholar",
+  "about.lectures": "Wykłady",
+
+  // Contact Section
+  "contact.title": "Media",
+  "contact.description":
+    "Pytania dotyczące bezpośrednio teorii naukowej dr. Popławskiego prosimy kierować do oficjalnych kanałów akademickich lub zapoznać się z dostępnymi publikacjami.",
+  "contact.email": "puaro@vp.pl (Kontakt ws. strony)",
+  "contact.location": "Radom, Polska (Lokalizacja administratora strony)",
+  "contact.response": "Twoje uwagi pomagają ulepszać tę cyfrową eksplorację.",
+  "contact.subscribe.title": "Subskrybuj aktualizacje",
+  "contact.subscribe.description":
+    "Dołącz do naszego newslettera, aby otrzymywać aktualizacje o nowych badaniach i odkryciach w kosmologii czarnych dziur.",
+  "contact.form.name": "Imię",
+  "contact.form.email": "Email",
+  "contact.form.message": "Twoja wiadomość",
+  "contact.form.submit": "Wyślij wiadomość",
+
+  common: {
+    submit: "Wyślij",
+  },
+
+  // Footer
+  "footer.description":
+    "Eksploracja przełomowej teorii dr Nikodema Popławskiego sugerującej, że nasz wszechświat może istnieć wewnątrz czarnej dziury.",
+  "footer.quickLinks": "Szybkie linki",
+  "footer.resources": "Zasoby",
+  "footer.papers": "Artykuły naukowe",
+  "footer.lectures": "Wykłady wideo",
+  "footer.educational": "Materiały edukacyjne",
+  "footer.press": "Materiały prasowe",
+  "footer.copyright": "O Teorii Czarnej Dziury dr Nikodema Popławskiego.",
+  "footer.privacy": "Polityka prywatności",
+  "footer.terms": "Warunki usługi",
+  "footer.contact": "Kontakt",
+};
+
+export default translations;
+
+
+-------------------------------
+
+const translations = {
+  // Meta data
+  "meta.title": "The Universe Inside a Black Hole: Dr. Poplawski's Theory",
+  "meta.description":
+    "Explore Dr. Nikodem Poplawski's groundbreaking theory of universes born inside black holes, explaining cosmic inflation and the Big Bounce.",
+
+  // Navbar
+  "navbar.universe": "Universe ",
+  "navbar.in": "in a ",
+  "navbar.blackHole": "Black Hole",
+  "navbar.home": "Home",
+  "navbar.theory": "Theory",
+  "navbar.visualizations": "Visualizations",
+  "navbar.about": "About Dr. Poplawski",
+
+  // Hero Section
+  "hero.title.1": "Our Universe",
+  "hero.title.2": "Inside",
+  "hero.title.3": " a Black Hole?",
+  "hero.description":
+    "Explore Dr. Nikodem Poplawski's groundbreaking theory suggesting our entire universe might reside within a black hole, itself existing in a larger parent universe.",
+  "hero.exploreButton": "Explore the Theory",
+  "hero.visualizationsButton": "See Visualizations",
+  "hero.annotation.1": "Event Horizon",
+  "hero.annotation.2": "Accretion Disk",
+  "hero.annotation.3": "Spacetime Torsion",
+
+  // Theory Section
+  "theory.title.1": "The Theory",
+  "theory.title.2": "Explained",
+  "theory.description":
+    "Dr. Poplawski's theory merges Einstein's relativity with the concept of torsion to explain how universes might form inside black holes.",
+  "theory.step1.title": "Matter Falls into a Black Hole",
+  "theory.step1.description":
+    "As matter gets pulled into a black hole, extreme gravitational forces compress it beyond our understanding of physics.",
+  "theory.step2.title": "Spacetime Torsion",
+  "theory.step2.description":
+    "Unlike standard Einsteinian theory, Poplawski incorporates torsion - a twisting property of spacetime itself.",
+  "theory.step3.title": "The Big Bounce",
+  "theory.step3.description":
+    "Instead of a singularity, torsion creates a repulsive force, causing matter to 'bounce' and expand outwards.",
+  "theory.step4.title": "New Universe Formation",
+  "theory.step4.description":
+    "This expansion forms a new universe inside the black hole, separate yet connected to the parent universe.",
+  "theory.implications": "Key Implications",
+  "theory.implication1.title": "Infinite Regression",
+  "theory.implication1.description":
+    "Our universe could be in a black hole, which is in another universe, creating a potentially infinite chain.",
+  "theory.implication2.title": "Explains Inflation",
+  "theory.implication2.description":
+    "The theory naturally accounts for cosmic inflation without needing additional hypothetical fields.",
+  "theory.implication3.title": "No Beginning or End",
+  "theory.implication3.description":
+    "It challenges the Big Bang singularity idea with a 'bounce' mechanism that avoids a start time.",
+  "theory.implication4.title": "Testable Predictions",
+  "theory.implication4.description":
+    "It makes predictions about the cosmic microwave background and gravitational waves that could be tested.",
+
+  // Visualizations Section
+  "visualizations.title.1": "Visual",
+  "visualizations.title.2": "Exploration",
+  "visualizations.description":
+    "Explore the concept through these visualizations that illustrate key aspects of the theory.",
+  "visualizations.item1.title": "Black Hole Formation",
+  "visualizations.item1.description":
+    "Matter collapsing into a black hole sets the stage where torsion becomes significant, potentially leading to a new universe.",
+  "visualizations.item2.title": "Torsion Mechanics",
+  "visualizations.item2.description":
+    "An illustration of how spacetime torsion works at a quantum level, causing a repulsive force as matter reaches extreme densities.",
+  "visualizations.item3.title": "Nested Universes",
+  "visualizations.item3.description":
+    "A conceptual visualization of how universes might be nested within each other, each originating from a black hole in a parent universe.",
+  "visualizations.interactive.title": "Interactive Black Hole Model",
+  "visualizations.interactive.description":
+    "Explore the key zones of a black hole according to Dr. Poplawski's theory.",
+  "visualizations.interactive.help":
+    "Click on different regions of the black hole to learn more about what happens according to the theory. This diagram illustrates how torsion prevents a singularity and instead creates a 'bounce' forming a new universe.",
+  "visualizations.legend.accretion": "Accretion Disk",
+  "visualizations.legend.horizon": "Event Horizon",
+  "visualizations.legend.torsion": "Torsion Zone",
+  "visualizations.interactive.close": "Close",
+
+  // About Section
+  "about.title.1": "About",
+  "about.title.2": "Dr. Nikodem Poplawski",
+  "about.description":
+    "The physicist behind the theory that our universe exists inside a black hole.",
+  "about.role": "Theoretical Physicist",
+  "about.bio.1":
+    "Dr. Nikodem Poplawski is a theoretical physicist known for his groundbreaking work in cosmology, particularly his theory that our universe might exist inside a black hole.",
+  "about.bio.2":
+    "Using Einstein-Cartan theory, which extends Einstein's general relativity to include quantum spin, Poplawski developed a model that resolves several existing problems in cosmology, including the Big Bang singularity and cosmic inflation.",
+  "about.research": "Research Areas",
+  // <--- HERE IS THE CHANGE
+  "about.research.items":
+    "• Gravitation Theory\n• Cosmology\n• Black Hole Physics\n• Einstein-Cartan Theory\n• Unified Field Theories", // Added at the end
+  "about.publications": "Key Publications",
+  "about.publications.items":
+    "• Universe in a Black Hole (2010)\n• Cosmology with Torsion (2013)\n• Black Holes as Portals (2016)\n• Testing the Black Hole Theory (2020)",
+  "about.website": "Official Website",
+  "about.scholar": "Google Scholar",
+  "about.lectures": "Lectures",
+
+  // Contact Section
+  "contact.title": "Media",
+  "contact.description":
+    "For questions directly concerning Dr. Popławski's scientific theory, please direct them to official academic channels or consult available publications.",
+  "contact.email": "puaro@vp.pl (Website Contact)",
+  "contact.location": "Radom, Poland (Website Admin Location)",
+  "contact.response": "Your feedback helps improve this digital exploration.",
+  "contact.subscribe.title": "Subscribe for Updates",
+  "contact.subscribe.description":
+    "Join our newsletter to receive updates on new research and discoveries in black hole cosmology.",
+  "contact.form.name": "Name",
+  "contact.form.email": "Email",
+  "contact.form.message": "Your message",
+  "contact.form.submit": "Send Message",
+
+  // Footer
+  "footer.description":
+    "Exploring Dr. Nikodem Poplawski's groundbreaking theory suggesting our universe might exist inside a black hole.",
+  "footer.quickLinks": "Quick Links",
+  "footer.resources": "Resources",
+  "footer.papers": "Research Papers",
+  "footer.lectures": "Video Lectures",
+  "footer.educational": "Educational Materials",
+  "footer.press": "Press Materials",
+  "footer.copyright": "About Dr. Nikodem Poplawski's Black Hole Theory.", // Adjusted English phrasing
+  "footer.privacy": "Privacy Policy",
+  "footer.terms": "Terms of Service",
+  "footer.contact": "Contact",
+};
+
+export default translations;
+
+--------------------------------
+
+<div className="md:w-1/3 mb-6 md:mb-0">
+                <div className="aspect-[2/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={drPoplawskiImage}
+                    alt={t("about.imageAlt")}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("about.imageCredit")}
+                  </a>
+                  , {t("about.license")}:
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                  , {t("about.source")}:
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wikipedia
+                  </a>
+                </div>
+              </div>
+
+
+------------------------------------
+
+import { useTranslations } from "@/hooks/use-translations";
+import drPoplawskiImage from "@/assets/images/dr-poplawski.avif";
+
+export default function AboutSection() {
+  const { t } = useTranslations();
+
+  return (
+    <section id="about" className="relative py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
+              {t("about.title.1")}{" "}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">
+                  {t("about.title.2")}
+                </span>
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {t("about.description")}
+            </p>
+          </div>
+
+          <div className="bg-muted dark:bg-dark-bg rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-6 md:p-8 md:flex gap-8">
+              <div className="md:w-1/3 mb-6 md:mb-0">
+                <div className="aspect-[2/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src={drPoplawskiImage}
+                    alt={t("about.imageAlt")} // Użycie klucza tłumaczenia dla alternatywnego tekstu obrazu
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("about.imageCredit")} // Użycie klucza tłumaczenia dla
+                    kredytu
+                  </a>
+                  , {t("about.license")}: // Użycie klucza tłumaczenia dla
+                  licencji
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    CC BY-SA 4.0
+                  </a>
+                  , {t("about.source")}: // Użycie klucza tłumaczenia dla źródła
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wikipedia
+                  </a>
+                </div>
+              </div>
+
+              <div className="md:w-2/3">
+                <h3 className="font-display text-2xl font-bold mb-4">
+                  {t("about.role")}
+                </h3>
+                <p className="text-muted-foreground mb-4">{t("about.bio.1")}</p>
+                <p className="text-muted-foreground mb-6">{t("about.bio.2")}</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.research")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {t("about.research.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.publications")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {t("about.publications.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                      />
+                    </svg>
+                    {t("about.website")}
+                  </a>
+                  <a
+                    href="https://www.newhaven.edu/news/blog/2020/nikodem-poplawski-research.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    title={t("about.scholarTitle")}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
+                      <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                    </svg>
+                    {t("about.scholar")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+------------------------------
+
+import { useState, useEffect, createContext, useContext } from "react";
+import enTranslations from "@/locales/en";
+import plTranslations from "@/locales/pl";
+
+type TranslationsType = typeof enTranslations;
+export type LanguageCode = "en" | "pl";
+
+interface TranslationsContextType {
+  t: (key: keyof TranslationsType) => string;
+  currentLanguage: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+}
+
+const translationsMap = {
+  en: enTranslations,
+  pl: plTranslations,
+};
+
+// Create context
+const TranslationsContext = createContext<TranslationsContextType | undefined>(
+  undefined
+);
+
+// Provider component
+export function TranslationsProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(() => {
+    // Try to get language from localStorage first
+    const savedLang = localStorage.getItem("language") as LanguageCode;
+    if (savedLang && (savedLang === "en" || savedLang === "pl")) {
+      return savedLang;
+    }
+
+    // Otherwise try to detect from browser
+    const browserLang = navigator.language.split("-")[0];
+    if (browserLang === "pl") {
+      return "pl";
+    }
+
+    // Default to Polish
+    return "pl";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("language", currentLanguage);
+    // Update HTML lang attribute for accessibility and SEO
+    document.documentElement.lang = currentLanguage;
+  }, [currentLanguage]);
+
+  const t = (key: keyof TranslationsType): string => {
+    return (
+      translationsMap[currentLanguage][key] || translationsMap.en[key] || key
+    );
+  };
+
+  const setLanguage = (lang: LanguageCode) => {
+    setCurrentLanguage(lang);
+  };
+
+  return (
+    <TranslationsContext.Provider value={{ t, currentLanguage, setLanguage }}>
+      {children}
+    </TranslationsContext.Provider>
+  );
+}
+
+// Hook for using translations
+export function useTranslations() {
+  const context = useContext(TranslationsContext);
+  if (context === undefined) {
+    throw new Error(
+      "useTranslations must be used within a TranslationsProvider"
+    );
+  }
+  return context;
+}
+
+
+--------------------------------------
+
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  ReactNode,
+} from "react";
+import enTranslations from "@/locales/en";
+import plTranslations from "@/locales/pl";
+
+// Zakładamy, że enTranslations definiuje pełną strukturę typów
+type TranslationsType = typeof enTranslations;
+
+// Typ dla wszystkich możliwych kluczy z kropkami
+type DeepKeys<T> = T extends object
+  ? {
+      [K in keyof T]-?: `${K & string}` | `${K & string}.${DeepKeys<T[K]>}`;
+    }[keyof T]
+  : "";
+
+export type TranslationKey = DeepKeys<TranslationsType>;
+
+export type LanguageCode = "en" | "pl";
+
+interface TranslationsContextType {
+  t: (key: TranslationKey) => string; // Używamy precyzyjnego typu
+  currentLanguage: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+}
+
+const translationsMap = {
+  en: enTranslations,
+  pl: plTranslations,
+};
+
+const TranslationsContext = createContext<TranslationsContextType | undefined>(
+  undefined
+);
+
+export function TranslationsProvider({ children }: { children: ReactNode }) {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(() => {
+    const isBrowser = typeof window !== "undefined";
+    let detectedLanguage: LanguageCode = "pl";
+    if (isBrowser) {
+      try {
+        const savedLang = localStorage.getItem("language") as LanguageCode;
+        if (savedLang && (savedLang === "en" || savedLang === "pl")) {
+          detectedLanguage = savedLang;
+        } else {
+          const browserLang = navigator.language.split("-")[0];
+          if (browserLang === "pl") {
+            detectedLanguage = "pl";
+          } else if (browserLang === "en") {
+            detectedLanguage = "en";
+          }
+        }
+      } catch (error) {
+        console.warn(
+          "Could not detect language from storage or browser:",
+          error
+        );
+      }
+    }
+    return detectedLanguage;
+  });
+
+  useEffect(() => {
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      try {
+        localStorage.setItem("language", currentLanguage);
+        document.documentElement.lang = currentLanguage;
+      } catch (error) {
+        console.warn("Could not save language to localStorage:", error);
+      }
+    }
+  }, [currentLanguage]);
+
+  // --- NOWA, POPRAWIONA FUNKCJA 't' z użyciem .reduce() ---
+  const t = (key: TranslationKey): string => {
+    const keys = key.split("."); // Rozbij klucz na części
+
+    // Funkcja pomocnicza do bezpiecznego pobierania zagnieżdżonej wartości
+    const findValue = (obj: any, path: string[]): string | undefined => {
+      const value = path.reduce((currentLevel, keyPart) => {
+        if (
+          currentLevel === null ||
+          currentLevel === undefined ||
+          typeof currentLevel !== "object"
+        ) {
+          return undefined;
+        }
+        return currentLevel[keyPart];
+      }, obj);
+      return typeof value === "string" ? value : undefined;
+    };
+
+    let translation = findValue(translationsMap[currentLanguage], keys);
+
+    if (translation === undefined) {
+      translation = findValue(translationsMap.en, keys); // Fallback do angielskiego
+    }
+
+    if (translation === undefined) {
+      // Zmieniono console.warn na bardziej informacyjne
+      console.warn(
+        `Translation missing for key: "${key}" in lang: "${currentLanguage}" (and fallback "en"). Returning key.`
+      );
+      return key; // Zwraca klucz, jeśli nie znaleziono tłumaczenia
+    }
+
+    return translation;
+  };
+  // --- KONIEC NOWEJ, POPRAWIONEJ FUNKCJI 't' ---
+
+  const setLanguage = (lang: LanguageCode) => {
+    if (lang === "en" || lang === "pl") {
+      setCurrentLanguage(lang);
+    } else {
+      console.warn(`Attempted to set invalid language: ${lang}`);
+    }
+  };
+
+  return (
+    <TranslationsContext.Provider value={{ t, currentLanguage, setLanguage }}>
+      {children}
+    </TranslationsContext.Provider>
+  );
+}
+
+export function useTranslations() {
+  const context = useContext(TranslationsContext);
+  if (context === undefined) {
+    throw new Error(
+      "useTranslations must be used within a TranslationsProvider"
+    );
+  }
+  return context;
+}
+
+
+------------------------
+
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  ReactNode,
+} from "react";
+import enTranslations from "@/locales/en"; // Upewnij się, że ścieżki są poprawne
+import plTranslations from "@/locales/pl"; // Upewnij się, że ścieżki są poprawne
+
+// Zakładamy, że enTranslations definiuje pełną strukturę typów (dla typowania kluczy, jeśli wrócimy do niego)
+type TranslationsType = typeof enTranslations;
+export type LanguageCode = "en" | "pl";
+
+interface TranslationsContextType {
+  // Akceptujemy dowolny string jako klucz, funkcja t sama sprawdzi strukturę
+  t: (key: string) => string;
+  currentLanguage: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+}
+
+const translationsMap = {
+  en: enTranslations,
+  pl: plTranslations,
+};
+
+const TranslationsContext = createContext<TranslationsContextType | undefined>(
+  undefined
+);
+
+export function TranslationsProvider({ children }: { children: ReactNode }) {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(() => {
+    const isBrowser = typeof window !== "undefined";
+    let detectedLanguage: LanguageCode = "pl";
+    if (isBrowser) {
+      try {
+        const savedLang = localStorage.getItem("language") as LanguageCode;
+        if (savedLang && (savedLang === "en" || savedLang === "pl")) {
+          detectedLanguage = savedLang;
+        } else {
+          const browserLang = navigator.language.split("-")[0];
+          if (browserLang === "pl") {
+            detectedLanguage = "pl";
+          } else if (browserLang === "en") {
+            detectedLanguage = "en";
+          }
+        }
+      } catch (error) {
+        console.warn(
+          "Could not detect language from storage or browser:",
+          error
+        );
+      }
+    }
+    return detectedLanguage;
+  });
+
+  useEffect(() => {
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      try {
+        localStorage.setItem("language", currentLanguage);
+        document.documentElement.lang = currentLanguage;
+      } catch (error) {
+        console.warn("Could not save language to localStorage:", error);
+      }
+    }
+  }, [currentLanguage]);
+
+  // --- FUNKCJA 't' OBSŁUGUJĄCA PŁASKIE I ZAGNIEŻDŻONE KLUCZE ---
+  const t = (key: string): string => {
+    // 1. Spróbuj znaleźć klucz bezpośrednio (dla płaskich kluczy jak "navbar.home")
+    // @ts-ignore - Ignorujemy potencjalny błąd typu, bo key jest stringiem
+    const directTranslationCurrent = translationsMap[currentLanguage]?.[key];
+    if (typeof directTranslationCurrent === "string") {
+      return directTranslationCurrent;
+    }
+    // @ts-ignore
+    const directTranslationFallback = translationsMap.en?.[key];
+    if (typeof directTranslationFallback === "string") {
+      return directTranslationFallback;
+    }
+
+    // 2. Jeśli nie znaleziono bezpośrednio, spróbuj potraktować jako ścieżkę zagnieżdżoną
+    const keys = key.split(".");
+    // Jeśli klucz nie zawierał kropki LUB był to płaski klucz, który już sprawdziliśmy (i nie znaleźliśmy),
+    // nie ma sensu szukać dalej jako ścieżki zagnieżdżonej.
+    // Sprawdzamy typeof !== 'undefined', aby upewnić się, że klucz był faktycznie w obiekcie, ale nie był stringiem
+    if (
+      keys.length <= 1 &&
+      (typeof directTranslationCurrent !== "undefined" ||
+        typeof directTranslationFallback !== "undefined")
+    ) {
+      console.warn(
+        `Translation key "${key}" exists but its value is not a string.`
+      );
+      return key;
+    }
+    // Jeśli klucz nie zawierał kropki i nie istniał bezpośrednio
+    if (keys.length <= 1) {
+      console.warn(`Translation key "${key}" not found (checked directly).`);
+      return key;
+    }
+
+    // Funkcja pomocnicza do bezpiecznego pobierania zagnieżdżonej wartości (używa reduce)
+    const findNestedValue = (obj: any, path: string[]): string | undefined => {
+      const value = path.reduce((currentLevel, keyPart) => {
+        if (
+          currentLevel === null ||
+          currentLevel === undefined ||
+          typeof currentLevel !== "object"
+        ) {
+          return undefined;
+        }
+        return currentLevel[keyPart];
+      }, obj);
+      return typeof value === "string" ? value : undefined;
+    };
+
+    // 3. Spróbuj znaleźć jako ścieżkę zagnieżdżoną w bieżącym języku
+    let nestedTranslation = findNestedValue(
+      translationsMap[currentLanguage],
+      keys
+    );
+
+    // 4. Spróbuj znaleźć jako ścieżkę zagnieżdżoną w angielskim (fallback)
+    if (nestedTranslation === undefined) {
+      nestedTranslation = findNestedValue(translationsMap.en, keys);
+    }
+
+    // 5. Zwróć tłumaczenie lub klucz
+    if (nestedTranslation !== undefined) {
+      return nestedTranslation;
+    } else {
+      // Jeśli nie znaleziono ani bezpośrednio, ani jako ścieżki zagnieżdżonej
+      console.warn(
+        `Translation key "${key}" not found (checked directly and as nested path).`
+      );
+      return key;
+    }
+  };
+  // --- KONIEC FUNKCJI 't' ---
+
+  const setLanguage = (lang: LanguageCode) => {
+    if (lang === "en" || lang === "pl") {
+      setCurrentLanguage(lang);
+    } else {
+      console.warn(`Attempted to set invalid language: ${lang}`);
+    }
+  };
+
+  return (
+    <TranslationsContext.Provider value={{ t, currentLanguage, setLanguage }}>
+      {children}
+    </TranslationsContext.Provider>
+  );
+}
+
+// Hook do używania tłumaczeń
+export function useTranslations() {
+  const context = useContext(TranslationsContext);
+  if (context === undefined) {
+    throw new Error(
+      "useTranslations must be used within a TranslationsProvider"
+    );
+  }
+  return context;
+}
+
+----------------------------------
+
+import {
+  useState,
+  useEffect,
+  createContext,
+  useContext,
+  ReactNode,
+} from "react";
+import enTranslations from "@/locales/en"; // Upewnij się, że ścieżki są poprawne
+import plTranslations from "@/locales/pl"; // Upewnij się, że ścieżki są poprawne
+
+// Zakładamy, że enTranslations definiuje pełną strukturę typów (dla typowania kluczy, jeśli wrócimy do niego)
+type TranslationsType = typeof enTranslations;
+export type LanguageCode = "en" | "pl";
+
+interface TranslationsContextType {
+  // Akceptujemy dowolny string jako klucz, funkcja t sama sprawdzi strukturę
+  t: (key: string) => string;
+  currentLanguage: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
+}
+
+const translationsMap = {
+  en: enTranslations,
+  pl: plTranslations,
+};
+
+const TranslationsContext = createContext<TranslationsContextType | undefined>(
+  undefined
+);
+
+export function TranslationsProvider({ children }: { children: ReactNode }) {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageCode>(() => {
+    const isBrowser = typeof window !== "undefined";
+    let detectedLanguage: LanguageCode = "pl";
+    if (isBrowser) {
+      try {
+        const savedLang = localStorage.getItem("language") as LanguageCode;
+        if (savedLang && (savedLang === "en" || savedLang === "pl")) {
+          detectedLanguage = savedLang;
+        } else {
+          const browserLang = navigator.language.split("-")[0];
+          if (browserLang === "pl") {
+            detectedLanguage = "pl";
+          } else if (browserLang === "en") {
+            detectedLanguage = "en";
+          }
+        }
+      } catch (error) {
+        console.warn(
+          "Could not detect language from storage or browser:",
+          error
+        );
+      }
+    }
+    return detectedLanguage;
+  });
+
+  useEffect(() => {
+    const isBrowser = typeof window !== "undefined";
+    if (isBrowser) {
+      try {
+        localStorage.setItem("language", currentLanguage);
+        document.documentElement.lang = currentLanguage;
+      } catch (error) {
+        console.warn("Could not save language to localStorage:", error);
+      }
+    }
+  }, [currentLanguage]);
+
+  // --- FUNKCJA 't' OBSŁUGUJĄCA PŁASKIE I ZAGNIEŻDŻONE KLUCZE ---
+  const t = (key: string): string => {
+    console.log("Szukam tłumaczenia dla:", key);
+    console.log(
+      "Dostępne klucze:",
+      Object.keys(translationsMap[currentLanguage])
+    );
+    // 1. Spróbuj znaleźć klucz bezpośrednio (dla płaskich kluczy jak "navbar.home")
+    // @ts-ignore - Ignorujemy potencjalny błąd typu, bo key jest stringiem
+    const directTranslationCurrent = translationsMap[currentLanguage]?.[key];
+    if (typeof directTranslationCurrent === "string") {
+      return directTranslationCurrent;
+    }
+    // @ts-ignore
+    const directTranslationFallback = translationsMap.en?.[key];
+    if (typeof directTranslationFallback === "string") {
+      return directTranslationFallback;
+    }
+
+    // 2. Jeśli nie znaleziono bezpośrednio, spróbuj potraktować jako ścieżkę zagnieżdżoną
+    const keys = key.split(".");
+    // Jeśli klucz nie zawierał kropki LUB był to płaski klucz, który już sprawdziliśmy (i nie znaleźliśmy),
+    // nie ma sensu szukać dalej jako ścieżki zagnieżdżonej.
+    // Sprawdzamy typeof !== 'undefined', aby upewnić się, że klucz był faktycznie w obiekcie, ale nie był stringiem
+    if (
+      keys.length <= 1 &&
+      (typeof directTranslationCurrent !== "undefined" ||
+        typeof directTranslationFallback !== "undefined")
+    ) {
+      console.warn(
+        `Translation key "${key}" exists but its value is not a string.`
+      );
+      return key;
+    }
+    // Jeśli klucz nie zawierał kropki i nie istniał bezpośrednio
+    if (keys.length <= 1) {
+      console.warn(`Translation key "${key}" not found (checked directly).`);
+      return key;
+    }
+
+    // Funkcja pomocnicza do bezpiecznego pobierania zagnieżdżonej wartości (używa reduce)
+    const findNestedValue = (obj: any, path: string[]): string | undefined => {
+      const value = path.reduce((currentLevel, keyPart) => {
+        if (
+          currentLevel === null ||
+          currentLevel === undefined ||
+          typeof currentLevel !== "object"
+        ) {
+          return undefined;
+        }
+        return currentLevel[keyPart];
+      }, obj);
+      return typeof value === "string" ? value : undefined;
+    };
+
+    // 3. Spróbuj znaleźć jako ścieżkę zagnieżdżoną w bieżącym języku
+    let nestedTranslation = findNestedValue(
+      translationsMap[currentLanguage],
+      keys
+    );
+
+    // 4. Spróbuj znaleźć jako ścieżkę zagnieżdżoną w angielskim (fallback)
+    if (nestedTranslation === undefined) {
+      nestedTranslation = findNestedValue(translationsMap.en, keys);
+    }
+
+    // 5. Zwróć tłumaczenie lub klucz
+    if (nestedTranslation !== undefined) {
+      return nestedTranslation;
+    } else {
+      // Jeśli nie znaleziono ani bezpośrednio, ani jako ścieżki zagnieżdżonej
+      console.warn(
+        `Translation key "${key}" not found (checked directly and as nested path).`
+      );
+      return key;
+    }
+  };
+  // --- KONIEC FUNKCJI 't' ---
+
+  const setLanguage = (lang: LanguageCode) => {
+    if (lang === "en" || lang === "pl") {
+      setCurrentLanguage(lang);
+    } else {
+      console.warn(`Attempted to set invalid language: ${lang}`);
+    }
+  };
+
+  return (
+    <TranslationsContext.Provider value={{ t, currentLanguage, setLanguage }}>
+      {children}
+    </TranslationsContext.Provider>
+  );
+}
+
+// Hook do używania tłumaczeń
+export function useTranslations() {
+  const context = useContext(TranslationsContext);
+  if (context === undefined) {
+    throw new Error(
+      "useTranslations must be used within a TranslationsProvider"
+    );
+  }
+  return context;
+}
+
+--------------------------------
+
+import { useTranslations } from "@/hooks/use-translations";
+import drPoplawskiImage from "@/assets/images/dr-poplawski.avif"; // Upewnij się, że ścieżka jest poprawna
+
+export default function AboutSection() {
+  const { t } = useTranslations();
+
+  return (
+    <section id="about" className="relative py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          {/* === Użycie Twoich oryginalnych kluczy - OK === */}
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl font-bold tracking-tight mb-6">
+              {t("about.title.1")}{" "}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">
+                  {t("about.title.2")}
+                </span>
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              {t("about.description")}
+            </p>
+          </div>
+
+          <div className="bg-muted dark:bg-dark-bg rounded-2xl shadow-xl overflow-hidden">
+            <div className="p-6 md:p-8 md:flex gap-8">
+              <div className="md:w-1/3 mb-6 md:mb-0">
+                <div className="aspect-[2/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  {/* Używa Twojego oryginalnego klucza about.image.alt */}
+                  <img
+                    src={drPoplawskiImage}
+                    alt={t("about.image.alt")}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* === Użycie NOWYCH kluczy dla informacji o zdjęciu === */}
+                <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("about.imageCredit.authorLinkText")}
+                  </a>
+                  , {t("about.imageCredit.licensePrefix")}
+                  <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("about.imageCredit.licenseLinkText")}
+                  </a>
+                  , {t("about.imageCredit.sourcePrefix")}
+                  <a
+                    href="https://pl.wikipedia.org/wiki/Plik:Nikodem_Poplawski_2015.jpg"
+                    className="text-blue-700 dark:text-blue-400 hover:underline ml-1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("about.imageCredit.sourceLinkText")}
+                  </a>
+                </div>
+              </div>
+
+              <div className="md:w-2/3">
+                {/* === Użycie Twoich oryginalnych kluczy - OK === */}
+                <h3 className="font-display text-2xl font-bold mb-4">
+                  {t("about.role")}
+                </h3>
+                <p className="text-muted-foreground mb-4">{t("about.bio.1")}</p>
+                <p className="text-muted-foreground mb-6">{t("about.bio.2")}</p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.research")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {/* Używa Twojego oryginalnego klucza about.research.items */}
+                      {t("about.research.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg">
+                    <h4 className="font-display font-semibold text-lg mb-1">
+                      {t("about.publications")}
+                    </h4>
+                    <ul className="text-muted-foreground text-sm space-y-1">
+                      {/* Używa Twojego oryginalnego klucza about.publications.items */}
+                      {t("about.publications.items")
+                        .split("\n")
+                        .map((item, index) => (
+                          <li key={index}>{item.trim()}</li>
+                        ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    {/* --- Pełne SVG dla linku Website --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+                      />
+                      <path
+                        fillRule="evenodd"
+                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+                      />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    {t("about.website")}
+                  </a>
+                  <a
+                    href="https://www.newhaven.edu/news/blog/2020/nikodem-poplawski-research.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    // === Użycie NOWEGO klucza dla title ===
+                    title={t("about.scholarTitle", {
+                      defaultValue: "Google Scholar",
+                    })}
+                  >
+                    {/* --- Pełne SVG dla linku Scholar/Research --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
+                      <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    {/* Używa Twojego oryginalnego klucza about.research_url */}
+                    {t("about.research_url")}
+                  </a>
+                  {/* === Dodany brakujący link do YouTube z NOWYM kluczem === */}
+                  <a
+                    href="https://www.youtube.com/watch?v=thRNKtfTv-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-muted dark:bg-dark-bg border border-border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    title={t("about.youtubeLinkTitle")}
+                  >
+                    {/* --- Pełne SVG dla linku YouTube --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="mr-2"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    {t("about.lectures")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* === Użycie NOWYCH kluczy dla sekcji teorii === */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-display text-3xl font-bold tracking-tight mb-4">
+                {t("about.theorySection.title.1")}{" "}
+                <span className="relative inline-block">
+                  <span className="absolute inset-0 bg-cosmic-gradient blur-sm opacity-70 rounded-md"></span>
+                  <span className="relative z-10 text-white px-2 py-1 rounded-md text-shadow">
+                    {t("about.theorySection.title.2")}
+                  </span>
+                </span>
+              </h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                {t("about.theorySection.subtitle.1")}
+                <a
+                  href="https://www.newhaven.edu/faculty-staff-profiles/nikodem-poplawski.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700 dark:text-blue-400 hover:underline font-medium"
+                >
+                  {t("about.theorySection.subtitle.linkText")}
+                </a>
+                {t("about.theorySection.subtitle.2")}
+              </p>
+            </div>
+
+            <div className="bg-white/90 dark:bg-gray-900/90 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-800">
+              <h3 className="font-display text-xl font-semibold mb-4">
+                {t("about.theorySection.context.heading")}
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                {t("about.theorySection.context.p1")}
+              </p>
+              <p className="text-muted-foreground">
+                {t("about.theorySection.context.p2")}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">
+                  {t("about.theorySection.elements.heading")}
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      1
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.elements.item1.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.elements.item1.desc")}
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      2
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.elements.item2.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.elements.item2.desc")}
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cosmic-blue/20 dark:bg-cosmic-purple/20 flex items-center justify-center mr-3 mt-0.5 text-sm font-medium">
+                      3
+                    </span>
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.elements.item3.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.elements.item3.desc")}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-muted/30 dark:bg-dark-bg/30 rounded-xl p-6 border border-border/50">
+                <h3 className="font-display text-xl font-semibold mb-4">
+                  {t("about.theorySection.implications.heading")}
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex">
+                    {/* --- Pełne SVG dla implikacji --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.implications.item1.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.implications.item1.desc")}
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    {/* --- Pełne SVG dla implikacji --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.implications.item2.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.implications.item2.desc")}
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex">
+                    {/* --- Pełne SVG dla implikacji --- */}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="flex-shrink-0 w-5 h-5 text-cosmic-blue dark:text-cosmic-purple mr-3 mt-0.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    {/* --- Koniec SVG --- */}
+                    <div>
+                      <strong className="font-medium block">
+                        {t("about.theorySection.implications.item3.title")}
+                      </strong>
+                      <p className="text-muted-foreground text-sm">
+                        {t("about.theorySection.implications.item3.desc")}
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-cosmic-blue/10 to-cosmic-purple/10 dark:from-cosmic-blue/5 dark:to-cosmic-purple/5 rounded-xl p-6 border border-border/50">
+              <h3 className="font-display text-xl font-semibold mb-4">
+                {t("about.theorySection.observations.heading")}
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                {t("about.theorySection.observations.p1")}
+              </p>
+              <ul className="text-muted-foreground space-y-2 mb-4 list-disc list-inside pl-2">
+                <li>{t("about.theorySection.observations.list.item1")}</li>
+                <li>{t("about.theorySection.observations.list.item2")}</li>
+                <li>{t("about.theorySection.observations.list.item3")}</li>
+              </ul>
+              <p className="text-muted-foreground">
+                {t("about.theorySection.observations.p2")}
+              </p>
+            </div>
+          </div>
+          {/* === KONIEC ZMIAN === */}
+        </div>
+      </div>
+    </section>
+  );
+}

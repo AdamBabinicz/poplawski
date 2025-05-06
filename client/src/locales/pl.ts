@@ -98,9 +98,60 @@ const translations = {
   "about.publications.items":
     "• Wszechświat w czarnej dziurze (2010)\n• Kosmologia z torsją (2013)\n• Czarne dziury jako portale (2016)\n• Testowanie teorii czarnej dziury (2020)",
   "about.website": "Oficjalna strona",
-  "about.scholar": "Google Scholar",
+  "about.scholarTitle": "Google Scholar",
   "about.lectures": "Wykłady",
+  "about.research_url": "Google Scholar",
 
+  "about.theorySection.title.1": "Przełomowa Teoria",
+  "about.theorySection.title.2": "Wszechświata w Czarnej Dziurze",
+  "about.theorySection.subtitle.1": "Na podstawie informacji z",
+  "about.theorySection.subtitle.linkText":
+    " oficjalnej strony Uniwersytetu New Haven",
+  "about.theorySection.context.heading": "Kontekst Naukowy",
+  "about.theorySection.context.p1":
+    "Dr. Nikodem Popławski, profesor na Uniwersytecie New Haven, zaproponował rewolucyjną teorię kosmologiczną, która fundamentalnie zmienia nasze rozumienie czarnych dziur i początku wszechświata. Jego badania koncentrują się na zastosowaniu teorii Einsteina-Cartana, która rozszerza ogólną teorię względności o własność przestrzeni znaną jako torsja.",
+  "about.theorySection.context.p2":
+    "Główne odkrycie dr. Popławskiego polega na tym, że materia przekraczająca horyzont zdarzeń czarnej dziury nie tworzy osobliwości (punktu o nieskończonej gęstości) - jak przewiduje standardowa teoria względności. Zamiast tego, dzięki efektom kwantowym i torsji przestrzeni, materia odbija się, tworząc nowy, rozszerzający się wszechświat.",
+  "about.theorySection.elements.heading": "Kluczowe Elementy Teorii",
+  "about.theorySection.elements.item1.title": "Torsja Przestrzeni",
+  "about.theorySection.elements.item1.desc":
+    "Rozszerzenie teorii Einsteina wprowadzające nową właściwość geometryczną przestrzeni, która zapobiega tworzeniu osobliwości.",
+  "about.theorySection.elements.item2.title": "Odbicie Materii",
+  "about.theorySection.elements.item2.desc":
+    'W centrum czarnej dziury materia nie jest nieskończenie ściśnięta, lecz odbija się dzięki siłom kwantowym, tworząc "odbicie" lub "big bounce".',
+  "about.theorySection.elements.item3.title": "Wszechświat-Dziecko",
+  "about.theorySection.elements.item3.desc":
+    "Każda czarna dziura może zawierać w swoim wnętrzu cały nowy, rozszerzający się wszechświat, niedostępny dla zewnętrznych obserwatorów.",
+  "about.theorySection.implications.heading": "Implikacje Naukowe",
+  "about.theorySection.implications.item1.title":
+    "Rozwiązanie problemu osobliwości",
+  "about.theorySection.implications.item1.desc":
+    "Teoria eliminuje paradoks nieskończonej gęstości w centrum czarnych dziur, który od zawsze był problemem w fizyce.",
+  "about.theorySection.implications.item2.title":
+    "Nowe wyjaśnienie Wielkiego Wybuchu",
+  "about.theorySection.implications.item2.desc":
+    "Sugeruje, że nasz własny wszechświat mógł powstać wewnątrz czarnej dziury w innym, większym wszechświecie.",
+  "about.theorySection.implications.item3.title":
+    "Potencjalne wyjaśnienie ciemnej materii",
+  "about.theorySection.implications.item3.desc":
+    "Teoria może pomóc wyjaśnić niedostrzegalne komponenty kosmiczne, takie jak ciemna materia i ciemna energia.",
+  "about.theorySection.observations.heading":
+    "Potencjalne Obserwacje i Weryfikacja",
+  "about.theorySection.observations.p1":
+    "Teoria dr. Popławskiego, choć rewolucyjna, ma potencjał do weryfikacji obserwacyjnej. Według jego prac naukowych, możliwe jest znalezienie sygnatur teorii w:",
+  "about.theorySection.observations.list.item1":
+    "Kosmicznym mikrofalowym promieniowaniu tła (obecne dane z teleskopu kosmicznego JWST)",
+  "about.theorySection.observations.list.item2":
+    "Asymetrii w promieniowaniu z czarnych dziur (efekt torsji mógłby być widoczny w promienowaniu Hawkinga)",
+  "about.theorySection.observations.list.item3":
+    "Specyficznej charakterystyce fal grawitacyjnych generowanych przez zderzenia czarnych dziur",
+  "about.theorySection.observations.p2":
+    "Badania dr. Popławskiego są kontynuowane na Uniwersytecie New Haven, gdzie prowadzi on dalsze analizy matematyczne i poszukuje empirycznych dowodów na poparcie swojej teorii wszechświata w czarnej dziurze.",
+  "about.imageCredit.authorLinkText": "Zdjęcia autorstwa Crux007",
+  "about.imageCredit.licensePrefix": "licencja:",
+  "about.imageCredit.licenseLinkText": "CC BY-SA 4.0",
+  "about.imageCredit.sourcePrefix": "źródło:",
+  "about.imageCredit.sourceLinkText": "Wikipedia",
   // Contact Section
   "contact.title": "Media",
   "contact.description":
