@@ -151,7 +151,7 @@ const translations = {
   "about.affiliation.line1": "Dr. Nikodem Poplawski",
   "about.affiliation.line2":
     "Department of Physics, University of New Haven (Connecticut, USA)",
-  "about.imageCredit.authorLinkText": "Photos by Crux007",
+  "about.imageCredit.authorLinkText": "Photo by Crux007",
   "about.imageCredit.licensePrefix": "license:",
   "about.imageCredit.licenseLinkText": "CC BY-SA 4.0",
   "about.imageCredit.sourcePrefix": "source:",

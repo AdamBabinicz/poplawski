@@ -151,7 +151,7 @@ const translations = {
   "about.affiliation.line1": "dr Nikodem Popławski",
   "about.affiliation.line2":
     "Katedra Fizyki, Uniwersytet New Haven (Connecticut, USA)",
-  "about.imageCredit.authorLinkText": "Zdjęcia autorstwa Crux007",
+  "about.imageCredit.authorLinkText": "Zdjęcie autorstwa Crux007",
   "about.imageCredit.licensePrefix": "licencja:",
   "about.imageCredit.licenseLinkText": "CC BY-SA 4.0",
   "about.imageCredit.sourcePrefix": "źródło:",
