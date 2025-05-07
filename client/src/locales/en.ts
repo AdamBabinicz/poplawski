@@ -2,7 +2,7 @@ const translations = {
   // Meta data
   "meta.title": "The Universe Inside a Black Hole: Dr. Poplawski's Theory",
   "meta.description":
-    "Explore Dr. Nikodem Poplawski's groundbreaking theory of universes born inside black holes, explaining cosmic inflation and the Big Bounce.",
+    "Discover Dr. Nikodem Poplawski’s theory: universes born inside black holes, explaining inflation, torsion physics, and the Big Bounce. Explore it now!",
 
   // Navbar
   "navbar.universe": "Universe ",
